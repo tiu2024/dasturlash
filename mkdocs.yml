@@ -1,7 +1,7 @@
 site_name: Dasturlash 1, 2
 site_description: "Dasturlash 1, 2 kursi - ma'ruzalar va materiallar"
 # After creating your GitHub repository, add:
-# site_url: https://YOUR_USERNAME.github.io/dasturlash/
+site_url: https://tiu2024.github.io/dasturlash/
 theme:
   name: material
   features:
