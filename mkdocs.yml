@@ -32,3 +32,6 @@ nav:
       - 3-hafta. Funksiyalar, shartlar, scope va turlar:
           - Ma'ruza: courses/dasturlash/week-03/lecture.md
           - Amaliyot: courses/dasturlash/week-03/practice.md
+      - 4-hafta. Looplar va stringlar:
+          - Ma'ruza: courses/dasturlash/week-04/lecture.md
+          - Amaliyot: courses/dasturlash/week-04/practice.md

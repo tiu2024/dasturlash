@@ -9,6 +9,7 @@ Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps t
 | 1. Dasturlashga kirish | done | — | 2026-10-19 |
 | 2. Python dasturlashga kirish | done | done (11 problems) | 2026-10-19 |
 | 3. Funksiyalar, shartlar, scope va turlar | done | done (16 problems) | 2026-10-19 |
+| 4. Looplar va stringlar | done (not published) | done (11 problems, not published) | — |
 
 Last published 2026-10-19 (the latest commit on `main`; site on `gh-pages`).
 
@@ -21,13 +22,19 @@ Last published 2026-10-19 (the latest commit on `main`; site on `gh-pages`).
 - 2026-10-19: `CLAUDE.md` trimmed to facts the project files do not record.
 - 2026-10-19: hook added: before Claude commits, if `status.md` is unchanged, the teacher is asked to approve (`.claude/hooks/status-reminder.sh`).
 - 2026-10-19: favicon changed to the new icon (`docs/assets/favicon.png`, set in `mkdocs.yml`); published 2026-10-19.
+- 2026-10-19: `/dasturlash-ppt` rewritten: Uzbek lecture decks (80 min, animated, projector colours) saved to `Lectures/N_Mavzu.pptx`; course settings in `Lectures/config.yaml`; specs in `Lectures/src/week-NN/lecture.yaml` (book excerpts, live-coding files and previews gitignored). `/lecture-page` reads these decks (`extract_slides.py --notes`). Pilot: lecture 3 "Funksiyalar" rebuilt from the week 3 slides → `Lectures/src/week-03/build/3_Funksiyalar_pilot.pptx` (not on the site).
+
+- 2026-10-19: week 4 lecture and practice pages written from `Lectures/4_Looplar va stringlar.pptx` (copy in `docs/downloads/dasturlash/week-04/`, with p1–p11.py); nav and index updated; not committed or published. The deck still has placeholders on the title and last slides (left as is).
 
 ## Next
 
-1. Rewrite `/dasturlash-ppt` later (old skill lost; it had problems with visual design, content and broken output).
+1. Install the deck tools into the venv once: `.venv/Scripts/python.exe -m pip install -r .claude/skills/dasturlash-ppt/requirements.txt`.
+2. Make the next lecture with `/dasturlash-ppt` (put the book pages in `Lectures/src/week-NN/materials/`).
 
 ## Waiting for the teacher
 
+- Fill in the empty values in `Lectures/config.yaml` (title, faculty, department, course code, semester) and check the academic year.
+- Review the pilot deck: content, Uzbek, and the colours in the lecture room.
 - Remove `oquv-dastur` and `adabiyot-tanlash` from the claude.ai account so they exist only in this project.
 - Academic review of the changed examples in weeks 1–3.
 - Back up `OQ/` and `.claude/skills/oquv-dastur/`, `.claude/skills/adabiyot-tanlash/` (they exist only on this computer).
