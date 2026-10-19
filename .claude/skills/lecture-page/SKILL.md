@@ -7,6 +7,8 @@ description: Turn a lecture PPTX from Lectures/ into the week's student lecture 
 
 Students read this page after the lecture to review it. It follows the slides; it is not a new lecture. Follow the style and term rules in `CLAUDE.md`.
 
+Two ways to use this skill: for a new week, `/dasturlash-ppt` builds the deck and then writes the page from its spec (it follows this skill from step 2). Use `/lecture-page` on its own for the older decks (weeks 1–3) or for a deck the teacher edited by hand.
+
 ## Inputs
 
 | Input | If missing |
@@ -23,6 +25,18 @@ Students read this page after the lecture to review it. It follows the slides; i
     ```
 
     Read one finished page as the style reference (`docs/courses/dasturlash/week-03/lecture.md`), not more. Read earlier weeks only to find what students already know.
+
+    **Decks made by `/dasturlash-ppt`** (they have a small capitalised label above each headline, e.g. `SAVOL · NATIJANI TOPING`). Run the script with `--notes`: the speaker notes explain each slide; use them for the page's explanations, but still cover only the slides' topics. In the notes, ignore the timing line (`⏱ …`), the classroom instructions and the `Manba:` line.
+
+    | Slide label | On the page |
+    |---|---|
+    | section titles (`01`, `02` …) | `##` headings |
+    | content slides (claim headline + code, output, terms, flow) | explanation + code + real output |
+    | `MUAMMO` | the motivating example at the start of its section |
+    | `SAVOL · NATIJANI TOPING`, `SAVOL · O'YLAB KO'RING` | worked examples, like SAVOL / JAVOB slides |
+    | `TAKRORLASH`, `BUGUN`, `JONLI KODLASH`, `NAVBAT SIZDA`, `XULOSA`, `CHIQISH SAVOLI`, `TANAFFUS` | leave out: classroom activities (programs go to the practice page) |
+
+    The headline is a full sentence; turn it into a short `###` heading (`### Standart qiymat`) and use the sentence in the text.
 
 2. **Write `docs/courses/dasturlash/week-NN/lecture.md`.**
 

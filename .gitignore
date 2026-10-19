@@ -11,3 +11,8 @@ __pycache__/
 
 # Personal Claude Code settings
 /.claude/settings.local.json
+
+# Lecture sources: book excerpts (copyright), live-coding solutions before class, previews
+/Lectures/src/*/materials/
+/Lectures/src/*/livecode/
+/Lectures/src/*/build/

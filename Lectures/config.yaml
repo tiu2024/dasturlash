@@ -1,0 +1,90 @@
+# =====================================================================
+#  Dasturlash 1, 2 — course settings
+#  Used by /dasturlash-ppt (lecture decks). Other skills may read it too.
+#
+#  How to edit:
+#   - Change the text after the colon. Keep the indentation (2 spaces).
+#   - Put text in "double quotes" if it contains : # ' or starts with a symbol.
+#   - Leave a value as "" if you don't want it shown.
+#   - Lines starting with # are comments and are ignored.
+#
+#  This file is committed and the repository is PUBLIC.
+#  Do not put phone numbers, passwords or anything private here.
+# =====================================================================
+
+lecturer:
+  name: "I. J. Husainov"
+  title: ""                  # e.g. "katta o'qituvchi" — shown before your name on the title slide
+  email: ""                  # shown only if title_slide.show_email is true
+
+university:
+  name: "Turan International University"
+  short: "TIU"               # used in the small line at the top of the title slide
+  faculty: ""                # fakultet
+  department: ""             # kafedra
+
+course:
+  name: "Dasturlash 1, 2"
+  code: ""                   # fan kodi, if you want it recorded
+  group: "ATT-2026"
+  academic_year: "2026-2027" # o'quv yili — check this
+  semester: ""               # e.g. "1-semestr"
+  website: "https://tiu2024.github.io/dasturlash/"
+
+teaching:
+  language: uz               # slide and speaker-note language: uz or en
+  code_language: python      # python now; change to c when the C part starts
+  lecture_minutes: 80        # default length of one lecture (you can say "70 daqiqa" per lecture)
+  apostrophe: "'"            # o' and g' on slides (course rule). Typographic ‘ ’ are converted to '
+  default_source: ""         # footer citation when a slide gives none, e.g. "@thinkpython"
+
+# What the title slide shows (true = show, false = hide)
+title_slide:
+  show_university: true
+  show_group: true
+  show_year: true
+  show_website: false
+  show_email: false
+
+slides:
+  transitions: fade          # fade or none
+  click_builds: true         # bullets and diagrams appear one per click
+  line_numbers: true         # line numbers in code
+  fonts:
+    heading: "Arial"
+    body: "Arial"
+    code: "Courier New"
+  # Colours (hex, no #). Leave empty to keep the projector-friendly defaults.
+  colors:
+    ink: ""                  # title and section slides       (default 0B1F3A, navy)
+    mode: ""                 # live coding / activity slides  (default 0F4C3A, dark green)
+    accent: ""               # labels, numbers, correct answer (default 0052CC, strong blue)
+    signal: ""               # code and cell highlights       (default FFC20E, amber)
+    text: ""                 # main text                      (default 111111)
+    paper: ""                # content slide background       (default FFFFFF)
+
+# Books and sources a slide can cite as "@id, page" in its `source:` field.
+# These are the books listed on the site (docs/courses/dasturlash/ai-guide.md).
+# Add or remove entries here; the skill never invents a source.
+books:
+  - id: narzullayev
+    cite: "A. Narzullayev. Pythonda dasturlash asoslari"
+  - id: thinkpython
+    cite: "A. Downey. Think Python, 3-nashr"
+  - id: automate
+    cite: "A. Sweigart. Automate the Boring Stuff with Python"
+  - id: pydocs
+    cite: "Python Tutorial (docs.python.org)"
+  - id: cs50p
+    cite: "CS50P, Harvard"
+
+# Paths on this computer, used by Claude when running the scripts
+paths:
+  python: ".venv/Scripts/python.exe"
+  libreoffice: "C:/Program Files/LibreOffice/program/soffice.exe"
+  lectures: "Lectures"          # finished decks: Lectures/N_Mavzu.pptx
+  sources: "Lectures/src"       # one folder per week: Lectures/src/week-NN/
+
+# Anything else you want skills to know (free-form key: value pairs).
+# Example:  room: "A-301"   or   lecture_day: "seshanba"
+extra: {}

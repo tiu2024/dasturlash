@@ -20,6 +20,8 @@ Brauzerda http://127.0.0.1:8000 manzilini oching.
 | `docs/courses/dasturlash/week-NN/` | Haftalik sahifalar |
 | `docs/downloads/dasturlash/week-NN/` | Yuklab olinadigan fayllar |
 | `Lectures/` | Asl PPTX ma'ruzalar |
+| `Lectures/config.yaml` | Kurs sozlamalari: o'qituvchi, universitet, guruh, o'quv yili, slayd uslubi |
+| `Lectures/src/week-NN/` | Taqdimot manbasi (`lecture.yaml`); kitob parchalari va yechimlar git'ga kirmaydi |
 | `.claude/skills/` | Claude Code ko'nikmalari (sahifa yaratish, tekshirish, nashr qilish) |
 
 `docs/` ichidagi hamma narsa ommaga ochiq bo'lishi mumkin. E'lon qilinmagan yechimlarni `docs/` dan tashqarida saqlang.

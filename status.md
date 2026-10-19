@@ -26,6 +26,8 @@ Last published 2026-10-19 (week 4, commit baec985; the latest commit on `main`; 
 
 - 2026-10-19: week 4 lecture and practice pages written from `Lectures/4_Looplar va stringlar.pptx` (copy in `docs/downloads/dasturlash/week-04/`, with p1–p11.py); nav and index updated; published (baec985). The deck still has placeholders on the title and last slides (left as is).
 
+- 2026-10-19: `/dasturlash-ppt` skill, updated `/lecture-page`, `Lectures/config.yaml` and the week 3 spec committed; the old `skill-install/` copy removed.
+
 ## Next
 
 1. Install the deck tools into the venv once: `.venv/Scripts/python.exe -m pip install -r .claude/skills/dasturlash-ppt/requirements.txt`.

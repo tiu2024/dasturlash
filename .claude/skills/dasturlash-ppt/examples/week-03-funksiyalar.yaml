@@ -1,0 +1,337 @@
+# Pilot: lecture 3 "Funksiyalar", rebuilt from slides 1-19 of
+# Lectures/3_4_Funksiyalar, shartlar, scope va turlar.pptx (no new topics).
+# Build from the project root:
+#   .venv/Scripts/python.exe .claude/skills/dasturlash-ppt/scripts/build_lecture.py Lectures/src/week-03/lecture.yaml
+#
+# Plan (80 min)
+#   0-10   title, warm-up on week 2, problem (taxi fare), objectives
+#   10-33  1. Funksiya nima: machine, argument / return value, built-ins, predict
+#   33-61  2. O'z funksiyamiz: copy-paste problem, def, call trace, quiz, live coding, activity
+#   61-80  3. Parametr, standart qiymat, main, return vs print, predict, recap, exit
+config: ../../../../Lectures/config.yaml   # in a real lecture: ../../config.yaml
+
+meta:
+  title: "Funksiyalar"
+  subtitle: "3-ma'ruza · def, parametr, return"
+  duration_min: 80
+  source: "3-4-ma'ruza slaydlari"
+  deck_file: "build/3_Funksiyalar_pilot.pptx"   # final decks go to ../../<N>_<Mavzu>.pptx
+
+objectives:
+  - "`def` va `return` bilan o'z funksiyasini **yoza oladi**"
+  - "Chaqiruvda argument parametrga qanday tushishini **kuzata oladi**"
+  - "Parametrga **standart qiymat** bera oladi va `main()` ni ishlata oladi"
+  - "`print` va `return` farqini **tushuntira oladi**"
+
+livecode:
+  run: ".venv/Scripts/python.exe taksi.py"
+  files:
+    - name: taksi.py
+      starter: |
+        # Taksi narxi: 5 000 so'm + har km uchun 2 000 so'm
+        # 1) taksi_narxi(km) funksiyasini yozing
+        # 2) km ni foydalanuvchidan so'rang
+        # 3) narxni chiqaring
+      solution: |
+        def taksi_narxi(km):
+            return 5000 + km * 2000
+
+
+        km = int(input("Necha km yurasiz? "))
+        print("Narx:", taksi_narxi(km), "so'm")
+    - name: yetkazish.py
+      starter: |
+        # Yetkazib berish narxi: 10 000 so'm + har kg uchun 3 000 so'm
+        # 1) yetkazish_narxi(kg) funksiyasini yozing
+        # 2) yuk og'irligini foydalanuvchidan so'rang
+        # 3) narxni chiqaring
+      solution: |
+        def yetkazish_narxi(kg):
+            return 10000 + kg * 3000
+
+
+        kg = int(input("Yuk og'irligi (kg): "))
+        print("Yetkazib berish narxi:", yetkazish_narxi(kg), "so'm")
+
+slides:
+  - type: title
+    notes: "Salomlashing. Bugun dasturlashning eng muhim g'oyalaridan biri: o'z funksiyamizni yaratamiz. O'tgan hafta tayyor funksiyalarni ishlatgan edik, bugun ularni o'zimiz yozamiz."
+
+  - type: retrieval
+    headline: "O'tgan haftadan uchta savol"
+    items:
+      - q: "`print(int(\"42\") + 8)` nimani chiqaradi?"
+        a: "50 — `int()` satrni butun songa aylantiradi"
+      - q: "`print(\"100\" + \"100\")` nimani chiqaradi?"
+        a: "100100 — satrlarda `+` qo'shmaydi, ulaydi"
+      - q: "`print(round(7.4))` nimani chiqaradi?"
+        a: "7 — eng yaqin butun songa yaxlitlaydi"
+    notes: "Talabalar javobni daftarga yozsin, keyin 2-3 kishidan so'rang. Uchala savolda ham tayyor funksiya bor: int, print, round. Bugun shunday funksiyalarni o'zimiz yozamiz."
+
+  - type: hook
+    question: "Taksi tarifi 2 000 dan 2 500 so'mga oshdi. Formula dasturda 100 joyda yozilgan. Nima qilasiz?"
+    evidence:
+      kind: code
+      code: |
+        narx1 = 5000 + 3 * 2000
+        narx2 = 5000 + 7 * 2000
+        narx3 = 5000 + 12 * 2000
+        # ... yana 97 ta shunday qator
+    notes: "Bir-ikki taxmin eshiting: \"hammasini qo'lda tuzataman\", \"qidirib almashtiraman\". Har birida xato qilish xavfi borligini ayting. Bugungi javob: formulani bir marta yozib, unga nom beramiz. Bu funksiya."
+
+  - type: objectives
+
+  - type: section
+    title: "Funksiya nima?"
+
+  - type: assertion
+    headline: "Funksiya kirishni oladi va natija beradi"
+    evidence:
+      kind: flow
+      nodes: ["olma", "blender", "sharbat"]
+      labels: ["kirish", "funksiya", "natija"]
+    notes: "Blenderni misol qiling: unga olma solsangiz, sharbat chiqadi. Blender ichida nima bo'layotganini bilish shart emas, faqat nima berish va nima olishni bilasiz. Funksiya ham shunday: unga qiymat beramiz, u natija qaytaradi. Talabalardan yana bir \"mashina\" misolini so'rang: kofe apparati, kalkulyator."
+
+  - type: assertion
+    headline: "round(3.7) da 3.7 argument, 4 esa qaytgan qiymat"
+    evidence:
+      kind: flow
+      nodes: ["3.7", "round", "4"]
+      labels: ["argument", "funksiya", "qaytgan qiymat"]
+    notes: "Ikki yangi atama. Argument — funksiyaga beriladigan qiymat, qavs ichida yoziladi. Qaytgan qiymat — funksiya bergan natija. Qavslar \"ishga tushir\" degani: qavssiz round shunchaki nom, qavs bilan esa ishlaydi. Funksiya nomini qavs bilan yozish funksiyani chaqirish deyiladi."
+
+  - type: code
+    headline: "To'rtta tayyor funksiyani allaqachon ishlatgansiz"
+    code: |
+      print("salom")         # ekranga chiqaradi
+      input("Ismingiz? ")    # foydalanuvchidan so'raydi
+      int("5")               # satrni butun songa aylantiradi
+      round(3.7)             # yaxlitlaydi
+    minutes: 2
+    notes: "Har birida nom, qavs va argument borligini ko'rsating. Bu funksiyalarni Python yaratuvchilari yozgan. Bugun biz ham shunday nom bilan chaqiriladigan funksiyalarni yozamiz."
+
+  - type: predict
+    code: |
+      print(round(3.7) + round(1.2))
+    choices: ["4.9", "5", "6", "Xato"]
+    answer: "B — 5"
+    explanation: "Avval ikkala round ishlaydi: 4 va 1. Keyin 4 + 1 = 5."
+    misconception: "round yig'indiga qo'llanadi deb o'ylash (3.7 + 1.2 = 4.9)"
+    notes: "Ko'p talaba 4.9 yoki 6 deydi. Javobdan keyin qoidani ayting: funksiya chaqiruvi o'z qiymatiga aylanadi, keyin hisob davom etadi."
+
+  - type: section
+    title: "O'z funksiyamiz"
+
+  - type: code
+    headline: "Funksiyasiz bir formula har joyda takrorlanadi"
+    code: |
+      narx1 = 5000 + 3 * 2000
+      print(narx1)
+      narx2 = 5000 + 7 * 2000
+      print(narx2)
+      narx3 = 5000 + 12 * 2000
+      print(narx3)
+    steps:
+      - lines: [1, 3, 5]
+        note: "Bir xil formula uch marta yozilgan"
+      - lines: [1, 3, 5]
+        note: "Tarif 2 500 bo'lsa: uchta joyni tuzatish kerak"
+    minutes: 3
+    notes: "Ikkinchi bosishda so'rang: 100 ta joy bo'lsa-chi? Bittasini unutib qo'ysak, dastur ba'zi joyda eski narxni hisoblaydi va buni hech kim sezmaydi."
+
+  - type: code
+    headline: "Funksiya formulani bir joyda saqlaydi va unga nom beradi"
+    code: |
+      def taksi_narxi(km):
+          return 5000 + km * 2000
+
+
+      print(taksi_narxi(3))
+      print(taksi_narxi(7))
+      print(taksi_narxi(12))
+    output: |
+      11000
+      19000
+      29000
+    minutes: 3
+    notes: "Endi formula faqat 2-qatorda. Tarif o'zgarsa, bitta joyni tuzatamiz. taksi_narxi(3) yozilganda funksiya ishlaydi va 11000 ga aylanadi. Natijani bosib oching va talabalar bilan birga tekshiring."
+
+  - type: assertion
+    headline: "def qatori funksiya nomini va parametrini e'lon qiladi"
+    evidence:
+      kind: terms
+      items:
+        - {term: "def", means: "yangi funksiya yaratadi"}
+        - {term: "taksi_narxi", means: "funksiya nomi: nima qilishini aytsin"}
+        - {term: "km", means: "parametr — kiruvchi qiymat uchun nom"}
+        - {term: "return", means: "natijani funksiyadan qaytaradi"}
+        - {term: "····", means: "4 ta probel — funksiya tanasi"}
+    minutes: 3
+    notes: "Har bir qismni bosib oching. Parametr va argument farqini ta'kidlang: km — nom (parametr), 3 esa unga beriladigan haqiqiy qiymat (argument). Ikki nuqta va 4 probel chekinish shart: Python funksiya tanasini shu orqali taniydi."
+
+  - type: code
+    headline: "Chaqiruvda argument parametrga tushadi, natija qaytib keladi"
+    code: |
+      def taksi_narxi(km):
+          return 5000 + km * 2000
+
+
+      narx = taksi_narxi(10)
+      print(narx)
+    steps:
+      - lines: [5]
+        note: "Funksiya chaqiriladi: `km = 10`"
+      - lines: [2]
+        note: "Hisoblanadi: `5000 + 10 * 2000` = 25000"
+      - lines: [5]
+        note: "`return` 25000 ni qaytaradi: `narx = 25000`"
+      - lines: [6]
+        note: "Ekranga 25000 chiqadi"
+    notes: "Dastur qanday sakrashini barmog'ingiz bilan ko'rsating: 5-qatordan 1-2-qatorlarga, keyin yana 5-qatorga. Python Tutor'da ham ko'rsatish mumkin."
+
+  - type: quiz
+    question: "Dasturda faqat def taksi_narxi(km): ... yozilgan, chaqiruv yo'q. Dastur nimani chiqaradi?"
+    choices: ["5000", "Hech narsa", "Xato", "taksi_narxi"]
+    correct: 1
+    explanation: "Hech narsa. def funksiyani faqat yaratadi; funksiya chaqirilgandagina ishlaydi."
+    distractors: "5000 — def ichidagi formula darhol ishlaydi deb o'ylash. Xato — chaqiruvsiz funksiya noto'g'ri deb o'ylash. taksi_narxi — nom ekranga chiqadi deb o'ylash."
+
+  - type: livecode
+    title: "Taksi narxini funksiya bilan yozamiz"
+    file: taksi.py
+    goals:
+      - "`def taksi_narxi(km):` — nom va parametr"
+      - "`return` bilan narxni qaytarish"
+      - "`input()` → `int()` → funksiyani chaqirish"
+      - "Tarifni bitta joyda o'zgartirib ko'rish"
+    minutes: 8
+    notes: "Faqat izohlar yozilgan boshlang'ich fayldan boshlang. Ataylab def qatori oxiridagi ikki nuqtani unutib, xato xabarini birga o'qing va tuzating. Oxirida tarifni 2500 ga o'zgartiring: faqat bitta joy o'zgaradi."
+
+  - type: activity
+    title: "Yetkazib berish narxini hisoblang"
+    file: yetkazish.py
+    pairs: true
+    steps:
+      - "`yetkazish_narxi(kg)` funksiyasini yozing: 10 000 so'm + har kg uchun 3 000 so'm"
+      - "Yuk og'irligini `input()` bilan so'rang va `int()` ga aylantiring"
+      - "Narxni chiqaring: 4 kg uchun 22000 chiqishi kerak"
+      - "Tez tugatdingizmi? Tarifni 3 500 ga o'zgartiring"
+    hint: "Taksi misolini nusxa qiling va faqat nomlar hamda sonlarni almashtiring."
+    minutes: 8
+
+  - type: section
+    title: "Parametr, standart qiymat va main"
+
+  - type: code
+    headline: "Parametr har chaqiruvda boshqa qiymat oladi"
+    code: |
+      def hello(to):
+          print("Salom,", to)
+
+
+      ism = input("Ismingiz? ")
+      hello(ism)
+    output: |
+      Ismingiz? Aziz
+      Salom, Aziz
+    minutes: 2.5
+    notes: "Bu funksiya return qilmaydi, faqat ekranga chiqaradi. ism o'zgaruvchisidagi qiymat to parametriga tushadi. Bir-ikki talabaning ismi bilan sinab ko'ring."
+
+  - type: code
+    headline: "Standart qiymat argument berilmaganda ishlatiladi"
+    code: |
+      def hello(to="Jigarlar"):
+          print("Salom,", to)
+
+
+      hello("Aziz")
+      hello()
+    output: |
+      Salom, Aziz
+      Salom, Jigarlar
+    minutes: 2.5
+    notes: "to=\"Jigarlar\" — standart qiymat. Argument berilsa, u ishlatiladi; berilmasa, standart qiymat. PEP 8 bo'yicha = atrofida bo'sh joy qo'yilmaydi."
+
+  - type: predict
+    code: |
+      def salom(ism="do'stim"):
+          print("Salom,", ism)
+
+
+      salom()
+      salom("Ali")
+    answer: "Salom, do'stim va Salom, Ali (ikki qator)"
+    explanation: "Birinchi chaqiruvda argument yo'q, standart qiymat ishlaydi. Ikkinchisida \"Ali\" beriladi."
+    misconception: "Argumentsiz chaqiruv xato beradi deb o'ylash"
+    minutes: 3
+
+  - type: code
+    headline: "main() dasturning asosiy qismini bir joyga yig'adi"
+    code: |
+      def main():
+          ism = input("Ismingiz? ")
+          hello(ism)
+
+
+      def hello(to="Jigarlar"):
+          print("Salom,", to)
+
+
+      main()
+    steps:
+      - lines: "1-3"
+        note: "Asosiy ish main() ichida"
+      - lines: "6-7"
+        note: "Yordamchi funksiya pastda yozilgan"
+      - lines: [10]
+        note: "main() eng oxirida chaqiriladi: hammasi tayyor"
+    minutes: 3
+    notes: "Savol bering: hello main dan keyin yozilgan, nega xato yo'q? Chunki main() eng oxirgi qatorda chaqiriladi, shu paytgacha ikkala funksiya ham yaratilgan bo'ladi."
+
+  - type: code
+    headline: "return natijani chaqirgan joyga qaytaradi"
+    code: |
+      def main():
+          x = int(input("x ni kiriting: "))
+          print("x ning kvadrati:", kvadrat(x))
+
+
+      def kvadrat(n):
+          return n * n
+
+
+      main()
+    output: |
+      x ni kiriting: 5
+      x ning kvadrati: 25
+    minutes: 3
+    notes: "kvadrat(x) chaqiruvi qaytgan qiymatga, ya'ni 25 ga aylanadi va print uni chiqaradi. kvadrat o'zi hech narsa chiqarmaydi, faqat qiymatni qaytaradi."
+
+  - type: predict
+    question: "Bu kod nimani chiqaradi?"
+    code: |
+      def kvadrat(n):
+          print(n * n)
+
+
+      natija = kvadrat(4)
+      print(natija)
+    choices: ["16", "16, keyin None", "None", "Xato"]
+    answer: "B — 16, keyin None"
+    explanation: "return yo'q, shuning uchun funksiya None qaytaradi."
+    misconception: "print natijani qaytaradi deb o'ylash"
+    minutes: 4
+    notes: "None — \"hech qanday qiymat yo'q\" degan maxsus qiymat. Javobdan keyin xulosa qiling: print — odam uchun, ekranga; return — dastur uchun, qiymatni keyingi hisobga beradi."
+
+  - type: recap
+    points:
+      - "Funksiya kirishni oladi va natija qaytaradi"
+      - "`def` funksiyani yaratadi, chaqiruv uni ishga tushiradi"
+      - "Argument parametrga tushadi; standart qiymat bo'sh joyni to'ldiradi"
+      - "`return` qiymatni qaytaradi, `print` faqat ekranga chiqaradi"
+
+  - type: exit
+    questions:
+      - "`kub(n)` funksiyasini yozing: u n * n * n ni qaytarsin. `print(kub(3))` nimani chiqaradi?"
+      - "Bir gapda: `print` va `return` ning farqi nima?"
+    next: "Keyingi ma'ruza: shartlar — if, elif, else"

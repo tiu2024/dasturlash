@@ -1,0 +1,3 @@
+python-pptx>=1.0
+pygments>=2.15
+# already in the project venv: pyyaml, pymupdf (pillow comes with python-pptx)
