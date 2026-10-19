@@ -1,0 +1,1729 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Kurslar - ma'ruzalar va materiallar">
+      
+      
+      
+        <link rel="canonical" href="https://tiu2024.github.io/dasturlash/courses/mobil-ilovalar/week-04/lecture/">
+      
+      
+        <link rel="prev" href="../../ai-guide/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>4-hafta. Kotlin tilida sinflar va obyektlar - Kurslar</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-hafta-kotlin-tilida-sinflar-va-obyektlar" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Kurslar" class="md-header__button md-logo" aria-label="Kurslar" data-md-component="logo">
+      
+  <img src="../../../../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kurslar
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4-hafta. Kotlin tilida sinflar va obyektlar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bosh sahifa
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dasturlash/" class="md-tabs__link">
+          
+  
+  
+  Dasturlash 1, 2
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  Mobil ilovalar yaratish
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Kurslar" class="md-nav__button md-logo" aria-label="Kurslar" data-md-component="logo">
+      
+  <img src="../../../../assets/favicon.png" alt="logo">
+
+    </a>
+    Kurslar
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bosh sahifa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dasturlash 1, 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dasturlash 1, 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kurs haqida
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/ai-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI bilan ishlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-01/lecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1-hafta. Dasturlashga kirish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2-hafta. Python dasturlashga kirish
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2-hafta. Python dasturlashga kirish
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-02/lecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ma'ruza
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-02/practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amaliyot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3-hafta. Funksiyalar, shartlar, scope va turlar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3-hafta. Funksiyalar, shartlar, scope va turlar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-03/lecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ma'ruza
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-03/practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amaliyot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-hafta. Looplar va stringlar
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4-hafta. Looplar va stringlar
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-04/lecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ma'ruza
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-04/practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amaliyot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dasturlash/week-05/lecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5-hafta. Ro'yxatlar va kortejlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobil ilovalar yaratish
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mobil ilovalar yaratish
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kurs haqida
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI bilan ishlash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-hafta. Kotlin tilida sinflar va obyektlar
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4-hafta. Kotlin tilida sinflar va obyektlar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#muammo-500-ta-chipta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muammo: 500 ta chipta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinf-va-obyekt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinf va obyekt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sinf va obyekt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinf-obyekt-yasash-uchun-qolip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinf — obyekt yasash uchun qolip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obyekt-yaratish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obyekt yaratish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asosiy-konstruktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asosiy konstruktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#val-va-var" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        val va var
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oddiy-parametr-xossa-emas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oddiy parametr xossa emas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinf-ichidagi-funksiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinf ichidagi funksiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standart-qiymat-va-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standart qiymat va init
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standart qiymat va init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standart-qiymat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standart qiymat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-blok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        init blok
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require-bilan-tekshirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        require bilan tekshirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ikkilamchi-konstruktor-va-companion-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikkilamchi konstruktor va companion object
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ikkilamchi konstruktor va companion object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ikkilamchi-konstruktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikkilamchi konstruktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avval-asosiy-konstruktor-ishlaydi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avval asosiy konstruktor ishlaydi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companion-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companion object
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odatiy-xatolar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Odatiy xatolar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#muammo-500-ta-chipta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Muammo: 500 ta chipta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sinf-va-obyekt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinf va obyekt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sinf va obyekt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sinf-obyekt-yasash-uchun-qolip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinf — obyekt yasash uchun qolip
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obyekt-yaratish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obyekt yaratish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asosiy-konstruktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asosiy konstruktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#val-va-var" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        val va var
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oddiy-parametr-xossa-emas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oddiy parametr xossa emas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sinf-ichidagi-funksiya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sinf ichidagi funksiya
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standart-qiymat-va-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standart qiymat va init
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standart qiymat va init">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standart-qiymat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standart qiymat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#init-blok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        init blok
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require-bilan-tekshirish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        require bilan tekshirish
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ikkilamchi-konstruktor-va-companion-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikkilamchi konstruktor va companion object
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ikkilamchi konstruktor va companion object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ikkilamchi-konstruktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikkilamchi konstruktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avval-asosiy-konstruktor-ishlaydi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avval asosiy konstruktor ishlaydi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companion-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companion object
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#odatiy-xatolar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Odatiy xatolar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4-hafta-kotlin-tilida-sinflar-va-obyektlar">4-hafta. Kotlin tilida sinflar va obyektlar</h1>
+<p>Ma'ruza taqdimoti: <a href="../../../../downloads/mobil-ilovalar/week-04/sinflar-va-obyektlar.pptx">Sinflar va obyektlar (PPTX)</a></p>
+<h2 id="muammo-500-ta-chipta">Muammo: 500 ta chipta</h2>
+<p>Konsert ilovasida 500 ta chipta bor. Har biri uchun nom va narxni alohida o'zgaruvchida saqlash mumkin:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">event1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Navruz konserti"</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">price1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">150000</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">event2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Rok kechasi"</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">price2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">90000</span>
+<span class="c1">// ... yana 498 ta chipta</span>
+</code></pre></div>
+<p>Bu yo'l tez chalkashadi: dastur <code>event1</code> bilan <code>price1</code> bitta chiptaga tegishli ekanini bilmaydi. Yechim: chiptaning o'zini bitta narsa qilish. Kotlin'da bunday narsa <strong>obyekt</strong> deyiladi.</p>
+<h2 id="sinf-va-obyekt">Sinf va obyekt</h2>
+<h3 id="sinf-obyekt-yasash-uchun-qolip">Sinf — obyekt yasash uchun qolip</h3>
+<p>Pechenye qolipi bitta, pechenyelar esa ko'p. Dasturda ham shunday:</p>
+<ul>
+<li><strong>sinf</strong> — qolip: chipta qanday bo'lishini tasvirlaydi;</li>
+<li><strong>obyekt</strong> — qolipdan yasalgan haqiqiy chipta;</li>
+<li><strong>xossa</strong> — obyektda saqlanadigan qiymat, masalan nom va narx;</li>
+<li><strong>konstruktor</strong> — obyektni yasaydigan chaqiruv.</li>
+</ul>
+<h3 id="obyekt-yaratish">Obyekt yaratish</h3>
+<p>Sinf nomini funksiya kabi chaqirsak, yangi obyekt yaratiladi. Xossaga nuqta orqali murojaat qilinadi:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Navruz konserti"</span><span class="p">,</span><span class="w"> </span><span class="m">150000</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Rok kechasi"</span><span class="p">,</span><span class="w"> </span><span class="m">90000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="na">event</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="na">price</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Navruz konserti
+90000
+</code></pre></div>
+<p>Birinchi qator butun sinfni e'lon qiladi. <code>Ticket(...)</code> ikkita alohida obyekt yaratadi: har birining o'z nomi va narxi bor. Kotlin'da <code>new</code> so'zi yozilmaydi.</p>
+<p><strong>SAVOL.</strong> Qaysi yozuv <code>Ticket</code> obyektini yaratadi?</p>
+<ul>
+<li>A. <code>new Ticket("Rok kechasi", 90000)</code></li>
+<li>B. <code>Ticket("Rok kechasi", 90000)</code></li>
+<li>C. <code>Ticket.create("Rok kechasi", 90000)</code></li>
+<li>D. <code>Ticket = ("Rok kechasi", 90000)</code></li>
+</ul>
+<p><strong>JAVOB.</strong> B. Kotlin'da <code>new</code> kerak emas: sinf nomi va qavs obyekt yaratadi.</p>
+<h3 id="asosiy-konstruktor">Asosiy konstruktor</h3>
+<p>Asosiy konstruktor sinf sarlavhasida, sinf nomidan keyin qavs ichida yoziladi:</p>
+<ul>
+<li><code>class Ticket</code> — yangi sinf va uning nomi;</li>
+<li><code>(...)</code> — asosiy konstruktor: obyekt uchun kerakli qiymatlar;</li>
+<li><code>val event</code> — o'zgarmaydigan xossa;</li>
+<li><code>var price</code> — keyin o'zgartirsa bo'ladigan xossa;</li>
+<li><code>: String</code> — qiymat turi, o'zgaruvchidagidek.</li>
+</ul>
+<h3 id="val-va-var">val va var</h3>
+<p><code>var</code> xossani o'zgartirish mumkin, <code>val</code> xossani esa mumkin emas:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Navruz konserti"</span><span class="p">,</span><span class="w"> </span><span class="m">150000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">120000</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">price</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// t.event = "Boshqa"   // xato: val o'zgarmaydi</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>120000
+</code></pre></div>
+<p>Narx o'zgarishi mumkin (chegirma e'lon qilindi), konsert nomi esa o'zgarmasligi kerak. Izohdagi qatorni ochsangiz, Kotlin <code>Val cannot be reassigned</code> xatosini beradi.</p>
+<h3 id="oddiy-parametr-xossa-emas">Oddiy parametr xossa emas</h3>
+<p><strong>SAVOL.</strong> Bu kod nimani chiqaradi?</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="si">$</span><span class="n">event</span><span class="s">: </span><span class="si">$</span><span class="n">price</span><span class="s"> so'm"</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Rok kechasi"</span><span class="p">,</span><span class="w"> </span><span class="m">90000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">label</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">price</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>A. Ikki qator chiqadi</li>
+<li>B. Birinchi qator chiqadi, ikkinchisida xato</li>
+<li>C. Dastur ishga tushmaydi: kompilyatsiya xatosi</li>
+<li>D. Ikkinchi qatorda 0 chiqadi</li>
+</ul>
+<p><strong>JAVOB.</strong> C. <code>price</code> oldida <code>val</code> ham, <code>var</code> ham yo'q, shuning uchun u xossa emas, oddiy parametr: u faqat sinf ichida ishlaydi. <code>t.price</code> esa sinf tashqarisida yozilgan, shuning uchun Kotlin <code>Unresolved reference</code> xatosini beradi. <strong>Kompilyatsiya xatosi</strong> — dastur ishga tushishidan oldin Kotlin topgan xato: dastur umuman ishlamaydi.</p>
+<p>Parametr tashqaridan ko'rinishi uchun uning oldiga <code>val</code> yoki <code>var</code> yozing.</p>
+<h3 id="sinf-ichidagi-funksiya">Sinf ichidagi funksiya</h3>
+<p>Sinf ichida funksiya ham yozish mumkin. U obyektning o'z xossalari bilan ishlaydi:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">describe</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="si">$</span><span class="n">event</span><span class="s">: </span><span class="si">$</span><span class="n">price</span><span class="s"> so'm"</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Navruz konserti"</span><span class="p">,</span><span class="w"> </span><span class="m">150000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="na">describe</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Navruz konserti: 150000 so'm
+</code></pre></div>
+<p>Funksiya nuqta orqali chaqiriladi: <code>t.describe()</code>. Narx o'zgarsa, xuddi shu chaqiruv yangi natija beradi, chunki funksiya obyektning hozirgi holatini o'qiydi.</p>
+<h2 id="standart-qiymat-va-init">Standart qiymat va init</h2>
+<h3 id="standart-qiymat">Standart qiymat</h3>
+<p>Konstruktor parametriga standart qiymat berish mumkin. Argument berilmasa, shu qiymat ishlatiladi:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100000</span><span class="p">)</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Ochiq dars"</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Rok kechasi"</span><span class="p">,</span><span class="w"> </span><span class="m">90000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">price</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="na">price</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>100000
+90000
+</code></pre></div>
+<p><code>a</code> uchun narx berilmadi, shuning uchun 100000 ishlatildi. <code>b</code> uchun 90000 berildi va u standart qiymatni almashtirdi.</p>
+<h3 id="init-blok">init blok</h3>
+<p>Oddiy qiymat berish uchun sarlavha yetadi. Murakkabroq ishlar uchun <code>init</code> blok bor: u obyekt yaratilganda o'zi ishga tushadi.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"Chipta yaratildi: </span><span class="si">$</span><span class="n">event</span><span class="s">"</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Navruz konserti"</span><span class="p">,</span><span class="w"> </span><span class="m">150000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"Tayyor"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Chipta yaratildi: Navruz konserti
+Tayyor
+</code></pre></div>
+<p>Biz <code>init</code> ni alohida chaqirmadik, shuning uchun "Chipta yaratildi" "Tayyor" dan oldin chiqdi. Sinfda bir nechta <code>init</code> bo'lsa, ular yozilgan tartibda ishlaydi.</p>
+<h3 id="require-bilan-tekshirish">require bilan tekshirish</h3>
+<p><code>require</code> shartni tekshiradi. Shart <code>False</code> bo'lsa, xato chiqadi va dastur to'xtaydi. Qavs ichida shart, jingalak qavs ichida xato xabari yoziladi:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">require</span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Narx manfiy"</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">"Chipta yaratildi: </span><span class="si">$</span><span class="n">event</span><span class="s">"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>init</code> ichida <code>require</code> yozsak, noto'g'ri qiymatli obyekt hech qachon yaratilmaydi: manfiy narxli chipta dasturda paydo bo'lmaydi.</p>
+<p><strong>SAVOL.</strong> Bu kod nimani chiqaradi?</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"Narx manfiy"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Rok kechasi"</span><span class="p">,</span><span class="w"> </span><span class="m">90000</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"1-chipta tayyor"</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Xato chipta"</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"2-chipta tayyor"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>JAVOB.</strong> <code>1-chipta tayyor</code> chiqadi, keyin <code>IllegalArgumentException</code> xatosi chiqadi va dastur to'xtaydi. Ikkinchi chiptada shart <code>False</code> (<code>-5 &gt;= 0</code> noto'g'ri), shuning uchun oxirgi qatorga dastur yetib bormaydi. Kotlin <code>-5</code> ni dastur ishga tushishidan oldin tekshirmaydi: bu faqat dastur ishlayotganda aniqlanadi.</p>
+<h2 id="ikkilamchi-konstruktor-va-companion-object">Ikkilamchi konstruktor va companion object</h2>
+<h3 id="ikkilamchi-konstruktor">Ikkilamchi konstruktor</h3>
+<p>Ilovada narxni foydalanuvchi matn maydoniga yozadi, ya'ni qiymat <code>String</code> bo'lib keladi. <strong>Ikkilamchi konstruktor</strong> obyektni boshqa qiymat turi bilan yaratishga imkon beradi. U sinf ichida <code>constructor</code> so'zi bilan yoziladi:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">constructor</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span>
+<span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">toIntOrNull</span><span class="p">()</span><span class="w"> </span><span class="o">?:</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Rok"</span><span class="p">,</span><span class="w"> </span><span class="s">"85000"</span><span class="p">).</span><span class="na">price</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Rok"</span><span class="p">,</span><span class="w"> </span><span class="s">"abc"</span><span class="p">).</span><span class="na">price</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>85000
+0
+</code></pre></div>
+<p><code>toIntOrNull()</code> matn son bo'lsa, sonni; bo'lmasa <code>null</code> beradi. <code>?:</code> belgisi <code>null</code> o'rniga 0 qo'yadi. Shuning uchun <code>"abc"</code> kelsa ham dastur sinmaydi.</p>
+<h3 id="avval-asosiy-konstruktor-ishlaydi">Avval asosiy konstruktor ishlaydi</h3>
+<p>Ikkilamchi konstruktor har doim avval asosiy konstruktorga murojaat qilishi kerak. Buni <code>: this(...)</code> qiladi:</p>
+<ul>
+<li><code>: this(...)</code> asosiy konstruktorni chaqiradi;</li>
+<li>avval asosiy konstruktor va <code>init</code> ishlaydi;</li>
+<li>keyin ikkilamchi konstruktorning tanasi ishlaydi.</li>
+</ul>
+<p><strong>SAVOL.</strong> Bu kod nimani chiqaradi?</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"init"</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">constructor</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">"ikkilamchi"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Ticket</span><span class="p">(</span><span class="s">"Ochiq dars"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>JAVOB.</strong> Avval <code>init</code>, keyin <code>ikkilamchi</code> chiqadi. Ikkilamchi konstruktor birinchi <code>this(event, 0)</code> orqali asosiy konstruktorni (va <code>init</code> ni) ishga tushiradi, shundan keyingina o'z tanasini bajaradi.</p>
+<h3 id="companion-object">Companion object</h3>
+<p><code>companion object</code> ichidagi funksiyani chaqirish uchun obyekt kerak emas: u sinf nomi bilan chaqiriladi.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Ticket</span><span class="p">(</span><span class="kd">val</span><span class="w"> </span><span class="nv">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">price</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">companion</span><span class="w"> </span><span class="kd">object</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">fun</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">(</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ticket</span><span class="p">.</span><span class="na">free</span><span class="p">(</span><span class="s">"Ochiq dars"</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">ticket</span><span class="p">.</span><span class="na">event</span><span class="p">)</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">ticket</span><span class="p">.</span><span class="na">price</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Ochiq dars
+0
+</code></pre></div>
+<p>Bu sinfning o'ziga tegishli ishlar uchun qulay, masalan tayyor chipta yasovchi funksiya.</p>
+<h2 id="odatiy-xatolar">Odatiy xatolar</h2>
+<ul>
+<li><strong><code>new</code> yozish.</strong> <code>new Ticket(...)</code> — Kotlin'da bunday yozuv yo'q. To'g'risi: <code>Ticket(...)</code>.</li>
+<li><strong>Parametrga <code>val</code> yoki <code>var</code> yozmaslik.</strong> Keyin <code>t.price</code> ishlamaydi. Parametr tashqaridan ko'rinishi uchun <code>val</code> yoki <code>var</code> yozing.</li>
+<li><strong><code>val</code> xossani o'zgartirish.</strong> <code>t.event = "Boshqa"</code> xato beradi. O'zgaradigan qiymat uchun <code>var</code> ishlating.</li>
+<li><strong><code>require</code> xatoni to'xtatmaydi deb o'ylash.</strong> Shart <code>False</code> bo'lsa, dastur to'xtaydi va keyingi qatorlar bajarilmaydi.</li>
+<li><strong>Ikkilamchi konstruktorda <code>: this(...)</code> ni unutish.</strong> Ikkilamchi konstruktor har doim asosiy konstruktorga murojaat qilishi kerak.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
