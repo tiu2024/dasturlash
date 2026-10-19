@@ -1,6 +1,6 @@
-habar = input("Nma gap? ")
+xabar = input("Nima gap? ")
 
-habar = habar.replace(":)", "😊")
-habar = habar.replace(":(", "😒")
+xabar = xabar.replace(":)", "😊")
+xabar = xabar.replace(":(", "🙁")
 
-print(habar)
+print(xabar)

@@ -1,6 +1,6 @@
 # 3-hafta. Funksiyalar, shartlar, scope va turlar
 
-Ma'ruza taqdimotini yuklab oling: [Funksiyalar, shartlar, scope va turlar (PPTX)](../../../downloads/dasturlash/week-03/funksiyalar-shartlar-scope-turlar.pptx)
+Ma'ruza taqdimoti: [Funksiyalar, shartlar, scope va turlar (PPTX)](../../../downloads/dasturlash/week-03/funksiyalar-shartlar-scope-turlar.pptx)
 
 Bu haftaning amaliy qismi: [amaliyot](practice.md).
 
@@ -103,7 +103,7 @@ x ni kiriting: 5
 x ning kvadrati: 25
 ```
 
-`return` bo'lmagan funksiya `None` qaytaradi.
+`return` bo'lmagan funksiya `None` qaytaradi. `None` — "hech qanday qiymat yo'q" degan maxsus qiymat.
 
 ## Shartlar
 
@@ -111,7 +111,7 @@ Dasturlar ba'zan qaror qabul qilishi kerak: shart bajarilsa bir ish, bajarilmasa
 
 ### Taqqoslash operatorlari
 
-Taqqoslash natijasi **mantiqiy qiymat** — `True` (rost) yoki `False` (yolg'on) bo'ladi.
+Taqqoslash natijasi **mantiqiy qiymat** — `True` (to'g'ri) yoki `False` (noto'g'ri) bo'ladi. Bundan keyin bu qiymatlarni Python'dagidek `True` va `False` deb yozamiz.
 
 | Operator | Ma'nosi | Misol | Natija |
 |:---:|---|---|:---:|
@@ -157,7 +157,7 @@ if x == y:
     print("x y ga teng")
 ```
 
-Bu ishlaydi, lekin samarasiz: `x < y` rost bo'lsa ham, qolgan ikki shart baribir tekshiriladi. `elif` ("else if") oldingi shart bajarilmagandagina keyingisini tekshiradi:
+Bu ishlaydi, lekin samarasiz: `x < y` `True` bo'lsa ham, qolgan ikki shart baribir tekshiriladi. `elif` ("else if") oldingi shart bajarilmagandagina keyingisini tekshiradi:
 
 ```python
 if x < y:
@@ -188,11 +188,11 @@ y ni kiriting: 4
 x y ga teng
 ```
 
-Qoida: shartlar **yuqoridan pastga** tekshiriladi va **birinchi rost** shartning bloki bajariladi, qolganlari o'tkazib yuboriladi. Tuzilma: bitta `if`, istalgancha `elif`, ixtiyoriy bitta `else`.
+Qoida: shartlar **yuqoridan pastga** tekshiriladi va sharti `True` bo'lgan **birinchi** blok bajariladi, qolganlari o'tkazib yuboriladi. Tuzilma: bitta `if`, istalgancha `elif`, ixtiyoriy bitta `else`.
 
 ### `or`: "yoki"
 
-`or` bilan bog'langan shartlardan **kamida bittasi** rost bo'lsa, butun shart rost:
+`or` bilan bog'langan shartlardan **kamida bittasi** `True` bo'lsa, butun shart `True`:
 
 ```python
 if x < y or x > y:
@@ -212,7 +212,7 @@ else:
 
 ### `and`: "va"
 
-`and` bilan bog'langan **hamma** shartlar rost bo'lsagina butun shart rost. Baholash misoli:
+`and` bilan bog'langan **hamma** shartlar `True` bo'lsagina butun shart `True`. Baholash misoli:
 
 ```python
 ball = int(input("Ball: "))
@@ -244,7 +244,7 @@ else:
     print("Baho: F")
 ```
 
-Shartlar yuqoridan pastga tekshirilishi sababli kodni yana soddalashtirish mumkin: `elif ball >= 80` ga yetgan odam allaqachon `ball >= 90` dan o'tmagan, shuning uchun yuqori chegarani yozish shart emas:
+Shartlar yuqoridan pastga tekshirilishi sababli kodni yana soddalashtirish mumkin: dastur `elif ball >= 80` gacha yetib kelgan bo'lsa, `ball >= 90` sharti `False` chiqqan, ya'ni ball 90 dan kichik. Shuning uchun yuqori chegarani yozish shart emas:
 
 ```python
 ball = int(input("Ball: "))
@@ -267,6 +267,16 @@ Baho: B
 ```
 
 Chegaraviy qiymatlarni tekshiring: `90` → A, `89` → B, `60` → D, `59` → F.
+
+Bu soddalashtirish ball 0–100 oralig'ida kiritiladi deb hisoblaydi. Oraliqdan tashqaridagi ball uchun variantlar har xil ishlaydi: `150` birinchi variantda F, soddalashtirilganida A oladi. Noto'g'ri ballni alohida ushlash uchun boshiga yana bitta shart qo'shing:
+
+```python
+if ball < 0 or ball > 100:
+    print("Ball 0 dan 100 gacha bo'lishi kerak")
+elif ball >= 90:
+    print("Baho: A")
+...
+```
 
 Uchta mantiqiy operator bor: `and` ("va"), `or` ("yoki"), `not` ("emas"). `not` shartni teskarisiga o'giradi: `not (x == y)` — `x != y` bilan bir xil.
 
@@ -311,7 +321,7 @@ def is_even(n):
 main()
 ```
 
-Bu kodni qisqartirish mumkin. `if` o'rniga **shartli ifoda** ishlatamiz:
+Bu kodni qisqartirish mumkin. `if` o'rniga **shartli ifoda** ishlatamiz. U `A if shart else B` ko'rinishida yoziladi: shart `True` bo'lsa natija `A`, aks holda `B`:
 
 ```python
 def is_even(n):
@@ -367,14 +377,250 @@ match kun:
 !!! note "Python versiyasi"
     `match` Python 3.10 dan boshlab mavjud. `python --version` bilan versiyangizni tekshiring.
 
+## Scope: o'zgaruvchi qayerda ko'rinadi
+
+**Scope** (ko'rinish sohasi) — o'zgaruvchi ko'rinadigan va ishlatilishi mumkin bo'lgan joy. Uni dars xonasidagi doskaga o'xshatish mumkin: doskadagi yozuvni faqat shu xonadagilar ko'radi, qo'shni xona uni ko'rmaydi.
+
+### Local o'zgaruvchi
+
+Funksiya ichida yaratilgan o'zgaruvchi **local** (mahalliy) deyiladi. U faqat o'sha funksiya ichida mavjud:
+
+```python
+def main():
+    name = input("Ismingiz? ")
+    hello()
+
+
+def hello():
+    print("Salom,", name)
+
+
+main()
+```
+
+```text
+Ismingiz? Anora
+NameError: name 'name' is not defined
+```
+
+`name` — `main` ichidagi local o'zgaruvchi, `hello` uni ko'rmaydi. Yechim — qiymatni **argument** sifatida berish:
+
+```python
+def main():
+    name = input("Ismingiz? ")
+    hello(name)
+
+
+def hello(to):
+    print("Salom,", to)
+
+
+main()
+```
+
+```text
+Ismingiz? Anora
+Salom, Anora
+```
+
+Dastur qadamma-qadam:
+
+1. `main()` ishga tushadi: `name = "Anora"` — `name` `main` ichida local.
+2. `hello(name)` — qiymat argument bo'lib `hello` ga o'tadi.
+3. `to = "Anora"` — `to` `hello` ichida local.
+4. `Salom, Anora` chiqadi; funksiya tugagach, `to` yo'qoladi.
+
+Funksiya tugagach, uning ichidagi local o'zgaruvchilar yo'qoladi:
+
+```python
+def hisobla():
+    natija = 5 * 2
+
+
+hisobla()
+print(natija)
+```
+
+```text
+NameError: name 'natija' is not defined
+```
+
+### Global o'zgaruvchi
+
+Fayl darajasida (hech qaysi funksiya ichida emas) yaratilgan o'zgaruvchi **global** deyiladi. Funksiya uni o'qiy oladi:
+
+```python
+kurs = "Dasturlash 1"   # global: fayl darajasida
+
+
+def salom():
+    print("Xush kelibsiz:", kurs)   # o'qish mumkin
+
+
+salom()
+```
+
+```text
+Xush kelibsiz: Dasturlash 1
+```
+
+Lekin funksiya ichida `=` yozilsa, global o'zgaruvchi o'zgarmaydi — shu nomli **yangi local** o'zgaruvchi yaratiladi:
+
+```python
+narx = 5000
+
+
+def yangila():
+    narx = 7000   # yangi, local narx
+
+
+yangila()
+print(narx)
+```
+
+```text
+5000
+```
+
+To'g'ri yo'l — qiymatni funksiyaga argument bilan berish va yangisini `return` bilan qaytarish:
+
+```python
+narx = 5000
+
+
+def yangila(narx):
+    return narx + 2000
+
+
+narx = yangila(narx)
+print(narx)
+```
+
+```text
+7000
+```
+
+### Scope qoidalari
+
+1. **Local** — funksiya ichida yaratiladi, tashqarida ko'rinmaydi.
+2. **Global** — fayl darajasida yaratiladi; funksiya uni o'qiy oladi.
+3. **Kirish va chiqish** — qiymat funksiyaga argument bilan kiradi, `return` bilan chiqadi.
+
+## Ma'lumot turlari
+
+Har bir qiymatning turi bor: `5` va `"5"` bir xil emas, Python ular bilan har xil ishlaydi. [2-haftada](../week-02/lecture.md#malumot-turlari) `int`, `float`, `str` turlari va `type()` funksiyasi bilan tanishgansiz. Endi to'rtinchi asosiy tur — `bool` qo'shiladi:
+
+| Tur | Nomi | Misol |
+|---|---|---|
+| `int` | butun son | `42`, `-7`, `0` |
+| `float` | kasr son | `3.14`, `2.0` |
+| `str` | satr (matn) | `"Salom"`, `"42"` |
+| `bool` | mantiqiy qiymat | `True`, `False` |
+
+```python
+print(type(42))
+print(type(3.14))
+print(type("42"))
+print(type(True))
+```
+
+```text
+<class 'int'>
+<class 'float'>
+<class 'str'>
+<class 'bool'>
+```
+
+`"42"` qo'shtirnoq ichida yozilgani uchun `str`, son emas.
+
+### `int` va `float`
+
+- `0` ham `int`; `1_000_000` — pastki chiziq faqat o'qishni osonlashtiradi.
+- `2.0` butun ko'rinsa ham `float`, chunki nuqta bilan yozilgan.
+- `1.5e6` — ilmiy yozuv: `1.5 · 10⁶`, ya'ni `1500000.0`.
+- `3 + 2.0` → `5.0`: `int` va `float` aralashsa, natija `float`.
+
+Kasr sonlar ikkilik tizimda taxminan saqlanadi, shuning uchun natijada kichik farq paydo bo'lishi mumkin:
+
+```python
+x = 0.1 + 0.2
+print(x)
+print(round(x, 2))
+```
+
+```text
+0.30000000000000004
+0.3
+```
+
+Natijani chiqarishda `round()` yoki `:.2f` ishlating.
+
+### `str`
+
+| Ifoda | Natija | Ma'nosi |
+|---|---|---|
+| `len("Anora")` | `5` | belgilar soni |
+| `"Sal" + "om"` | `"Salom"` | ulash |
+| `"ha" * 3` | `"hahaha"` | takrorlash |
+
+`input()` doim `str` qaytargani uchun `*` sonni ko'paytirmaydi, satrni takrorlaydi:
+
+```python
+x = input("Son: ")
+print(x * 3)
+```
+
+```text
+Son: 4
+444
+```
+
+### `bool`
+
+`bool` turida faqat ikki qiymat bor: `True` va `False`. Taqqoslashlar `bool` qaytaradi: `5 > 3` → `True`, `10 == 7` → `False`. `if` aynan shu qiymat bilan ishlaydi.
+
+Boshqa turdagi qiymat ham `if` ichida `True` yoki `False` deb hisoblanadi. `bool()` funksiyasi buni ko'rsatadi:
+
+| Ifoda | Natija | Izoh |
+|---|---|---|
+| `bool(0)` | `False` | nol |
+| `bool(5)` | `True` | noldan farqli son |
+| `bool("")` | `False` | bo'sh satr |
+| `bool("salom")` | `True` | bo'sh bo'lmagan satr |
+
+Qoida: `0` va bo'sh satr `""` — `False`, qolgan sonlar va satrlar — `True`.
+
+```python
+if "0":
+    print("Ha")
+else:
+    print("Yo'q")
+```
+
+```text
+Ha
+```
+
+`"0"` — bo'sh bo'lmagan satr, shuning uchun `True`.
+
+### Turlarni o'zgartirish
+
+Asosiy qoidalar [2-haftada](../week-02/lecture.md#turlarni-ozgartirish) berilgan: `input()` doim `str` qaytaradi, uni `int()`, `float()`, `str()` bilan kerakli turga o'zgartiramiz. Bitta yangi nuqta:
+
+- `int(3.9)` → `3` — `int()` yaxlitlamaydi, kasr qismini tashlab yuboradi. Yaxlitlash uchun `round(3.9)` → `4`.
+- `int("3.9")` esa `ValueError` beradi: `int()` matndan faqat butun son yozuvini aylantiradi. Avval `float("3.9")`, keyin kerak bo'lsa `int()`.
+
 ## Odatiy xatolar
 
-- **`=` o'rniga `==` yozish.** `if x = 5:` — `SyntaxError`. Taqqoslash uchun `==`.
+- **`==` o'rniga `=` yozish.** `if x = 5:` — `SyntaxError`. Taqqoslash uchun `==`.
 - **`:` ni unutish.** `if x > 3` (ikki nuqtasiz) — `SyntaxError`.
 - **Chekinishni unutish yoki aralashtirish.** `if` ostidagi qatorlar bir xil chekinish bilan yozilishi shart; aks holda `IndentationError`.
-- **Takroriy `if` o'rniga `elif`.** Bir-birini istisno qiladigan holatlar uchun `elif` ishlating, aks holda bir nechta blok bir vaqtda ishlashi mumkin.
-- **Shartlar tartibi.** Avval `ball >= 60`, keyin `ball >= 90` yozilsa, 95 ball ham `D` oladi: birinchi rost shart g'olib.
+- **`elif` o'rniga ketma-ket `if` yozish.** Bir-birini istisno qiladigan holatlar uchun `elif` ishlating, aks holda bir nechta blok bir vaqtda ishlashi mumkin.
+- **Shartlar tartibi.** Avval `ball >= 60`, keyin `ball >= 90` yozilsa, 95 ball ham `D` oladi: sharti `True` bo'lgan birinchi blok bajariladi.
 - **Chegaralarni adashtirish.** `>` va `>=`, `<` va `<=` farqi: aynan chegaradagi qiymat qaysi tarafga tushishini o'ylab ko'ring.
-- **`or` ni noto'g'ri yozish.** `if kun == "shanba" or "yakshanba":` har doim rost bo'ladi, chunki bo'sh bo'lmagan matn `True` hisoblanadi. To'g'risi: `kun == "shanba" or kun == "yakshanba"`.
+- **`or` ni noto'g'ri yozish.** `if kun == "shanba" or "yakshanba":` har doim `True` bo'ladi, chunki bo'sh bo'lmagan satr `True` hisoblanadi ([`bool`](#bool) bo'limiga qarang). To'g'risi: `kun == "shanba" or kun == "yakshanba"`.
 - **Matn va sonni solishtirish.** `input()` matn qaytaradi: `if input("Yosh: ") >= 18:` — `TypeError`. Avval `int()` ga aylantiring.
-- **`return` o'rniga `print`.** `is_even` ichida `print(True)` yozilsa, funksiya `None` qaytaradi va `if is_even(x):` hech qachon rost bo'lmaydi.
+- **`return` o'rniga `print`.** `is_even` ichida `print(True)` yozilsa, funksiya `None` qaytaradi va `if is_even(x):` bloki hech qachon bajarilmaydi.
+- **Local o'zgaruvchini boshqa funksiyada ishlatish.** `main` ichidagi `name` ni `hello` ko'rmaydi — `NameError`. Qiymatni argument bilan bering.
+- **Global o'zgaruvchini funksiya ichida `=` bilan o'zgartirmoqchi bo'lish.** Yangi local o'zgaruvchi yaratiladi, global qiymat o'zgarmaydi. Yangi qiymatni `return` bilan qaytaring.
+- **`int(3.9)` ni yaxlitlaydi deb o'ylash.** Natija `3`. Yaxlitlash uchun `round()`.

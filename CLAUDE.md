@@ -30,7 +30,7 @@ Inspect the existing setup before creating files. If starting from an empty fold
 
 - Match the language, prerequisites, and difficulty specified for the task. Preserve the established course language when unspecified; ask if a new course's language is unclear.
 - For Uzbek lessons, write natural Uzbek and use consistent technical terminology; retain programming identifiers in their original form.
-- Lectures: learning objectives, explanation, worked examples, common mistakes, and short practice questions.
+- Lectures: explanation, worked examples, and common mistakes. Do not add learning-objective ("O'quv maqsadlari") or practice-question ("Mashq savollari") sections.
 - Labs: prerequisites, numbered actions, expected results, and exact submission requirements.
 - Problems: unambiguous tasks, constraints, input/output formats where applicable, and examples.
 - Solutions: reasoning, working code, and relevant ordinary and boundary checks. Match every solution to its problem.

@@ -1,5 +1,5 @@
-habar = input("Nma? ")
+xabar = input("Nima? ")
 
-habar = habar.replace(" ", "...")
+xabar = xabar.replace(" ", "...")
 
-print(habar)
+print(xabar)

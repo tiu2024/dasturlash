@@ -1,18 +1,8 @@
-x, y, z = input("Amal: ").split()
+vazn = int(input("Og'irligi (kg): "))
 
-x = float(x)
-z = float(z)
-
-if y == '+':
-    print("Natjia:", x + z)
-elif y == "-":
-    print("Natija:", x - z)
-elif y == "*":
-        print("Natija:", x * z)
-elif y == "/":
-    if z == 0:
-        print("O ga bolb bolmaydi!")
-    else:
-        print("Natija:", x / z)
+if vazn <= 1:
+    print("Yetkazib berish: 15 000 so'm")
+elif vazn <= 5:
+    print("Yetkazib berish: 30 000 so'm")
 else:
-    print("Bunday amal yoq!")
+    print("Yetkazib berish: 50 000 so'm")

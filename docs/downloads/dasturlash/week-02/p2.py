@@ -1,3 +1,5 @@
+import string
 
-ism = input("Isming nma? ").strip().title()
+ism = input("Ismingiz nima? ").strip()
+ism = string.capwords(ism)
 print(f"Salom, {ism}")

@@ -1,8 +1,8 @@
-parol = input("Parol? ").lower()
+son = int(input("Son kiriting: "))
 
-if parol == "42":
-    print("Togri parol")
-elif parol == "qirriq ikki" or parol == "qirriq-ikki":
-    print("Togri parol")
+if son > 0:
+    print("Musbat")
+elif son < 0:
+    print("Manfiy")
 else:
-    print("Notogri parol")
+    print("Nol")

@@ -1,18 +1,18 @@
-kun = int(input("Kun raqami: "))
+a, amal, b = input("Amal: ").split()
 
-if kun == 1:
-    print("Dushanba")
-elif kun == 2:
-    print("Seshanba")
-elif kun == 3:
-    print("Chorshanba")
-elif kun == 4:
-    print("Payshanba")
-elif kun == 5:
-    print("Juma")
-elif kun == 6:
-    print("Shanba")
-elif kun == 7:
-    print("Yakshanba")
+a = float(a)
+b = float(b)
+
+if amal == "+":
+    print("Natija:", a + b)
+elif amal == "-":
+    print("Natija:", a - b)
+elif amal == "*":
+    print("Natija:", a * b)
+elif amal == "/":
+    if b == 0:
+        print("0 ga bo'lib bo'lmaydi!")
+    else:
+        print("Natija:", a / b)
 else:
-    print("Bunday kun yo'q")
+    print("Bunday amal yo'q!")

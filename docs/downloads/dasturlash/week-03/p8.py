@@ -1,6 +1,10 @@
-yosh = int(input("Yoshingiz: "))
+a = int(input("1-son: "))
+b = int(input("2-son: "))
+c = int(input("3-son: "))
 
-if yosh >= 18:
-    print("Ovoz bera olasiz")
+if a >= b and a >= c:
+    print("Eng kattasi:", a)
+elif b >= c:
+    print("Eng kattasi:", b)
 else:
-    print("Hali ovoz bera olmaysiz")
+    print("Eng kattasi:", c)

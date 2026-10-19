@@ -1,7 +1,6 @@
-ism, familiya = input("Isming nma? ").strip().split()
+ism, familiya = input("Ismingiz nima? ").strip().split()
 
-ism = ism.title()
+ism = ism.capitalize()
 
 print(f"Salom, {ism}")
-# print(f"Salom, {ism.title()}")
-
+# print(f"Salom, {ism.capitalize()}")
