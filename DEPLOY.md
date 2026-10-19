@@ -7,7 +7,7 @@ These steps publish the course site at `https://<USERNAME>.github.io/<REPO>/`. R
 - You need a GitHub account and Git installed (`git --version`).
 - Everything under `docs/` becomes public: lecture pages, practice solutions and the files in `docs/downloads/`. Remove anything unreleased before publishing.
 - GitHub Pages is free for **public** repositories. A private repository needs a paid GitHub plan.
-- The `Lectures/` folder (original PPTX files) and `forme.md`, `status.md`, `CLAUDE.md` are committed to the repository. They are not part of the website, but they are visible if the repository is public. Add them to `.gitignore` or remove them from the repository if you do not want that.
+- The `Lectures/` folder (original PPTX files), `status.md`, `CLAUDE.md` and `.claude/` (except the gitignored official-document skills) are committed to the repository. They are not part of the website, but they are visible if the repository is public. Add them to `.gitignore` or remove them from the repository if you do not want that.
 
 ## One-time setup
 

@@ -19,8 +19,8 @@ Brauzerda http://127.0.0.1:8000 manzilini oching.
 | `mkdocs.yml` | Sayt sozlamalari va navigatsiya |
 | `docs/courses/dasturlash/week-NN/` | Haftalik sahifalar |
 | `docs/downloads/dasturlash/week-NN/` | Yuklab olinadigan fayllar |
-| `templates/` | Yangi mavzu shablonlari (chop etilmaydi) |
 | `Lectures/` | Asl PPTX ma'ruzalar |
+| `.claude/skills/` | Claude Code ko'nikmalari (sahifa yaratish, tekshirish, nashr qilish) |
 
 `docs/` ichidagi hamma narsa ommaga ochiq bo'lishi mumkin. E'lon qilinmagan yechimlarni `docs/` dan tashqarida saqlang.
 

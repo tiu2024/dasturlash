@@ -1,66 +1,69 @@
-# University CS Course Knowledge Base
+# Dasturlash 1, 2 — course workspace
 
-## Purpose and initial intent
+## Who and what
 
-I teach computer science courses at a university. I want one organized website where my students can easily read lecture notes, follow lab explanations, and download problem sets with solutions. The reading experience should resemble well-organized Python library documentation: clear navigation, search, readable explanations, and neatly formatted code.
+I. J. Husainov teaches the first-year course "Dasturlash 1, 2" at Turan International University (ATT-2026). Teaching language: Uzbek (Latin script). Python now, C later.
 
-Help me build and maintain both the website and its teaching content. Start small with one course and one complete topic, establish a consistent style, then expand to additional topics and courses. Prioritize student understanding, correct examples, easy navigation, and simple maintenance.
+This folder is my workspace for the course: the public student website and, kept private, official university documents. I add automation one feature at a time.
 
-## Project approach
+Talk to me in simple, clear English. Student-facing content is in Uzbek.
 
-- Use MkDocs with Material for MkDocs, with content written in Markdown.
-- Build a static documentation website; the initial hosting plan is GitHub Pages. University hosting can be used later.
-- Organize by course and topic. Each topic can contain a lecture, lab, problem set, and separate solutions.
-- Support downloadable problem sets, solution notes, source code, and datasets when needed. Generate PDFs only when requested.
-- Keep the setup simple. Do not add a backend, database, login system, or complex agent framework unless I request one.
-- Course names, syllabuses, teaching language, and student levels will be supplied in tasks. Sample content is a style reference, not an approved syllabus.
+## Folders
 
-## Files and initial setup
+| Path | Contents | Public |
+|---|---|---|
+| `docs/` | MkDocs Material site → https://tiu2024.github.io/dasturlash/ (repo github.com/tiu2024/dasturlash) | yes |
+| `docs/courses/dasturlash/week-NN/` | `lecture.md`, `practice.md` | yes |
+| `docs/downloads/dasturlash/week-NN/` | lecture PPTX copy, practice `pN.py` files | yes |
+| `Lectures/N_Mavzu.pptx` | original lecture decks | committed |
+| `OQ/` | official documents (O'quv dastur templates and outputs) | never (gitignored) |
+| `.claude/skills/` | project skills; `oquv-dastur` and `adabiyot-tanlash` are gitignored | partly |
+| `status.md` | current state and next steps | committed |
+| `DEPLOY.md` | publishing steps | committed |
 
-- `mkdocs.yml`: site configuration and navigation.
-- `docs/index.md`: course directory and home page.
-- `docs/courses/<course>/<topic>/`: `lecture.md`, `lab.md`, `problems.md`, and `solutions.md`.
-- `docs/downloads/<course>/<topic>/`: files students can download.
-- `templates/`: reusable page templates, outside the published site.
-- `sources/`: teacher-provided notes and references, read only when relevant.
+Everything in `docs/` is public, including files missing from navigation. Never put private, official or unreleased material in `docs/` or in any committed file.
 
-Inspect the existing setup before creating files. If starting from an empty folder, create the minimal MkDocs configuration, dependencies, home page, templates, and one clearly labeled sample topic. If using the supplied starter project, adapt it instead of rebuilding it. Do not treat planned features as already implemented.
+## How the course works
 
-## Teaching content
+- I teach each lecture from the PPTX. Students use the site **after** the lecture to review, and download the slides there.
+- A lecture page is a readable companion to its slides: same topics in the same order, written as short explanations with code and real output. Do not add topics beyond the slides; flag any correction or addition in your report.
+- A practice page holds the programs solved in class. Problem N links to `pN.py`.
+- Lecture pages: explanation, worked examples with expected output, `## Odatiy xatolar`, then `## Manbalar` with the sources I give. No "O'quv maqsadlari" or "Mashq savollari" sections.
+- Never invent sources, facts, policies, deadlines or prerequisites. Ask when something is missing.
 
-- Match the language, prerequisites, and difficulty specified for the task. Preserve the established course language when unspecified; ask if a new course's language is unclear.
-- For Uzbek lessons, write natural Uzbek and use consistent technical terminology; retain programming identifiers in their original form.
-- Lectures: explanation, worked examples, and common mistakes. Do not add learning-objective ("O'quv maqsadlari") or practice-question ("Mashq savollari") sections.
-- Labs: prerequisites, numbered actions, expected results, and exact submission requirements.
-- Problems: unambiguous tasks, constraints, input/output formats where applicable, and examples.
-- Solutions: reasoning, working code, and relevant ordinary and boundary checks. Match every solution to its problem.
-- Use headings, short paragraphs, language-labeled code blocks, and relative links. Explain new concepts before using them.
-- Use my source notes faithfully. Do not invent references, results, university policies, deadlines, or prerequisites. Flag missing teaching decisions briefly.
-- Keep AI workflow instructions and editorial commentary out of student-facing pages.
-- Everything in `docs/` may become public, including files absent from navigation. Keep unreleased solutions outside the published folder and any public repository.
+## Uzbek style and terms
 
-## Efficient agent behavior
+- Natural, correct Uzbek with proper apostrophes (o', g'), also in program prompts and messages: "Ismingiz nima?", "To'g'ri parol".
+- Keep programming identifiers and established English terms as they are (scope, f-string, local, global).
+- `True` / `False`: introduced once as to'g'ri / noto'g'ri, then always written `True` / `False` (not "rost/yolg'on").
+- `int` — butun son, `float` — kasr son, `str` — satr, `bool` — mantiqiy qiymat.
+- Suffix after a foreign name takes an apostrophe: `Python'da`, `ASCII'dagi`.
+- Capitalise names with `string.capwords()` (or `.capitalize()` for one word), never `.title()`: it breaks o' and g' (`O'Tkir`).
+- Code follows PEP 8: 4-space indent, two blank lines between functions, `ism="..."` defaults without spaces, Uzbek or English names used consistently.
+- Explain a concept before using it. If a practice problem needs something taught later, add one sentence and a link to that lecture.
 
-- Work on one requested topic or change at a time; avoid unrelated redesigns.
-- Use one agent by default. Create subagents only when I explicitly request delegation or parallel work; give them separate file ownership.
-- Read the target files, relevant sources, and at most one nearby style example. Use targeted searches rather than repeatedly scanning the whole project.
-- Reuse available context and successful checks unless something relevant changes.
-- Implement routine tasks directly. Use a short plan for substantial structural changes.
-- Browse when facts or APIs are uncertain or version-sensitive, using official sources; avoid unnecessary research for basic concepts.
-- Do not add dependencies, generate extra documents, or create elaborate workflows without a task-related need.
-- Do not reprint entire files in chat. Finish with a short report of changes, checks, and unresolved decisions.
-- These rules aim to reduce unnecessary context and repeated work; they do not impose a hard token budget.
+## Environment
 
-## Verification and publishing
+- Windows. Use the project venv: `.venv/Scripts/python.exe`. The `python` on PATH is MSYS2: do not use it; create venvs with `py -3 -m venv`. Never install packages globally.
+- Build: `.venv/Scripts/python.exe -m mkdocs build --strict`. Preview: `.venv/Scripts/python.exe -m mkdocs serve`.
 
-Use the project's Python virtual environment. Typical commands:
+## Working rules
 
-```bash
-python -m pip install -r requirements.txt
-python -m mkdocs serve
-python -m mkdocs build --strict
-```
+- One feature or topic per task. Short plan only for structural changes.
+- One agent by default; subagents only when I ask.
+- No new dependencies or extra documents without a need in the task.
+- After edits: run the changed code, run the strict build, check affected links and downloads. A passing build does not replace my academic review.
+- When adding pages, update `mkdocs.yml` navigation and `docs/courses/dasturlash/index.md`.
+- Do not commit, push or deploy unless I ask.
+- Finish with a short report (changes, checks, open decisions) and update `status.md`.
 
-Run changed runnable examples and relevant boundary cases. After content or configuration edits, run the strict build and check affected links and downloads. If execution is unavailable, say which checks could not run. A passing build does not replace my academic review.
+## Skills
 
-Update navigation when adding pages. Preserve existing reviewed material. Do not commit, push, or deploy unless requested; when I request publishing, complete the checks and publish within that authorized scope.
+| Skill | Use |
+|---|---|
+| `/lecture-page` | lecture PPTX → lecture page with sources |
+| `/practice-page` | class programs → practice page and `pN.py` files |
+| `/review-week` | review one week for errors before publishing |
+| `/publish` | build, commit, push, deploy (only when I ask) |
+| `/oquv-dastur`, `/adabiyot-tanlash` | official O'quv dastur and its literature list (private) |
+| `/dasturlash-ppt` | lecture deck — being rewritten |

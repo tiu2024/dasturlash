@@ -1,38 +1,30 @@
 # Status
 
-## Session 2026-10-05
+Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps the history.
 
-Reviewed the starter project and converted it into the Uzbek "Dasturlash 1, 2" site. The PPTX lectures are published as downloads, one lecture per week.
+## Site
 
-**Created**
-- `docs/courses/dasturlash/ai-guide.md`: AI usage memo and starter prompt in English, Uzbek, Russian
-  (prompt adapted; "Reading and Learning guide" sources section added)
-- `.venv/`: virtual environment with the requirements installed
-- `docs/courses/dasturlash/index.md`, `week-01/lecture.md`, `week-02/lecture.md`, `week-03/lecture.md`
-- `docs/downloads/dasturlash/week-01/dasturlash-ga-kirish.pptx`
-- `docs/downloads/dasturlash/week-02/python-dasturlash-kirish.pptx`
-- `docs/downloads/dasturlash/week-03/funksiyalar-shartlar-scope-turlar.pptx`
-- `status.md`
+| Week | Lecture | Practice | Manbalar | Published |
+|---|---|---|---|---|
+| 1. Dasturlashga kirish | done | — | missing | older version |
+| 2. Python dasturlashga kirish | done | done (11 problems) | missing | older version |
+| 3. Funksiyalar, shartlar, scope va turlar | done | done (16 problems) | missing | older version |
 
-**Changed**
-- `docs/courses/dasturlash/week-01/lecture.md`: full lecture 1 draft (from CS50 week 0, no Scratch/VS Code), Python examples; source link removed
-- `mkdocs.yml`: site name, description, navigation (AI page before week 1), tabs extension
-- `docs/index.md`: Uzbek home page
-- `docs/courses/dasturlash/index.md`: link to the AI page
-- `README.md`: rewritten in Uzbek and shortened
+The 2026-10-19 review fixes are committed locally (`f464b16`) but not pushed or deployed.
 
-**Removed**
-- `docs/courses/programming/`: the English sample topic
-- `docs/downloads/programming/`: the sample downloads
+## Done
 
-**Checks:** `mkdocs build --strict` passes.
+- 2026-10-19: weeks 1–3 reviewed and fixed; scope and types added to week 3 from the slides.
+- 2026-10-19: workspace cleanup: new `CLAUDE.md`, project settings, project-only copies of `oquv-dastur` and `adabiyot-tanlash` (gitignored), skills `lecture-page`, `practice-page`, `review-week`, `publish`; `forme.md`, `templates/` and the old week-3 deck removed.
 
-**Open:**
-- Week 1: practice questions have no solutions; lab and problems pages
-- Weeks 2 and 3: lecture pages are still download links only
-- Narzullayev book link is a store page; review the Uzbek/Russian prompt translations and the source descriptions
-- `git init` for GitHub Pages (`sources/` folder not created)
+## Next
 
-## Earlier sessions
+1. Rewrite `/dasturlash-ppt` (old skill lost; it had problems with visual design, content and broken output).
+2. Add `## Manbalar` to weeks 1–3 (needs the teacher's source list per week).
+3. Publish the reviewed weeks with `/publish`.
 
-No record is available. Only this session's work could be listed.
+## Waiting for the teacher
+
+- Remove `oquv-dastur` and `adabiyot-tanlash` from the claude.ai account so they exist only in this project.
+- Academic review of the changed examples in weeks 1–3.
+- Source lists for weeks 1–3.

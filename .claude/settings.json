@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python.exe -m mkdocs build:*)",
+      "Bash(.venv/Scripts/python.exe .claude/skills/lecture-page/extract_slides.py:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git check-ignore:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(.venv/Scripts/python.exe -m mkdocs gh-deploy:*)"
+    ]
+  }
+}
