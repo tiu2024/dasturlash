@@ -10,6 +10,7 @@ Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps t
 | 2. Python dasturlashga kirish | done | done (11 problems) | 2026-10-19 |
 | 3. Funksiyalar, shartlar, scope va turlar | done | done (16 problems) | 2026-10-19 |
 | 4. Looplar va stringlar | done | done (11 problems) | 2026-10-19 |
+| 5. Ro'yxatlar va kortejlar | done | — | 2026-10-19 |
 
 Last published 2026-10-19 (week 4, commit baec985; the latest commit on `main`; site on `gh-pages`).
 
@@ -27,6 +28,8 @@ Last published 2026-10-19 (week 4, commit baec985; the latest commit on `main`; 
 - 2026-10-19: week 4 lecture and practice pages written from `Lectures/4_Looplar va stringlar.pptx` (copy in `docs/downloads/dasturlash/week-04/`, with p1–p11.py); nav and index updated; published (baec985). The deck still has placeholders on the title and last slides (left as is).
 
 - 2026-10-19: `/dasturlash-ppt` skill, updated `/lecture-page`, `Lectures/config.yaml` and the week 3 spec committed; the old `skill-install/` copy removed.
+
+- 2026-10-19: week 5 built with `/dasturlash-ppt`: spec `Lectures/src/week-05/lecture.yaml`, deck `Lectures/5_Royxatlar va kortejlar.pptx` (43 slides, 80 min), lecture page `week-05/lecture.md`, download in `docs/downloads/dasturlash/week-05/`; live-coding files in `Lectures/src/week-05/livecode/` (private). Published.
 
 ## Next
 

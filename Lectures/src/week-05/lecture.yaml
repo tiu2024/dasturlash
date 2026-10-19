@@ -1,0 +1,579 @@
+# 5-ma'ruza. Ro'yxatlar va kortejlar. Elementlarni qo'shish, o'zgartirish va o'chirish.
+# Reference materials (not cited, examples are our own): python.sariq.dev 07-09,
+# programming-26.mooc.fi part-4/3, part-4/6, part-5/1, part-5/2 (references = key topic).
+# Build from the project root:
+#   .venv/Scripts/python.exe .claude/skills/dasturlash-ppt/scripts/build_lecture.py Lectures/src/week-05/lecture.yaml
+#
+# Agreed plan (approved by the teacher, 80 min)
+#   Warm-up (week 4) .................. 4
+#   Problem: no collections ........... 7   (30 variables; ball overwritten; fixed parameters)
+#   1. Ro'yxat ........................ 13  (index/slice/for/in as in week 4; list changes, str does not)
+#   2. Qo'shish va o'chirish .......... 15  (append, insert, pop/del, remove, in-check, quiz)
+#   3a. Kortej ........................ 5
+#   3b. Havolalar (references) ........ 16  (b = a, [:], function changes list, sort/sorted, side effect)
+#   4. To'plam (set) .................. 10  (no repeats, no index, add/discard/remove, set(list))
+#   Live coding 5 + activity 4 + summary table 1 + recap/exit 2
+# Decisions: lecture title as is; no list()/tuple() conversion; set(list) only for removing repeats;
+# no union/intersection; no citations; students already know for/range/index/slice/in/len (week 4).
+config: ../../config.yaml
+
+meta:
+  title: "Ro'yxatlar va kortejlar"
+  subtitle: "5-ma'ruza · elementlarni qo'shish, o'zgartirish va o'chirish"
+  duration_min: 80
+  deck_file: "../../5_Royxatlar va kortejlar.pptx"
+
+objectives:
+  - "Ro'yxat yaratib, elementni indeks bo'yicha **olib o'zgartira oladi**"
+  - "`append`, `insert`, `pop`, `remove` va `del` farqini **tushuntira oladi**"
+  - "Ro'yxat, kortej va to'plamni **taqqoslay oladi**"
+  - "`b = a` va `b = a[:]` farqini **tushuntira oladi**"
+
+livecode:
+  run: ".venv/Scripts/python.exe mehmonlar.py"
+  files:
+    - name: mehmonlar.py
+      starter: |
+        # Mehmonlar ro'yxati
+        # 1) mehmonlar = ["Ali", "Vali", "Hasan"]
+        # 2) "Olim" ni qo'shing
+        # 3) "Vali" ni o'chiring
+        # 4) birinchi mehmonni pop bilan oling va "Ketdi: ..." deb chiqaring
+        # 5) qolganlarni for bilan chiqaring va ularning sonini ayting
+        # 6) kelganlar ro'yxatidan nechta turli odam borligini toping
+      solution: |
+        mehmonlar = ["Ali", "Vali", "Hasan"]
+        mehmonlar.append("Olim")
+        mehmonlar.remove("Vali")
+        birinchi = mehmonlar.pop(0)
+        print("Ketdi:", birinchi)
+        for mehmon in mehmonlar:
+            print(mehmon)
+        print("Mehmonlar soni:", len(mehmonlar))
+        kelganlar = ["Ali", "Vali", "Ali", "Hasan", "Vali"]
+        print("Turli odamlar:", len(set(kelganlar)))
+    - name: qosh.py
+      starter: |
+        def qosh(royxat):
+            royxat.append(10)
+
+
+        sonlar = [1, 2, 3]
+        qosh(sonlar)
+        print(sonlar)
+      solution: |
+        def qosh(royxat):
+            yangi = royxat[:]
+            yangi.append(10)
+            return yangi
+
+
+        sonlar = [1, 2, 3]
+        yangi = qosh(sonlar)
+        print(sonlar)
+        print(yangi)
+
+slides:
+  - type: title
+    notes: "Salomlashing. Bugun bitta qiymat o'rniga ko'p qiymatni birga saqlashni o'rganamiz: ro'yxat, kortej va to'plam. Eng muhim qismi dars o'rtasida: ikki o'zgaruvchi bitta ro'yxatga ishora qilganda nima bo'ladi."
+
+  - type: retrieval
+    headline: "O'tgan haftadan uchta savol"
+    items:
+      - q: "`for i in range(1, 4): print(i)` nimani chiqaradi?"
+        a: "1, 2, 3 — `range` da oxirgi son (4) kirmaydi"
+      - q: "`print(\"Termiz\"[1:4])` nimani chiqaradi?"
+        a: "erm — 1-indeksdan 4-indeksgacha, 4 kirmaydi"
+      - q: "`a = 5`, `b = a`, `b = 6` dan keyin `print(a)` nimani chiqaradi?"
+        a: "5 — `b = 6` faqat `b` ni o'zgartiradi"
+    minutes: 3.5
+    notes: "Talabalar javobni daftarga yozsin, keyin 2-3 kishidan so'rang. Birinchi ikki savol bugungi dars uchun kerak: indeks va kesim ro'yxatda ham xuddi shunday ishlaydi. Uchinchi savolga e'tibor bering: sonlarda b = a nusxa beradi. Dars o'rtasida ro'yxatlarda bu boshqacha ekanini ko'ramiz."
+
+  - type: hook
+    question: "Guruhda 30 ta talaba bor. Hammasining ismini chiqarish uchun 30 ta o'zgaruvchi va 30 ta print yozasizmi?"
+    evidence:
+      kind: code
+      code: |
+        ism1 = "Ali"
+        ism2 = "Vali"
+        ism3 = "Hasan"
+        print(ism1)
+        print(ism2)
+        print(ism3)
+        # ... yana 27 ta ism va 27 ta print
+    minutes: 1
+    notes: "Talabalardan so'rang: for bilan bu ismlarni aylanib chiqa olamizmi? Yo'q: ism1, ism2, ism3 alohida nomlar, ularni hech narsa bog'lamaydi. Guruh 31 kishi bo'lsa, kodni qayta yozish kerak. Bu birinchi muammo: ko'p qiymat uchun ko'p nom."
+
+  - type: predict
+    question: "70, 85 va 90 kiritilsa, bu kod nimani chiqaradi?"
+    code: |
+      for i in range(3):
+          ball = int(input("Ball: "))
+      print(ball)
+    choices: ["245", "90", "70", "Xato"]
+    answer: "B — 90"
+    explanation: "Yangi qiymat eskisini o'chiradi."
+    misconception: "o'zgaruvchi kiritilgan hamma qiymatni yig'ib boradi deb o'ylash"
+    minutes: 2
+    notes: "Ikkinchi muammo: necha ball kiritilishini oldindan bilmaymiz va yangi o'zgaruvchi yaratib bo'lmaydi. Kodni ishga tushirib, 70, 85, 90 kiriting. 245 deganlar o'zgaruvchi yig'indi saqlaydi deb o'ylagan; 70 deganlar birinchi qiymat qoladi deb o'ylagan. Oldingi ballar yo'qoldi."
+
+  - type: code
+    headline: "Parametrlar soni qat'iy: to'rtinchi ball uchun funksiya qayta yoziladi"
+    code: |
+      def ortacha(b1, b2, b3):
+          return (b1 + b2 + b3) / 3
+
+
+      print(ortacha(70, 85, 90))
+    output: |
+      81.66666666666667
+    minutes: 1.5
+    notes: "Uchinchi muammo. Funksiya aynan uchta ball kutadi. To'rtta ball bo'lsa, parametr qo'shib formulani qayta yozish kerak, 100 ta ball bo'lsa umuman iloji yo'q. Ko'p qiymatni bitta nom bilan berish usuli kerak. Bu funksiyaga bugun yana qaytamiz."
+
+  - type: assertion
+    headline: "Kolleksiya ko'p qiymatni bitta nom ostida saqlaydi"
+    evidence:
+      kind: terms
+      items:
+        - {term: "ro'yxat (list)", means: "tartibli, o'zgaradi: [1, 2, 3]"}
+        - {term: "kortej (tuple)", means: "tartibli, o'zgarmaydi: (1, 2, 3)"}
+        - {term: "to'plam (set)", means: "takrorsiz, tartibsiz: {1, 2, 3}"}
+    minutes: 1
+    notes: "Uchala muammoning ildizi bitta: ko'p qiymat uchun bitta nom yo'q. Kolleksiya shuni hal qiladi. Bugun uch turi bilan tanishamiz. Hozir ta'riflarni yodlash shart emas, dars oxirida jadvalda yana ko'ramiz."
+
+  - type: objectives
+    minutes: 1
+
+  - type: section
+    title: "Ro'yxat"
+
+  - type: code
+    headline: "Ro'yxat ko'p qiymatni kvadrat qavs ichida saqlaydi"
+    code: |
+      mevalar = ["olma", "anor", "uzum"]
+      print(mevalar)
+      print(len(mevalar))
+      bosh = []
+      print(len(bosh))
+    output: |
+      ['olma', 'anor', 'uzum']
+      3
+      0
+    minutes: 2
+    notes: "Ro'yxat — kvadrat qavs ichida vergul bilan ajratilgan qiymatlar. Elementlar soni len() bilan topiladi, buni satrlardan bilasiz. [] — bo'sh ro'yxat: unda hech narsa yo'q, uzunligi 0. Ro'yxatning nomini odatda ko'plikda qo'yamiz: mevalar, ismlar."
+
+  - type: code
+    headline: "Indeks va kesim ro'yxatda satrdagidek ishlaydi"
+    code: |
+      mevalar = ["olma", "anor", "uzum", "behi"]
+      print(mevalar[0])
+      print(mevalar[-1])
+      print(mevalar[1:3])
+    output: |
+      olma
+      behi
+      ['anor', 'uzum']
+    minutes: 2
+    notes: "O'tgan hafta satrlarda o'rgangan qoidalar bu yerda ham bor: indeks 0 dan boshlanadi, -1 oxirgi element, kesimda oxirgi indeks kirmaydi. Faqat natija: kesim yangi ro'yxat beradi. Yangi qoida yo'q."
+
+  - type: code
+    headline: "for va in ro'yxatda ham xuddi shunday ishlaydi"
+    code: |
+      mevalar = ["olma", "anor", "uzum"]
+      for meva in mevalar:
+          print(meva)
+      print("anor" in mevalar)
+      print("nok" in mevalar)
+    output: |
+      olma
+      anor
+      uzum
+      True
+      False
+    minutes: 2
+    notes: "for har aylanishda keyingi elementni beradi: o'tgan haftadagi shaharlar misoli aynan ro'yxat edi. in elementning ro'yxatda bor-yo'qligini True yoki False bilan aytadi. Bu tekshiruv keyinroq o'chirishda kerak bo'ladi."
+
+  - type: compare
+    headline: "Ro'yxat elementini o'zgartirish mumkin, satrniki esa mumkin emas"
+    left:
+      title: "Ro'yxat"
+      evidence:
+        kind: code
+        code: |
+          narxlar = [12000, 18000, 10900]
+          narxlar[0] = 13000
+          print(narxlar)
+          # [13000, 18000, 10900]
+    right:
+      title: "Satr"
+      evidence:
+        kind: code
+        code: |
+          soz = "olma"
+          soz[0] = "a"
+          # TypeError: 'str' object does
+          # not support item assignment
+    minutes: 2.5
+    notes: "Chapda indeks bo'yicha yangi qiymat beramiz va ro'yxat o'zgaradi. O'ngda satr bilan shunday qilib bo'lmaydi: Python xato beradi. Ro'yxat o'zgaradigan kolleksiya, satr esa o'zgarmaydi. Satrni o'zgartirmoqchi bo'lsak, yangi satr yasaymiz. Bu farq dars oxirigacha muhim."
+
+  - type: predict
+    code: |
+      mevalar = ["olma", "anor", "uzum"]
+      print(mevalar[3])
+    choices: ["uzum", "olma", "IndexError", "None"]
+    answer: "C — IndexError"
+    explanation: "Indekslar 0, 1, 2. Indeks 3 yo'q."
+    misconception: "indeks 1 dan boshlanadi yoki oxirgi indeks uzunlikka teng deb o'ylash"
+    minutes: 2
+    notes: "Xato xabarini birga o'qing: list index out of range, ya'ni indeks ro'yxat chegarasidan tashqarida. Satrlardagi xato bilan bir xil. Oxirgi indeks doim len(ro'yxat) - 1 yoki shunchaki -1. «uzum» deganlar 1 dan sanagan, «olma» deganlar esa 3 ni 0 dan keyingi deb adashgan."
+
+  - type: section
+    title: "Qo'shish va o'chirish"
+
+  - type: code
+    headline: "append element qo'shadi, ro'yxat oxiriga"
+    code: |
+      mehmonlar = []
+      mehmonlar.append("Ali")
+      mehmonlar.append("Vali")
+      print(mehmonlar)
+    output: |
+      ['Ali', 'Vali']
+    minutes: 2
+    notes: "Bo'sh ro'yxatdan boshlab, uni qadam-baqadam to'ldirish mumkin. append — metod: ro'yxatdan keyin nuqta qo'yib chaqiriladi, xuddi satrning metodlari kabi. U elementni doim oxiriga qo'yadi. Bu ikkinchi muammoning javobi: ballarni append bilan yig'ib boramiz."
+
+  - type: code
+    headline: "insert elementni tanlangan o'ringa qo'yadi, qolganlar suriladi"
+    code: |
+      mehmonlar = ["Ali", "Vali"]
+      mehmonlar.insert(0, "Hasan")
+      print(mehmonlar)
+      mehmonlar.insert(2, "Olim")
+      print(mehmonlar)
+    output: |
+      ['Hasan', 'Ali', 'Vali']
+      ['Hasan', 'Ali', 'Olim', 'Vali']
+    minutes: 2
+    notes: "insert ikkita argument oladi: avval indeks, keyin qiymat. Yangi element shu indeksga tushadi, undan keyingilar o'ngga suriladi. Navbatga turishga o'xshaydi: kimdir o'rtaga kirsa, orqadagilar bir qadam orqaga ketadi. Oxirgi qatordan keyin Olim 2-indeksda."
+
+  - type: code
+    headline: "pop va del indeks bo'yicha o'chiradi; pop qiymatni qaytaradi"
+    code: |
+      bozorlik = ["yog'", "un", "piyoz", "banan"]
+      mahsulot = bozorlik.pop(3)
+      print(mahsulot)
+      print(bozorlik)
+      del bozorlik[0]
+      print(bozorlik)
+    output: |
+      banan
+      ["yog'", 'un', 'piyoz']
+      ['un', 'piyoz']
+    minutes: 2.5
+    notes: "pop(3) 3-indeksdagi elementni ro'yxatdan oladi va qaytaradi, shuning uchun uni o'zgaruvchiga saqlash mumkin. del esa shunchaki o'chiradi, hech narsa qaytarmaydi. Ikkalasida ham o'rin raqami kerak. pop() indekssiz yozilsa, oxirgi elementni oladi."
+
+  - type: code
+    headline: "remove qiymat bo'yicha o'chiradi, faqat birinchisini"
+    code: |
+      hayvonlar = ["it", "mushuk", "mushuk"]
+      hayvonlar.remove("mushuk")
+      print(hayvonlar)
+    output: |
+      ['it', 'mushuk']
+    minutes: 2
+    notes: "Elementning o'rnini bilmasak, qiymatini aytamiz. Ro'yxatda ikkita mushuk bor, lekin remove faqat birinchisini o'chirdi. Ikkinchisini o'chirish uchun remove ni yana chaqirish kerak. Savol bering: ikkala mushukni o'chirish uchun nima qilamiz? Javob: remove ni ikki marta."
+
+  - type: code
+    headline: "Ro'yxatda yo'q elementni o'chirishdan oldin in bilan tekshiring"
+    code: |
+      hayvonlar = ["it", "sigir"]
+      if "mushuk" in hayvonlar:
+          hayvonlar.remove("mushuk")
+      else:
+          print("Mushuk ro'yxatda yo'q")
+      hayvonlar.remove("mushuk")
+    output: |
+      Mushuk ro'yxatda yo'q
+      ValueError: list.remove(x): x not in list
+    minutes: 2
+    notes: "Ro'yxatda yo'q qiymatni remove bilan o'chirmoqchi bo'lsak, Python ValueError beradi. Birinchi blok in bilan oldindan tekshiradi va xavfsiz. Oxirgi qator esa tekshiruvsiz chaqirilgan: u xato beradi va dastur to'xtaydi. Tekshiruvni shartlardan bilasiz."
+
+  - type: quiz
+    question: "`bozorlik` ro'yxatidan \"banan\" ni o'chirmoqchisiz, lekin uning o'rnini bilmaysiz. Qaysi yozuv to'g'ri?"
+    choices: ["bozorlik.append(\"banan\")", "bozorlik.remove(\"banan\")", "bozorlik.pop(\"banan\")", "del bozorlik[\"banan\"]"]
+    correct: 1
+    explanation: "remove qiymat bo'yicha o'chiradi. pop va del indeks, ya'ni son kutadi."
+    distractors: "append — o'chirmaydi, qo'shadi. pop(\"banan\") — pop indeks kutadi, matn bersak xato. del bozorlik[\"banan\"] — indeks matn bo'lishi mumkin emas."
+    minutes: 2.5
+
+  - type: section
+    title: "Kortej"
+
+  - type: code
+    headline: "Kortej o'zgarmaydigan ro'yxat, yumaloq qavs bilan yoziladi"
+    code: |
+      koordinata = (41.3, 69.2)
+      print(koordinata[0])
+      print(len(koordinata))
+      koordinata[0] = 0
+    output: |
+      41.3
+      2
+      TypeError: 'tuple' object does not support item assignment
+    minutes: 2
+    notes: "Kortej yumaloq qavs bilan yoziladi. Indeks, len va for xuddi ro'yxatdagidek ishlaydi. Faqat o'zgartirib bo'lmaydi: qiymat berish ham, append ham, remove ham ishlamaydi. Satrdagi xato bilan solishtiring, ular o'xshash: ikkalasi ham o'zgarmaydi."
+
+  - type: assertion
+    headline: "O'zgarmasligi kerak bo'lgan ma'lumotni kortejga yozing"
+    evidence:
+      kind: terms
+      items:
+        - {term: "ro'yxat", means: "o'zgaradigan ma'lumot: mehmonlar, bozorlik"}
+        - {term: "kortej", means: "o'zgarmaydigan ma'lumot: koordinata (41.3, 69.2)"}
+        - {term: "xato", means: "kortejni tasodifan o'zgartirsangiz, Python to'xtatadi"}
+    minutes: 1
+    notes: "Nima uchun o'zgarmaydigan kolleksiya kerak? Koordinata yoki tug'ilgan sana kabi qiymatni tasodifan o'zgartirib qo'ymaslik uchun. Kortejni o'zgartirmoqchi bo'lsangiz, Python darrov xato beradi va xatoni o'sha zahoti topasiz. Hozircha shuni bilish yetarli."
+
+  - type: section
+    title: "Havolalar: bitta ro'yxat, ikki nom"
+
+  - type: predict
+    code: |
+      a = [1, 2, 3]
+      b = a
+      b.append(4)
+      print(a)
+    choices: ["[1, 2, 3]", "[1, 2, 3, 4]", "[4]", "Xato"]
+    answer: "B — [1, 2, 3, 4]"
+    explanation: "a va b bitta ro'yxatga ishora qiladi."
+    misconception: "b = a ro'yxatning nusxasini yasaydi deb o'ylash (sonlardagidek)"
+    minutes: 2.5
+    notes: "Bugungi eng muhim savol. Ko'pchilik [1, 2, 3] deydi, chunki warm-up dagi a = 5, b = a misolida a o'zgarmagan edi. Natijani ishga tushirib ko'rsating. Ro'yxat — katta obyekt: o'zgaruvchi uni emas, unga havolani saqlaydi. b = a havolani nusxalaydi, ro'yxatni emas."
+
+  - type: code
+    headline: "b = a ro'yxatni nusxalamaydi: ikki nom bitta ro'yxatga ishora qiladi"
+    code: |
+      a = [1, 2, 3]
+      b = a
+      print(id(a) == id(b))
+      b.append(4)
+      print(a)
+      print(b)
+    output: |
+      True
+      [1, 2, 3, 4]
+      [1, 2, 3, 4]
+    minutes: 2.5
+    notes: "Ikki nom — bitta ro'yxat. Xuddi bitta odamning ikki laqabi: kimdir uni bir laqab bilan boyitsa, ikkinchi laqab ostida ham o'zgargan bo'ladi. id() obyektning manzilini beradi: True degani ikkalasi bir joyda. Sonlar va satrlar o'zgarmagani uchun ular bilan bu muammo bo'lmaydi."
+
+  - type: code
+    headline: "a[:] ro'yxatning haqiqiy nusxasini beradi"
+    code: |
+      a = [1, 2, 3]
+      b = a[:]
+      print(id(a) == id(b))
+      b.append(4)
+      print(a)
+      print(b)
+    output: |
+      False
+      [1, 2, 3]
+      [1, 2, 3, 4]
+    minutes: 2
+    notes: "Kesim yangi ro'yxat yasaydi, o'tgan haftadan eslang. Bo'sh joylar ikkala tomondan tushirilsa, kesim butun ro'yxatni oladi. Natijada b alohida ro'yxat, id lar har xil, a esa o'zgarmadi. Ro'yxatning haqiqiy nusxasi kerak bo'lsa, [:] ishlating."
+
+  - type: code
+    headline: "Funksiyaga berilgan ro'yxat o'zgarsa, asl ro'yxat ham o'zgaradi"
+    code: |
+      def qosh(royxat):
+          royxat.append(10)
+
+
+      sonlar = [1, 2, 3]
+      qosh(sonlar)
+      print(sonlar)
+    output: |
+      [1, 2, 3, 10]
+    minutes: 2
+    notes: "Argument sifatida ro'yxat berilganda funksiya nusxani emas, ro'yxatning o'zini oladi: royxat va sonlar bitta ro'yxatga ishora qiladi. Shuning uchun funksiya ichidagi append tashqaridagi ro'yxatni o'zgartirdi. Funksiya hech narsa qaytarmadi, lekin natija bor. Bu foydali, lekin xavfli ham."
+
+  - type: code
+    headline: "sorted() yangi ro'yxat beradi, sort() asl ro'yxatni tartiblaydi"
+    code: |
+      sonlar = [4, 1, 3, 2]
+      print(sorted(sonlar))
+      print(sonlar)
+      sonlar.sort()
+      print(sonlar)
+    output: |
+      [1, 2, 3, 4]
+      [4, 1, 3, 2]
+      [1, 2, 3, 4]
+    minutes: 2
+    notes: "Ikkala usul ham tartiblaydi: kichikdan kattaga. sorted(sonlar) yangi tartiblangan ro'yxat qaytaradi, asl ro'yxat esa o'zgarmaydi. sonlar.sort() asl ro'yxatning o'zini o'zgartiradi va hech narsa qaytarmaydi. Bu farq keyingi savolda kerak."
+
+  - type: predict
+    code: |
+      def ikkinchi_kichik(royxat):
+          royxat.sort()
+          return royxat[1]
+
+
+      sonlar = [4, 1, 3, 2]
+      print(ikkinchi_kichik(sonlar))
+      print(sonlar)
+    choices: ["2 va [4, 1, 3, 2]", "2 va [1, 2, 3, 4]", "1 va [1, 2, 3, 4]", "Xato"]
+    answer: "B — 2 va [1, 2, 3, 4]"
+    explanation: "sort() asl ro'yxatni ham tartiblab qo'ydi."
+    misconception: "funksiya ichidagi o'zgarish tashqaridagi ro'yxatga ta'sir qilmaydi deb o'ylash"
+    minutes: 2.5
+    notes: "Funksiya ikkinchi eng kichik sonni topdi, lekin sonlar ro'yxatini ham tartiblab yubordi. Funksiya chaqirgan odam buni kutmagan. Bunday kutilmagan o'zgarish yon ta'sir (side effect) deyiladi. Dastur kattalashganda bunday xatolarni topish juda qiyin."
+
+  - type: code
+    headline: "sorted() asl ro'yxatni saqlaydi: funksiya yon ta'sirsiz bo'ladi"
+    code: |
+      def ikkinchi_kichik(royxat):
+          nusxa = sorted(royxat)
+          return nusxa[1]
+
+
+      sonlar = [4, 1, 3, 2]
+      print(ikkinchi_kichik(sonlar))
+      print(sonlar)
+    output: |
+      2
+      [4, 1, 3, 2]
+    minutes: 2
+    notes: "Endi sorted() yangi ro'yxat yasadi, funksiya o'sha nusxani tartiblaydi, asl ro'yxat tegilmay qoldi. Qoida: funksiya o'ziga berilgan ro'yxatni o'zgartirmasin, agar aynan shu uning vazifasi bo'lmasa. Kerak bo'lsa, [:] yoki sorted() bilan nusxa oling."
+
+  - type: code
+    headline: "Ro'yxat parametr bo'lsa, funksiya istalgan sondagi ball uchun ishlaydi"
+    code: |
+      def ortacha(ballar):
+          jami = 0
+          for ball in ballar:
+              jami += ball
+          return jami / len(ballar)
+
+
+      print(ortacha([70, 85, 90]))
+      print(ortacha([70, 85, 90, 60]))
+    output: |
+      81.66666666666667
+      76.25
+    minutes: 1.5
+    notes: "Dars boshidagi uchinchi muammoning javobi. Bitta parametr — butun ro'yxat, ichida for bilan yig'indini hisoblaymiz va uzunlikka bo'lamiz. Uch ball uchun ham, to'rt ball uchun ham, yuz ball uchun ham funksiyani o'zgartirish shart emas."
+
+  - type: section
+    title: "To'plam"
+
+  - type: code
+    headline: "To'plam har bir qiymatni faqat bir marta saqlaydi"
+    code: |
+      shaharlar = {"Toshkent", "Samarqand", "Toshkent"}
+      print(len(shaharlar))
+      bosh = set()
+      print(len(bosh))
+    output: |
+      2
+      0
+    minutes: 2
+    notes: "To'plam figurali qavs bilan yoziladi. Toshkent ikki marta yozilgan, lekin to'plamda bir marta qoladi, shuning uchun uzunligi 2. Bo'sh to'plam set() bilan yaratiladi. Bo'sh figurali qavs {} to'plam emas, u boshqa kolleksiyani yaratadi, uni keyinroq o'rganamiz. To'plamni to'liq chiqarmadik: undagi tartib o'zgarib turishi mumkin."
+
+  - type: code
+    headline: "To'plamda tartib yo'q, shuning uchun indeks ham yo'q"
+    code: |
+      shaharlar = {"Toshkent", "Samarqand"}
+      print(shaharlar[0])
+    output: |
+      TypeError: 'set' object is not subscriptable
+    minutes: 1.5
+    notes: "To'plamda «birinchi» element degan tushuncha yo'q, shuning uchun [0], [-1] va kesim ishlamaydi. Xato xabaridagi «not subscriptable» — «kvadrat qavsni qo'llab-quvvatlamaydi» degani. To'plam bilan for va in ishlaydi, faqat tartib kafolatlanmagan."
+
+  - type: code
+    headline: "add qo'shadi, discard o'chiradi, yo'q qiymatda remove xato beradi"
+    code: |
+      shaharlar = {"Toshkent", "Samarqand"}
+      shaharlar.add("Buxoro")
+      shaharlar.add("Buxoro")
+      print(len(shaharlar))
+      print("Buxoro" in shaharlar)
+      shaharlar.discard("Xiva")
+      shaharlar.remove("Xiva")
+    output: |
+      3
+      True
+      KeyError: 'Xiva'
+    minutes: 2.5
+    notes: "add to'plamga qo'shadi, takroriy qo'shish hech narsani o'zgartirmaydi. in elementni tekshiradi. Yo'q elementni discard bilan o'chirsak, xato bo'lmaydi; remove esa KeyError beradi. Ro'yxatdagi remove bilan solishtiring: u ValueError berardi, bu yerda xato turi boshqacha, lekin g'oya bir xil."
+
+  - type: code
+    headline: "set() ro'yxatdagi takrorlarni olib tashlaydi"
+    code: |
+      kelganlar = ["Ali", "Vali", "Ali", "Hasan", "Vali", "Ali"]
+      print(len(kelganlar))
+      print(len(set(kelganlar)))
+    output: |
+      6
+      3
+    minutes: 2
+    notes: "To'plamning asosiy qo'llanilishi shu. Ro'yxatda 6 ta kelish yozilgan, lekin odam nechta? set(kelganlar) ro'yxatdan takrorlarsiz to'plam yasaydi, uning uzunligi — turli odamlar soni. Ro'yxat o'zgarmaydi, set() yangi to'plam yaratadi."
+
+  - type: predict
+    code: |
+      print(len({1, 2, 2, 3, 3, 3}))
+    choices: ["6", "3", "1", "Xato"]
+    answer: "B — 3"
+    explanation: "Takrorlar bir marta sanaladi: 1, 2, 3."
+    misconception: "to'plamda takrorlar ham saqlanadi deb o'ylash"
+    minutes: 2
+    notes: "Qavs ichiga yozilgan qiymatlarning hammasi emas, faqat turlilari sanaladi. 6 deganlar ro'yxat bilan adashtirgan. 1 deganlar «hammasi bir xil» deb o'ylagan. Savol bering: [1, 2, 2, 3, 3, 3] ro'yxati uchun uzunlik nechta bo'lardi? Javob: 6."
+
+  - type: livecode
+    title: "Mehmonlar ro'yxatini birga yozamiz"
+    file: mehmonlar.py
+    goals:
+      - "`append`, `remove` va `pop(0)` bilan ro'yxatni o'zgartirish"
+      - "`for` bilan qolganlarni chiqarish"
+      - "`set()` bilan turli odamlar sonini topish"
+    minutes: 5
+    notes: "Faqat izohlar yozilgan boshlang'ich fayldan boshlang. Ataylab ro'yxatda yo'q ismni remove bilan o'chirib ko'ring, ValueError ni birga o'qing va in bilan tekshiruv qo'shib tuzating. Oxirida kelganlar ro'yxatidan nechta turli odam borligini set bilan toping."
+
+  - type: activity
+    title: "Asl ro'yxatni o'zgartirmaydigan funksiya yozing"
+    file: qosh.py
+    pairs: true
+    steps:
+      - "Boshlang'ich `qosh(royxat)` funksiyasini ishga tushiring: `sonlar` ni qanday o'zgartirdi?"
+      - "Funksiyani o'zgartiring: `[:]` bilan nusxa olib, yangi ro'yxat qaytarsin"
+      - "Tekshiring: `print(sonlar)` → `[1, 2, 3]`, `print(yangi)` → `[1, 2, 3, 10]`"
+      - "Tez tugatdingizmi? 10 o'rniga ikkinchi parametr `son` qo'shing"
+    hint: "Birinchi qatorda yangi = royxat[:] yozing, append ni yangi ga qo'llang va yangi ni return qiling."
+    minutes: 4
+
+  - type: assertion
+    headline: "Ro'yxat o'zgaradi, kortej o'zgarmaydi, to'plam takrorlamaydi"
+    evidence:
+      kind: table
+      rows:
+        - ["", "Ro'yxat", "Kortej", "To'plam"]
+        - ["Qavs", "[ ]", "( )", "{ }"]
+        - ["O'zgaradi", "ha", "yo'q", "ha"]
+        - ["Tartib va indeks", "bor", "bor", "yo'q"]
+        - ["Takrorlar", "mumkin", "mumkin", "yo'q"]
+    minutes: 1
+    notes: "Bugungi uchta kolleksiyani bir jadvalda ko'ring. Talabalardan so'rang: mehmonlar ro'yxati uchun qaysi turni tanlaysiz? Koordinata uchun-chi? Kelganlar orasida turli odamlarni sanash uchun-chi? Javoblar: ro'yxat, kortej, to'plam."
+
+  - type: recap
+    points:
+      - "Ro'yxat ko'p qiymatni bitta nom ostida saqlaydi va indeks bilan o'zgaradi"
+      - "`append`, `insert` qo'shadi; `pop`, `del` indeks bo'yicha, `remove` qiymat bo'yicha o'chiradi"
+      - "Kortej o'zgarmaydi; to'plam takrorlarni saqlamaydi"
+      - "`b = a` nusxa emas, ikkinchi nom; nusxa uchun `a[:]`"
+    minutes: 1
+
+  - type: exit
+    minutes: 2
+    questions:
+      - "`a = [1, 2]`, `b = a`, `b.append(3)` dan keyin `print(a)` nimani chiqaradi?"
+      - "Ro'yxatdan \"Ali\" ni qiymati bo'yicha o'chiradigan yozuvni yozing."

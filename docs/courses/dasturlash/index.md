@@ -8,3 +8,4 @@
 - 2-hafta. Python dasturlashga kirish: [ma'ruza](week-02/lecture.md), [amaliyot](week-02/practice.md)
 - 3-hafta. Funksiyalar, shartlar, scope va turlar: [ma'ruza](week-03/lecture.md), [amaliyot](week-03/practice.md)
 - 4-hafta. Looplar va stringlar: [ma'ruza](week-04/lecture.md), [amaliyot](week-04/practice.md)
+- [5-hafta. Ro'yxatlar va kortejlar](week-05/lecture.md)
