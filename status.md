@@ -9,9 +9,9 @@ Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps t
 | 1. Dasturlashga kirish | done | — | 2026-10-19 |
 | 2. Python dasturlashga kirish | done | done (11 problems) | 2026-10-19 |
 | 3. Funksiyalar, shartlar, scope va turlar | done | done (16 problems) | 2026-10-19 |
-| 4. Looplar va stringlar | done (not published) | done (11 problems, not published) | — |
+| 4. Looplar va stringlar | done | done (11 problems) | 2026-10-19 |
 
-Last published 2026-10-19 (the latest commit on `main`; site on `gh-pages`).
+Last published 2026-10-19 (week 4, commit baec985; the latest commit on `main`; site on `gh-pages`).
 
 ## Done
 
@@ -24,7 +24,7 @@ Last published 2026-10-19 (the latest commit on `main`; site on `gh-pages`).
 - 2026-10-19: favicon changed to the new icon (`docs/assets/favicon.png`, set in `mkdocs.yml`); published 2026-10-19.
 - 2026-10-19: `/dasturlash-ppt` rewritten: Uzbek lecture decks (80 min, animated, projector colours) saved to `Lectures/N_Mavzu.pptx`; course settings in `Lectures/config.yaml`; specs in `Lectures/src/week-NN/lecture.yaml` (book excerpts, live-coding files and previews gitignored). `/lecture-page` reads these decks (`extract_slides.py --notes`). Pilot: lecture 3 "Funksiyalar" rebuilt from the week 3 slides → `Lectures/src/week-03/build/3_Funksiyalar_pilot.pptx` (not on the site).
 
-- 2026-10-19: week 4 lecture and practice pages written from `Lectures/4_Looplar va stringlar.pptx` (copy in `docs/downloads/dasturlash/week-04/`, with p1–p11.py); nav and index updated; not committed or published. The deck still has placeholders on the title and last slides (left as is).
+- 2026-10-19: week 4 lecture and practice pages written from `Lectures/4_Looplar va stringlar.pptx` (copy in `docs/downloads/dasturlash/week-04/`, with p1–p11.py); nav and index updated; published (baec985). The deck still has placeholders on the title and last slides (left as is).
 
 ## Next
 
