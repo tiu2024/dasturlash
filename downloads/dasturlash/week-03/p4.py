@@ -1,8 +1,8 @@
-salom = input("Yaxshimisan? ").lower()
+yosh = int(input("Yoshingiz: "))
 
-if salom.startswith("assalom"):
-    print("Mana senga $100")
-elif salom.startswith("salom"):
-    print("Mana senga $20")
+if yosh < 12:
+    print("Chipta narxi: 20 000 so'm")
+elif yosh < 60:
+    print("Chipta narxi: 40 000 so'm")
 else:
-    print("Ha zor!")
+    print("Chipta narxi: 25 000 so'm")

@@ -1,4 +1,4 @@
-habar = input("Nma? ")
+xabar = input("Nima? ")
 
-habar = habar.lower()
-print(habar)
+xabar = xabar.lower()
+print(xabar)

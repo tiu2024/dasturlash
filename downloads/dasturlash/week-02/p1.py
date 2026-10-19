@@ -1,2 +1,2 @@
-ism = input("Isming nma? ")
+ism = input("Ismingiz nima? ")
 print(f"Salom, {ism}")

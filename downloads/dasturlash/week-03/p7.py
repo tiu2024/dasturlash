@@ -1,6 +1,19 @@
-def yuza(uzunlik, eni):
-    print("Yuzi:", uzunlik * eni)
+kun = int(input("Kun raqami: "))
 
-a = int(input("Uzunlik: "))
-b = int(input("Eni: "))
-yuza(a, b)
+match kun:
+    case 1:
+        print("Dushanba")
+    case 2:
+        print("Seshanba")
+    case 3:
+        print("Chorshanba")
+    case 4:
+        print("Payshanba")
+    case 5:
+        print("Juma")
+    case 6:
+        print("Shanba")
+    case 7:
+        print("Yakshanba")
+    case _:
+        print("Bunday kun yo'q")

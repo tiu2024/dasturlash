@@ -397,17 +397,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#oquv-maqsadlari" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        O'quv maqsadlari
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#kompyuter-fani-muammolarni-hal-qilish" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -500,17 +489,6 @@
     <span class="md-ellipsis">
       
         Odatiy xatolar
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mashq-savollari" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mashq savollari
       
     </span>
   </a>
@@ -786,17 +764,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#oquv-maqsadlari" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        O'quv maqsadlari
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#kompyuter-fani-muammolarni-hal-qilish" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -895,17 +862,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#mashq-savollari" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mashq savollari
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -925,15 +881,6 @@
 
 <h1 id="1-hafta-dasturlashga-kirish">1-hafta. Dasturlashga kirish</h1>
 <p>Ma'ruza taqdimoti: <a href="../../../../downloads/dasturlash/week-01/dasturlash-ga-kirish.pptx">Dasturlashga kirish (PPTX)</a></p>
-<h2 id="oquv-maqsadlari">O'quv maqsadlari</h2>
-<p>Ushbu ma'ruzadan so'ng siz:</p>
-<ul>
-<li>kompyuter fanini "kirish → algoritm → chiqish" modeli orqali tushuntira olasiz;</li>
-<li>sonlarni ikkilik sanoq tizimida yozasiz va ikkilik sonni oddiy songa aylantirasiz;</li>
-<li>matn, rang va rasm kompyuterda sonlar bilan qanday ifodalanishini aytib bera olasiz;</li>
-<li>oddiy masala uchun algoritmni psevdokodda yoza olasiz;</li>
-<li>dasturlashning to'rt asosiy qurilish bloki — funksiya, shart, takrorlash va o'zgaruvchini ajrata olasiz.</li>
-</ul>
 <h2 id="kompyuter-fani-muammolarni-hal-qilish">Kompyuter fani — muammolarni hal qilish</h2>
 <p>Kompyuter fanining mohiyati — <strong>muammoni hal qilish</strong>. Muammo kirish ma'lumoti sifatida beriladi, uni hal qiluvchi <strong>algoritm</strong> "qora quti" vazifasini bajaradi, natija esa chiqish ma'lumoti bo'ladi.</p>
 <div class="highlight"><pre><span></span><code>kirish  →  algoritm  →  chiqish
@@ -1045,7 +992,7 @@
 65
 </code></pre></div>
 <p><code>chr(son)</code> son bo'yicha belgini, <code>ord(belgi)</code> esa belgi bo'yicha sonni qaytaradi.</p>
-<p>ASCII faqat ingliz alifbosi uchun yetarli. O'zbek, rus, xitoy tillaridagi harflar va boshqa belgilar uchun <strong>Unicode</strong> standarti yaratilgan. U ASCII dagi belgilarni saqlaydi va ularga boshqa ko'plab belgilarni, jumladan emojilarni qo'shadi. Emoji ham aslida son; har bir qurilma ishlab chiqaruvchisi uni o'zicha chizadi, shuning uchun u turli telefonlarda biroz farq qiladi.</p>
+<p>ASCII faqat ingliz alifbosi uchun yetarli. O'zbek, rus, xitoy tillaridagi harflar va boshqa belgilar uchun <strong>Unicode</strong> standarti yaratilgan. U ASCII'dagi belgilarni saqlaydi va ularga boshqa ko'plab belgilarni, jumladan emojilarni qo'shadi. Emoji ham aslida son; har bir qurilma ishlab chiqaruvchisi uni o'zicha chizadi, shuning uchun u turli telefonlarda biroz farq qiladi.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s2">"😀"</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">128512</span><span class="p">))</span>
 </code></pre></div>
@@ -1055,16 +1002,20 @@
 </code></pre></div>
 <h2 id="rang-rasm-video-va-musiqa">Rang, rasm, video va musiqa</h2>
 <p>Rang odatda <strong>RGB</strong> (<em>Red, Green, Blue</em>) usulida beriladi: qizil, yashil va ko'k tuslarning har biri uchun bir bayt, ya'ni 0 dan 255 gacha son. Demak, bitta nuqta (<strong>piksel</strong>) uchun uchta bayt kerak.</p>
-<p>Yuqoridagi <code>72, 73, 33</code> sonlari matn emas, rang sifatida talqin qilinsa, och sariq tusni bildiradi. Ma'lumotning ma'nosini uni qanday talqin qilishimiz belgilaydi.</p>
-<div class="highlight"><pre><span></span><code><span class="n">qizil</span><span class="p">,</span> <span class="n">yashil</span><span class="p">,</span> <span class="n">kok</span> <span class="o">=</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">33</span>
+<p>Yuqoridagi <code>72, 73, 33</code> sonlari matn emas, rang sifatida talqin qilinsa, to'q zaytun (sarg'ish-yashil) tusni bildiradi. Ma'lumotning ma'nosini uni qanday talqin qilishimiz belgilaydi.</p>
+<p>Python'da rangni qavs ichidagi uchta son bilan yozish mumkin: qizil, yashil, ko'k.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rang</span> <span class="o">=</span> <span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
 <span class="n">oq</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 <span class="n">qora</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">oq</span><span class="p">,</span> <span class="n">qora</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rang</span><span class="p">,</span> <span class="n">oq</span><span class="p">,</span> <span class="n">qora</span><span class="p">)</span>
+</code></pre></div>
+<p>Kutilgan natija:</p>
+<div class="highlight"><pre><span></span><code>(72, 73, 33) (255, 255, 255) (0, 0, 0)
 </code></pre></div>
 <ul>
 <li><strong>Rasm</strong> — piksellar to'plami, har bir piksel uchta son.</li>
 <li><strong>Video</strong> — ketma-ket almashadigan ko'plab rasmlar.</li>
-<li><strong>Musiqa</strong> — baytlar to'plami.</li>
+<li><strong>Musiqa</strong> — tovush to'lqinining har bir lahzadagi balandligini bildiruvchi sonlar ketma-ketligi (yoki notalar uchun: balandligi, davomiyligi va kuchi).</li>
 </ul>
 <p>Demak, kompyuterdagi hamma narsa — sonlar, sonlar esa — bitlar.</p>
 <h2 id="algoritmlar">Algoritmlar</h2>
@@ -1075,34 +1026,34 @@
 <li><strong>Ikkitalab</strong> ko'rish. Eng yomon holatda taxminan n/2 ta sahifa.</li>
 <li><strong>Daftarni o'rtasidan ochish</strong>: ism o'rtadan oldin bo'lsa, chap yarmini, aks holda o'ng yarmini qoldiramiz va jarayonni takrorlaymiz. Har qadamda ish ikki barobar kamayadi, shuning uchun qadamlar soni taxminan log₂ n.</li>
 </ol>
-<p>Uchinchi usul <strong>ikkilik qidiruv</strong> (<em>binary search</em>) deyiladi. 1000 sahifali daftar uchun birinchi usulda 1000 qadam, uchinchisida atigi 10 qadam yetadi. Algoritm samaradorligi shunday baholanadi: kirish hajmi kattalashganda qadamlar soni qanchalik tez o'sadi. Buning uchun <strong>O-katta (Big-O)</strong> belgilash ishlatiladi: birinchi usul O(n), ikkinchisi O(n/2), uchinchisi O(log₂ n).</p>
+<p>Uchinchi usul <strong>ikkilik qidiruv</strong> (<em>binary search</em>) deyiladi. 1000 sahifali daftar uchun birinchi usulda 1000 qadam, uchinchisida atigi 10 qadam yetadi. Algoritm samaradorligi shunday baholanadi: kirish hajmi kattalashganda qadamlar soni qanchalik tez o'sadi. Buning uchun <strong>O-katta (Big-O)</strong> belgilash ishlatiladi. Unda o'zgarmas ko'paytuvchilar tashlab yuboriladi, chunki muhimi — o'sish tezligi. Shuning uchun birinchi usul O(n), ikkinchisi taxminan n/2 qadam bo'lsa ham baribir O(n), uchinchisi esa O(log n).</p>
 <h2 id="psevdokod">Psevdokod</h2>
 <p><strong>Psevdokod</strong> — algoritmni odam tushunadigan tilda yozish usuli. U kod yozishdan oldin mantiqni aniqlashtiradi va boshqalarga niyatimizni tushuntirishga yordam beradi.</p>
 <p>Telefon daftarida ikkilik qidiruv:</p>
 <div class="highlight"><pre><span></span><code>1  Daftarni qo'lga oling
 2  Daftarni o'rtasidan oching
-3  Sahifaga qarang
-4  Agar ism sahifada bo'lsa
-5      Qo'ng'iroq qiling
-6  Aks holda agar ism o'rtadan oldin bo'lsa
-7      Daftarning chap yarmini oching
-8      3-qatorga qayting
-9  Aks holda agar ism o'rtadan keyin bo'lsa
-10     Daftarning o'ng yarmini oching
-11     3-qatorga qayting
-12 Aks holda
-13     Ish tugadi
+3  Agar ko'rib chiqiladigan sahifa qolmagan bo'lsa
+4      Ish tugadi: ism daftarda yo'q
+5  Sahifaga qarang
+6  Agar ism sahifada bo'lsa
+7      Qo'ng'iroq qiling va ishni tugating
+8  Aks holda agar ism shu sahifadan oldin bo'lsa
+9      Daftarning chap yarmining o'rtasini oching
+10     3-qatorga qayting
+11 Aks holda
+12     Daftarning o'ng yarmining o'rtasini oching
+13     3-qatorga qayting
 </code></pre></div>
+<p>Ism sahifada bo'lmasa, u yo shu sahifadan oldin, yo keyin bo'ladi. Shuning uchun oxirgi "aks holda" — "ism shu sahifadan keyin" degani. To'xtash sharti esa 3-qatorda: qidiriladigan sahifa qolmasa, ism daftarda yo'q.</p>
 <p>Bu yerda dasturlashning qurilish bloklari allaqachon ko'rinib turibdi:</p>
 <ul>
 <li><strong>Funksiyalar</strong> — bajariladigan harakatlar (fe'llar): "qo'lga oling", "oching", "qarang", "qo'ng'iroq qiling".</li>
-<li><strong>Shartlar</strong> — "agar … aks holda agar … aks holda" yo'llari.</li>
-<li><strong>Mantiqiy ifodalar</strong> — javobi "ha" (rost) yoki "yo'q" (yolg'on) bo'lgan savollar: "ism sahifada bormi?", "ism o'rtadan oldinmi?".</li>
+<li><strong>Shartlar</strong> — "agar … aks holda agar … aks holda" yo'llari. Shart <strong>mantiqiy ifoda</strong>ga, ya'ni javobi "ha" yoki "yo'q" bo'lgan savolga tayanadi: "sahifa qoldimi?", "ism sahifada bormi?", "ism shu sahifadan oldinmi?". Python'da "ha" <code>True</code> (to'g'ri), "yo'q" esa <code>False</code> (noto'g'ri) deb yoziladi.</li>
 <li><strong>Takrorlash (sikl)</strong> — "3-qatorga qayting".</li>
 </ul>
-<p>To'rtinchi blok — <strong>o'zgaruvchi</strong>: qiymatni nom ostida saqlash joyi. Psevdokodda u yo'q edi, lekin Python da ko'p ishlatiladi.</p>
+<p>To'rtinchi blok — <strong>o'zgaruvchi</strong>: qiymatni nom ostida saqlash joyi. Psevdokodda u yo'q edi, lekin Python'da ko'p ishlatiladi.</p>
 <h2 id="psevdokoddan-python-kodiga">Psevdokoddan Python kodiga</h2>
-<p>Xuddi shu g'oyani Python da yozamiz. Daftar o'rniga tartiblangan ismlar ro'yxatidan foydalanamiz:</p>
+<p>Xuddi shu g'oyani Python'da yozamiz. Daftar o'rniga tartiblangan ismlar ro'yxatidan foydalanamiz:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">ikkilik_qidiruv</span><span class="p">(</span><span class="n">ismlar</span><span class="p">,</span> <span class="n">ism</span><span class="p">):</span>
     <span class="n">chap</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">ong</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ismlar</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -1129,7 +1080,7 @@
 <p>Kodda to'rt blokning hammasi bor:</p>
 <ul>
 <li><code>ikkilik_qidiruv</code>, <code>len</code>, <code>print</code> — <strong>funksiyalar</strong>;</li>
-<li><code>if</code> / <code>elif</code> / <code>else</code> — <strong>shartlar</strong>; <code>==</code> va <code>&lt;</code> — mantiqiy ifodalar;</li>
+<li><code>if</code> / <code>elif</code> / <code>else</code> — <strong>shartlar</strong>; <code>chap &lt;= ong</code>, <code>ismlar[orta] == ism</code>, <code>ism &lt; ismlar[orta]</code> — mantiqiy ifodalar (<code>True</code> yoki <code>False</code> beradi);</li>
 <li><code>while</code> — <strong>takrorlash</strong>;</li>
 <li><code>chap</code>, <code>ong</code>, <code>orta</code> — <strong>o'zgaruvchilar</strong>.</li>
 </ul>
@@ -1140,20 +1091,12 @@
 <h2 id="odatiy-xatolar">Odatiy xatolar</h2>
 <ul>
 <li><strong>Ikkilik sonni o'qishda o'rinlarni adashtirish.</strong> O'ngdagi raqam eng kichik o'rin (1), chapga qarab 2, 4, 8 ... Masalan, <code>100</code> — to'rt, bir yuz emas.</li>
-<li><strong><code>A</code> va <code>a</code> ni bir xil deb o'ylash.</strong> ASCII da <code>A</code> = 65, <code>a</code> = 97.</li>
+<li><strong><code>A</code> va <code>a</code> ni bir xil deb o'ylash.</strong> ASCII'da <code>A</code> = 65, <code>a</code> = 97.</li>
 <li><strong>Raqam belgisi bilan sonni adashtirish.</strong> <code>"5"</code> belgi (ASCII 53), <code>5</code> esa son.</li>
 <li><strong>Ikkilik qidiruvni tartiblanmagan ro'yxatda qo'llash.</strong> Natija noto'g'ri chiqadi.</li>
 <li><strong>Psevdokodda "3-qatorga qayting" ni unutish.</strong> Takrorlashsiz algoritm faqat bir marta ishlaydi.</li>
+<li><strong>To'xtash shartini unutish.</strong> Ism daftarda bo'lmasa, "sahifa qolmadi" sharti bo'lmagan algoritm hech qachon tugamaydi.</li>
 </ul>
-<h2 id="mashq-savollari">Mashq savollari</h2>
-<ol>
-<li><code>00001010</code> ikkilik soni o'nlikda nechaga teng? Python da tekshiring.</li>
-<li>12 sonini 8 bitli ikkilik ko'rinishda yozing.</li>
-<li>Bir bayt bilan nechta turli qiymatni ifodalash mumkin?</li>
-<li><code>67 83 53 48</code> sonlari ASCII bo'yicha qaysi matnni beradi? <code>chr</code> bilan tekshiring.</li>
-<li>1000 sahifali daftarda ikkilik qidiruv eng ko'pi bilan nechta qadam qiladi? 1 000 000 sahifada-chi?</li>
-<li>Ro'yxatdagi eng katta sonni topish algoritmini psevdokodda yozing. Unda qaysi qurilish bloklari ishlatildi?</li>
-</ol>
 
 
 

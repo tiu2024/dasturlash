@@ -1,23 +1,19 @@
 def main():
-    narh = narh_to(input("Qancha boldi? "))
-    foiz = foiz_to(input("Nechi foiz? "))
+    narx = narxga_aylantir(input("Qancha bo'ldi? "))
+    foiz = foizga_aylantir(input("Necha foiz? "))
 
-    tip = narh * foiz
+    tip = narx * foiz
 
     print(f"Tip: {tip:.2f}")
 
 
-
-def narh_to(n):
-
+def narxga_aylantir(n):
     n = n.strip("$")
-
     return float(n)
 
-def foiz_to(f):
 
+def foizga_aylantir(f):
     f = f.strip("%")
-
     return float(f) / 100
 
 

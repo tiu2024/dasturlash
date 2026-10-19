@@ -1076,64 +1076,22 @@ Hali ovoz bera olmaysiz
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Hali ovoz bera olmaysiz"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p8.py">p8.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p1.py">p1.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>if shart:</code> — <strong>shartli operator</strong>. <code>shart</code> to'g'ri (<code>True</code>) bo'lsa, ostidagi (chekinish bilan yozilgan) qatorlar bajariladi. Shart oxiridagi <code>:</code> va keyingi qatorlardagi chekinish (4 ta probel) majburiy.</li>
-<li>
-<p><code>yosh &gt;= 18</code> — <strong>taqqoslash</strong> ifodasi. Natijasi <code>True</code> yoki <code>False</code> bo'ladi. Python'dagi taqqoslash operatorlari:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Operator</th>
-<th>Ma'nosi</th>
-<th>Misol</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><code>==</code></td>
-<td>teng</td>
-<td><code>yosh == 18</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>!=</code></td>
-<td>teng emas</td>
-<td><code>yosh != 18</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>&gt;</code></td>
-<td>katta</td>
-<td><code>yosh &gt; 18</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>&lt;</code></td>
-<td>kichik</td>
-<td><code>yosh &lt; 18</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>&gt;=</code></td>
-<td>katta yoki teng</td>
-<td><code>yosh &gt;= 18</code></td>
-</tr>
-<tr>
-<td style="text-align: center;"><code>&lt;=</code></td>
-<td>kichik yoki teng</td>
-<td><code>yosh &lt;= 18</code></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><code>else:</code> — shart <strong>to'g'ri bo'lmaganda</strong> bajariladigan qism. Ikki blokdan <strong>faqat bittasi</strong> ishlaydi.</p>
-</li>
-<li><code>=</code> va <code>==</code> ni adashtirmang: <code>=</code> qiymat <strong>beradi</strong> (<code>yosh = 18</code>), <code>==</code> esa qiymatlarni <strong>solishtiradi</strong> (<code>yosh == 18</code>).</li>
+<li><code>if shart:</code> — <strong>shartli operator</strong>. <code>shart</code> <code>True</code> bo'lsa, ostidagi (chekinish bilan yozilgan) qatorlar bajariladi. Shart oxiridagi <code>:</code> va keyingi qatorlardagi chekinish (4 ta probel) majburiy.</li>
+<li><code>yosh &gt;= 18</code> — <strong>taqqoslash</strong> ifodasi. Natijasi <code>True</code> yoki <code>False</code> bo'ladi. Barcha taqqoslash operatorlari <a href="../lecture/#taqqoslash-operatorlari">ma'ruzada</a> jadvalda berilgan.</li>
+<li><code>else:</code> — shart <code>False</code> bo'lganda bajariladigan qism. Ikki blokdan <strong>faqat bittasi</strong> ishlaydi.</li>
 <li><strong>Chegaraviy qiymat.</strong> <code>&gt;=</code> tufayli aynan <code>18</code> yoshli odam ovoz bera oladi. <code>&gt;</code> yozilsa, 18 yoshli ham "Hali ovoz bera olmaysiz" javobini olardi. Shartlarni har doim chegara qiymatlarida (<code>17</code>, <code>18</code>) tekshiring.</li>
 <li><code>int(input(...))</code> — yosh son sifatida solishtirilishi uchun matn butun songa aylantirilgan.</li>
 </ul>
 </details>
 <h2 id="2-son-musbatmi">2. Son musbatmi?</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: sonni so'raydi va u noldan katta bo'lsa "Musbat", aks holda "Manfiy" deb javob beradi.</p>
+<div class="admonition question">
+<p class="admonition-title">Diqqat</p>
+<p>Bu masalaning sharti ataylab xato qo'yilgan. Oxirgi namunaga qarang: nol uchun javob to'g'rimi? Yechimni ochishdan oldin xatoni o'zingiz topishga harakat qiling.</p>
+</div>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Son kiriting: 5
 Musbat
@@ -1153,16 +1111,16 @@ Manfiy
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Manfiy"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p9.py">p9.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p2.py">p2.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li>Dastur <code>5</code> va <code>-3</code> uchun to'g'ri ishlaydi, lekin <code>0</code> uchun <strong>noto'g'ri</strong>: nol musbat ham, manfiy ham emas, ammo <code>son &gt; 0</code> shartiga tushmagani uchun <code>else</code> ishlaydi va "Manfiy" chiqadi.</li>
+<li>Dastur <code>5</code> va <code>-3</code> uchun to'g'ri ishlaydi, lekin <code>0</code> uchun <strong>noto'g'ri</strong>: nol musbat ham, manfiy ham emas, ammo <code>son &gt; 0</code> sharti <code>False</code> bo'lgani uchun <code>else</code> ishlaydi va "Manfiy" chiqadi.</li>
 <li>Bu <strong>mantiqiy xato</strong> (<em>logic error</em>): dastur xatosiz ishlaydi, lekin noto'g'ri natija beradi. Bunday xatolarni faqat turli qiymatlar, ayniqsa <strong>chegaraviy qiymatlar</strong> (<code>0</code>, <code>1</code>, <code>-1</code>) bilan sinash orqali topish mumkin.</li>
 <li>Keyingi masalada xato <code>elif</code> yordamida tuzatiladi.</li>
 </ul>
 </details>
 <h2 id="3-musbat-manfiy-yoki-nol">3. Musbat, manfiy yoki nol</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: oldingi masalani to'g'rilang: nol uchun "Nol" javobi ham chiqsin.</p>
+<p><strong>Masala.</strong> Oldingi masaladagi dasturni to'g'rilang: nol uchun "Nol" javobi chiqsin.</p>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Son kiriting: 8
 Musbat
@@ -1184,17 +1142,21 @@ Nol
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Nol"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p10.py">p10.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p3.py">p3.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>elif</code> ("else if") — oldingi shart bajarilmaganda <strong>yana bir shartni</strong> tekshiradi. Shartlar <strong>yuqoridan pastga</strong> tekshiriladi va <strong>birinchi to'g'ri chiqqan</strong> blokgina bajariladi; qolganlari o'tkazib yuboriladi.</li>
-<li>Oxirgi <code>else</code> — yuqoridagi hech bir shart to'g'ri bo'lmaganda ishlaydi. Bu yerda <code>son &gt; 0</code> ham, <code>son &lt; 0</code> ham yolg'on bo'lsa, demak son <code>0</code> ga teng.</li>
-<li>Struktura: bitta <code>if</code>, istalgancha <code>elif</code> va ixtiyoriy bitta <code>else</code>.</li>
+<li><code>elif</code> ("else if") — oldingi shart <code>False</code> bo'lganda <strong>yana bir shartni</strong> tekshiradi. Shartlar <strong>yuqoridan pastga</strong> tekshiriladi va sharti <code>True</code> bo'lgan <strong>birinchi</strong> blokgina bajariladi; qolganlari o'tkazib yuboriladi.</li>
+<li>Oxirgi <code>else</code> — yuqoridagi hech bir shart <code>True</code> bo'lmaganda ishlaydi. Bu yerda <code>son &gt; 0</code> ham, <code>son &lt; 0</code> ham <code>False</code> bo'lsa, demak son <code>0</code> ga teng.</li>
 <li>2-masalada nol noto'g'ri javob olgan edi; endi <code>0</code> uchun <code>Nol</code> chiqadi.</li>
 </ul>
 </details>
 <h2 id="4-teatr-chiptasi">4. Teatr chiptasi</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: yoshga qarab chipta narxini chiqaradi: 12 yoshgacha — 20 000, 12 dan 60 gacha — 40 000, 60 va undan kattalar — 25 000 so'm.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: yoshga qarab chipta narxini chiqaradi:</p>
+<ul>
+<li>0–11 yosh — 20 000 so'm;</li>
+<li>12–59 yosh — 40 000 so'm;</li>
+<li>60 yosh va undan katta — 25 000 so'm.</li>
+</ul>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Yoshingiz: 8
 Chipta narxi: 20 000 so'm
@@ -1216,16 +1178,21 @@ Chipta narxi: 25 000 so'm
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Chipta narxi: 25 000 so'm"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p13.py">p13.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p4.py">p4.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li>Shartlar yuqoridan pastga tekshiriladi, shuning uchun <code>elif yosh &lt; 60</code> ga yetib kelgan odam allaqachon <code>yosh &lt; 12</code> shartidan o'tmagan, ya'ni <code>yosh &gt;= 12</code>. Shu sababli <code>yosh &gt;= 12 and yosh &lt; 60</code> deb yozish shart emas.</li>
+<li>Shartlar yuqoridan pastga tekshiriladi. Dastur <code>elif yosh &lt; 60</code> gacha yetib kelgan bo'lsa, <code>yosh &lt; 12</code> sharti <code>False</code> chiqqan, ya'ni <code>yosh &gt;= 12</code>. Shu sababli <code>yosh &gt;= 12 and yosh &lt; 60</code> deb yozish shart emas.</li>
 <li>Oraliqlar chegaralari: <code>11</code> → 20 000; <code>12</code> → 40 000; <code>59</code> → 40 000; <code>60</code> → 25 000. Chegaralar <code>&lt;</code> bilan yozilgani uchun 12 yoshli bolalar toifasiga kirmaydi, 60 yoshli esa uchinchi toifaga kiradi.</li>
 <li>Shartlar tartibi muhim: agar <code>yosh &lt; 60</code> ni birinchi yozsak, 5 yoshli bola ham 40 000 to'laydi.</li>
 </ul>
 </details>
 <h2 id="5-yetkazib-berish-narxi">5. Yetkazib berish narxi</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: posilka og'irligiga qarab yetkazib berish narxini chiqaradi: 1 kg gacha — 15 000, 5 kg gacha — 30 000, undan og'ir bo'lsa — 50 000 so'm.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: posilka og'irligini (butun son, kg) so'raydi va yetkazib berish narxini chiqaradi:</p>
+<ul>
+<li>1 kg va undan yengil — 15 000 so'm;</li>
+<li>1 kg dan og'ir, lekin 5 kg dan oshmasa — 30 000 so'm;</li>
+<li>5 kg dan og'ir — 50 000 so'm.</li>
+</ul>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Og'irligi (kg): 1
 Yetkazib berish: 15 000 so'm
@@ -1247,7 +1214,7 @@ Yetkazib berish: 50 000 so'm
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Yetkazib berish: 50 000 so'm"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p14.py">p14.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p5.py">p5.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li>Bu 4-masaladagi usulning o'zi: shartlar o'sish tartibida yoziladi, har bir keyingi <code>elif</code> oldingisining "davomi" bo'ladi.</li>
@@ -1298,17 +1265,17 @@ Bunday oy yo'q
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday oy yo'q"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p11.py">p11.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p6.py">p6.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li>Ko'p <code>elif</code> ketma-ketligi: har bir raqam alohida tekshiriladi, tegishli blok topilganda qolganlari tekshirilmaydi.</li>
-<li><code>oy == 3</code> — son bilan taqqoslash; <code>oy</code> <code>int()</code> bilan songa aylantirilgan. Agar <code>int()</code> bo'lmasa, <code>"3" == 3</code> <strong>yolg'on</strong> bo'lar edi, chunki matn va son — har xil turlar.</li>
+<li><code>oy == 3</code> — son bilan taqqoslash; <code>oy</code> <code>int()</code> bilan songa aylantirilgan. Agar <code>int()</code> bo'lmasa, <code>"3" == 3</code> <code>False</code> bo'lar edi, chunki matn va son — har xil turlar.</li>
 <li>Oxirgi <code>else</code> — "himoya" vazifasini bajaradi: <code>0</code>, <code>13</code>, <code>-5</code> kabi noto'g'ri qiymatlarni ushlaydi. Foydalanuvchi kiritishi mumkin bo'lgan <strong>barcha</strong> holatlarni o'ylab ko'rish yaxshi odat.</li>
-<li>Bunday uzun zanjir ishlaydi, ammo takrorlanuvchi. Keyinchalik shunday masalalarni qisqaroq usullar bilan yechishni o'rganamiz.</li>
+<li>Bunday uzun zanjir ishlaydi, ammo takrorlanuvchi. Bitta o'zgaruvchining aniq qiymatlari tekshirilganda <a href="../lecture/#match"><code>match</code></a> qulayroq — keyingi masalada shu usul ishlatiladi.</li>
 </ul>
 </details>
 <h2 id="7-hafta-kuni">7. Hafta kuni</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: kun raqamini (1–7) so'raydi va hafta kuni nomini chiqaradi. Boshqa raqam uchun "Bunday kun yo'q" deb javob beradi.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: kun raqamini (1–7) so'raydi va <code>match</code> yordamida hafta kuni nomini chiqaradi. Boshqa raqam uchun "Bunday kun yo'q" deb javob beradi.</p>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Kun raqami: 1
 Dushanba
@@ -1323,28 +1290,32 @@ Bunday kun yo'q
 <summary>Yechim</summary>
 <div class="highlight"><pre><span></span><code><span class="n">kun</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Kun raqami: "</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Dushanba"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Seshanba"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Chorshanba"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Payshanba"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Juma"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Shanba"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">kun</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Yakshanba"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday kun yo'q"</span><span class="p">)</span>
+<span class="k">match</span> <span class="n">kun</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Dushanba"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Seshanba"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Chorshanba"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Payshanba"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Juma"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Shanba"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Yakshanba"</span><span class="p">)</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday kun yo'q"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p12.py">p12.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p7.py">p7.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li>Oldingi masala bilan bir xil g'oya: raqam bo'yicha <code>elif</code> zanjiri va noto'g'ri qiymatlar uchun <code>else</code>.</li>
+<li><code>match kun:</code> — <code>kun</code> qiymati har bir <code>case</code> bilan yuqoridan pastga solishtiriladi; birinchi mos kelgan <code>case</code> bloki bajariladi.</li>
+<li><code>case _:</code> — hech bir variantga mos kelmaganda ishlaydi (<code>else</code> kabi) va <code>0</code>, <code>8</code> kabi noto'g'ri qiymatlarni ushlaydi.</li>
+<li>Natija 6-masaladagi <code>elif</code> zanjiri bilan bir xil, lekin <code>kun ==</code> har qatorda takrorlanmaydi.</li>
 <li>Chegaralarni sinang: <code>1</code> (Dushanba), <code>7</code> (Yakshanba), <code>0</code> va <code>8</code> (xato qiymatlar).</li>
+<li><code>match</code> Python 3.10 dan boshlab mavjud.</li>
 </ul>
 </details>
 <h2 id="8-uchta-sondan-eng-kattasi">8. Uchta sondan eng kattasi</h2>
@@ -1373,13 +1344,12 @@ Eng kattasi: 7
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Eng kattasi:"</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p15.py">p15.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p8.py">p8.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>and</code> — <strong>mantiqiy "va"</strong>: ikkala shart ham to'g'ri bo'lsa, natija <code>True</code>. <code>a &gt;= b and a &gt;= c</code> — "<code>a</code> <code>b</code> dan ham, <code>c</code> dan ham kichik emas".</li>
-<li>Agar birinchi shart (<code>a</code> eng katta) bajarilmasa, <code>a</code> aniq eng katta emas. Qolgan ikki son orasidan kattasini tanlash uchun bitta taqqoslash — <code>b &gt;= c</code> — yetarli: to'g'ri bo'lsa <code>b</code>, aks holda <code>c</code>.</li>
+<li><code>and</code> — <strong>mantiqiy "va"</strong>: ikkala shart ham <code>True</code> bo'lsa, natija <code>True</code>. <code>a &gt;= b and a &gt;= c</code> — "<code>a</code> <code>b</code> dan ham, <code>c</code> dan ham kichik emas".</li>
+<li>Birinchi shart <code>False</code> bo'lsa, <code>b</code> yoki <code>c</code> <code>a</code> dan katta, demak eng kattasi shu ikkisidan biri. Ularni tanlash uchun bitta taqqoslash — <code>b &gt;= c</code> — yetarli: <code>True</code> bo'lsa <code>b</code>, aks holda <code>c</code>.</li>
 <li><code>&gt;=</code> ishlatilgani uchun teng sonlar ham to'g'ri ishlaydi: <code>7, 7, 2</code> → <code>7</code>; <code>4, 4, 4</code> → <code>4</code>.</li>
-<li>Mantiqiy operatorlar: <code>and</code> ("va"), <code>or</code> ("yoki"), <code>not</code> ("emas").</li>
 </ul>
 </details>
 <h2 id="9-tosh-qaychi-qogoz">9. Tosh, qaychi, qog'oz</h2>
@@ -1413,51 +1383,51 @@ Durang
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"2-o'yinchi yutdi"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p16.py">p16.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p9.py">p9.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li>Matnlar ham <code>==</code> bilan solishtiriladi: <code>o1 == o2</code> ikkala o'yinchi bir xil narsa tanlaganini tekshiradi → durang.</li>
 <li>Birinchi o'yinchi yutadigan uchta holat: tosh qaychini, qaychi qog'ozni, qog'oz toshni yengadi. Ularning har biri <code>and</code> bilan yoziladi: ikkala o'yinchining tanlovi <strong>bir vaqtda</strong> mos kelishi kerak.</li>
 <li><code>else</code> — qolgan holatlar: durang ham emas, birinchi o'yinchi ham yutmagan → ikkinchi o'yinchi yutdi.</li>
 <li>Matn solishtirish <strong>katta-kichik harfni va aniq belgilarni</strong> hisobga oladi: <code>Tosh</code> yoki <code>tosh</code> (oxirida probel bilan) kiritilsa, shart bajarilmaydi. <code>qog'oz</code> dagi apostrof ham aynan shunday yozilishi kerak. Kiritilgan matnni <code>.strip().lower()</code> bilan tozalash yaxshi usul.</li>
-<li>Dastur noto'g'ri so'zlarni tekshirmaydi: masalan, <code>tosh</code> va <code>salom</code> kiritilsa, ham <code>else</code> ishlab, "2-o'yinchi yutdi" chiqadi.</li>
+<li>Dastur noto'g'ri so'zlarni tekshirmaydi: masalan, <code>tosh</code> va <code>salom</code> kiritilsa ham, <code>else</code> ishlaydi va "2-o'yinchi yutdi" chiqadi.</li>
 </ul>
 </details>
 <h2 id="10-parol-tekshiruvi">10. Parol tekshiruvi</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: parolni so'raydi. Parol <code>42</code>, <code>qirriq ikki</code> yoki <code>qirriq-ikki</code> bo'lsa (harf registridan qat'i nazar), "Togri parol", aks holda "Notogri parol" deb javob beradi.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: parolni so'raydi. Parol <code>42</code>, <code>qirq ikki</code> yoki <code>qirq-ikki</code> bo'lsa (harf registridan qat'i nazar), "To'g'ri parol", aks holda "Noto'g'ri parol" deb javob beradi.</p>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Parol? 42
-Togri parol
+To'g'ri parol
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Parol? Qirriq Ikki
-Togri parol
+<div class="highlight"><pre><span></span><code>Parol? Qirq Ikki
+To'g'ri parol
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Parol? 12345
-Notogri parol
+Noto'g'ri parol
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
 <div class="highlight"><pre><span></span><code><span class="n">parol</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Parol? "</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">parol</span> <span class="o">==</span> <span class="s2">"42"</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Togri parol"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">parol</span> <span class="o">==</span> <span class="s2">"qirriq ikki"</span> <span class="ow">or</span> <span class="n">parol</span> <span class="o">==</span> <span class="s2">"qirriq-ikki"</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Togri parol"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"To'g'ri parol"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">parol</span> <span class="o">==</span> <span class="s2">"qirq ikki"</span> <span class="ow">or</span> <span class="n">parol</span> <span class="o">==</span> <span class="s2">"qirq-ikki"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"To'g'ri parol"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Notogri parol"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Noto'g'ri parol"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p3.py">p3.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p10.py">p10.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>.lower()</code> — kiritilgan matnni kichik harflarga o'tkazadi, shuning uchun <code>Qirriq Ikki</code>, <code>QIRRIQ IKKI</code> va <code>qirriq ikki</code> bir xil hisoblanadi.</li>
-<li><code>or</code> — <strong>mantiqiy "yoki"</strong>: ikki shartdan kamida bittasi to'g'ri bo'lsa, natija <code>True</code>. Parolning ikki yozilishidan istalgani qabul qilinadi.</li>
-<li><code>parol == "42"</code> — bu yerda <code>"42"</code> <strong>matn</strong>, chunki <code>input()</code> matn qaytaradi. <code>parol == 42</code> yolg'on bo'lardi.</li>
-<li>Odatiy xato: <code>parol == "qirriq ikki" or "qirriq-ikki"</code> yozish. Bu <strong>har doim to'g'ri</strong> bo'ladi, chunki bo'sh bo'lmagan matn Python'da <code>True</code> hisoblanadi. Har bir taqqoslashni to'liq yozing: <code>parol == "a" or parol == "b"</code>.</li>
+<li><code>.lower()</code> — kiritilgan matnni kichik harflarga o'tkazadi, shuning uchun <code>Qirq Ikki</code>, <code>QIRQ IKKI</code> va <code>qirq ikki</code> bir xil hisoblanadi.</li>
+<li><code>or</code> — <strong>mantiqiy "yoki"</strong>: ikki shartdan kamida bittasi <code>True</code> bo'lsa, natija <code>True</code>. Parolning ikki yozilishidan istalgani qabul qilinadi.</li>
+<li><code>parol == "42"</code> — bu yerda <code>"42"</code> <strong>matn</strong>, chunki <code>input()</code> matn qaytaradi. <code>parol == 42</code> <code>False</code> bo'lardi.</li>
+<li>Odatiy xato: <code>parol == "qirq ikki" or "qirq-ikki"</code> yozish. Bu <strong>har doim</strong> <code>True</code> bo'ladi, chunki bo'sh bo'lmagan satr Python'da <code>True</code> hisoblanadi (<a href="../lecture/#bool">ma'ruzaga qarang</a>). Har bir taqqoslashni to'liq yozing: <code>parol == "a" or parol == "b"</code>.</li>
 <li>Ikkala to'g'ri variantda ham bir xil xabar chiqadi; shartlarni <code>or</code> bilan birlashtirib, bitta <code>if</code> ga ham yozish mumkin edi.</li>
 </ul>
 </details>
 <h2 id="11-salomga-mukofot">11. Salomga mukofot</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: "Yaxshimisan?" deb so'raydi. Javob "assalom" bilan boshlansa — "Mana senga $100", "salom" bilan boshlansa — "Mana senga $20", aks holda "Ha zor!" deb javob beradi.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: "Yaxshimisan?" deb so'raydi. Javob "assalom" bilan boshlansa — "Mana senga $100", "salom" bilan boshlansa — "Mana senga $20", aks holda "Ha, zo'r!" deb javob beradi.</p>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Yaxshimisan? Assalomu alaykum
 Mana senga $100
@@ -1466,7 +1436,7 @@ Mana senga $100
 Mana senga $20
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Yaxshimisan? Yaxshi
-Ha zor!
+Ha, zo'r!
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
@@ -1477,15 +1447,15 @@ Ha zor!
 <span class="k">elif</span> <span class="n">salom</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"salom"</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Mana senga $20"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Ha zor!"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Ha, zo'r!"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p4.py">p4.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p11.py">p11.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li><code>satr.startswith(boshi)</code> — satr berilgan matn bilan <strong>boshlansa</strong> <code>True</code>, aks holda <code>False</code> qaytaradi. <code>"assalomu alaykum".startswith("assalom")</code> → <code>True</code>.</li>
 <li>Shuning uchun <code>Assalomu alaykum</code>, <code>Assalom!</code> yoki <code>assalom</code> — barchasi mos keladi: butun so'zni emas, faqat boshlanishini tekshiramiz.</li>
 <li><code>.lower()</code> ni zanjirda oldindan chaqirib, <code>Salom</code> va <code>SALOM</code> ni ham ushlaymiz.</li>
-<li>Teskarisini tekshiradigan metod ham bor: <code>satr.endswith(oxiri)</code>. Uni 15-masalada ko'ramiz.</li>
+<li>Uning juft metodi ham bor: <code>satr.endswith(oxiri)</code> satr berilgan matn bilan <strong>tugashini</strong> tekshiradi. Uni 15-masalada ko'ramiz.</li>
 <li><code>startswith</code> <code>True</code> / <code>False</code> qaytargani uchun u to'g'ridan-to'g'ri <code>if</code> / <code>elif</code> ichida ishlatiladi.</li>
 </ul>
 </details>
@@ -1493,217 +1463,201 @@ Ha zor!
 <p><strong>Masala.</strong> Shunday dastur yozing: "son amal son" ko'rinishidagi ifodani (masalan, <code>3 + 4</code>) oladi va natijani chiqaradi. Nolga bo'lishda va noma'lum amalda xabar beradi.</p>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Amal: 3 + 4
-Natjia: 7.0
+Natija: 7.0
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Amal: 10 / 4
 Natija: 2.5
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Amal: 5 / 0
-O ga bolb bolmaydi!
+0 ga bo'lib bo'lmaydi!
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Amal: 5 ^ 2
-Bunday amal yoq!
+Bunday amal yo'q!
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Amal: "</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">amal</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Amal: "</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="s1">'+'</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Natjia:"</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="s2">"-"</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="s2">"*"</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="s2">"/"</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"O ga bolb bolmaydi!"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">amal</span> <span class="o">==</span> <span class="s2">"+"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">amal</span> <span class="o">==</span> <span class="s2">"-"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">amal</span> <span class="o">==</span> <span class="s2">"*"</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">amal</span> <span class="o">==</span> <span class="s2">"/"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"0 ga bo'lib bo'lmaydi!"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Natija:"</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday amal yoq!"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday amal yo'q!"</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p5.py">p5.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p12.py">p12.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>x, y, z = input("Amal: ").split()</code> — kiritilgan satr bo'sh joylar bo'yicha uch bo'lakka ajratiladi: <code>"3 + 4"</code> → <code>"3"</code>, <code>"+"</code>, <code>"4"</code>. Ular mos ravishda <code>x</code>, <code>y</code>, <code>z</code> ga saqlanadi. Shuning uchun foydalanuvchi sonlar va amalni <strong>probellar bilan</strong> yozishi shart: <code>3+4</code> (probelsiz) xato beradi (<code>ValueError</code>).</li>
-<li><code>x = float(x)</code>, <code>z = float(z)</code> — sonlar <code>float</code> ga aylantiriladi, shunda butun va kasr sonlar bilan ishlaydi. Amal belgisi <code>y</code> matn bo'lib qoladi.</li>
-<li>Har bir <code>elif</code> amal belgisini matn sifatida tekshiradi: <code>y == "-"</code>.</li>
-<li><strong>Ichma-ich shart.</strong> <code>/</code> tarmog'ida yana bir <code>if</code> bor: avval <code>z == 0</code> tekshiriladi, shundagina bo'lish bajariladi. Nolga bo'lishning oldini olish uchun shu zarur.</li>
+<li><code>a, amal, b = input("Amal: ").split()</code> — kiritilgan satr bo'sh joylar bo'yicha uch bo'lakka ajratiladi: <code>"3 + 4"</code> → <code>"3"</code>, <code>"+"</code>, <code>"4"</code>. Ular mos ravishda <code>a</code>, <code>amal</code>, <code>b</code> ga saqlanadi. Shuning uchun foydalanuvchi sonlar va amalni <strong>probellar bilan</strong> yozishi shart: <code>3+4</code> (probelsiz) xato beradi (<code>ValueError</code>).</li>
+<li><code>a = float(a)</code>, <code>b = float(b)</code> — sonlar <code>float</code> ga aylantiriladi, shunda butun va kasr sonlar bilan ishlaydi. Amal belgisi <code>amal</code> matn bo'lib qoladi.</li>
+<li>Har bir <code>elif</code> amal belgisini matn sifatida tekshiradi: <code>amal == "-"</code>.</li>
+<li><strong>Ichma-ich shart.</strong> <code>/</code> tarmog'ida yana bir <code>if</code> bor: avval <code>b == 0</code> tekshiriladi, shundagina bo'lish bajariladi. Nolga bo'lishning oldini olish uchun shu zarur.</li>
 <li>Natija <code>float</code> bo'lgani uchun <code>3 + 4</code> → <code>7.0</code> chiqadi.</li>
 <li><code>else</code> — noma'lum amal (<code>^</code>, <code>%</code> va boshqalar) uchun.</li>
-<li><code>*</code> tarmog'idagi chekinish boshqalardan kattaroq: Python buni qabul qiladi, chunki blok ichida chekinish izchil. Lekin o'qishni osonlashtirish uchun doim bir xil, 4 probelli chekinishdan foydalaning.</li>
 </ul>
 </details>
 <h2 id="13-valyuta-ayirboshlash">13. Valyuta ayirboshlash</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: foydalanuvchiga menyu ko'rsatadi (1 — dollar olish, 2 — dollar berish), tanlov bo'yicha so'ralgan miqdorni hisoblaydi.</p>
+<p><strong>Masala.</strong> Bank dollarni 12 010 so'mdan sotadi va 11 500 so'mdan sotib oladi. Shunday dastur yozing: menyu ko'rsatadi va tanlov bo'yicha hisoblaydi:</p>
+<ul>
+<li><code>1</code> — dollar sotib olish: foydalanuvchi so'm miqdorini kiritadi, dastur unga necha butun dollar berilishini chiqaradi;</li>
+<li><code>2</code> — dollar sotish: foydalanuvchi dollar miqdorini kiritadi, dastur unga necha so'm berilishini chiqaradi;</li>
+<li>boshqa tanlov uchun "Bunday tanlov yo'q." deb javob beradi.</li>
+</ul>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Dollar olish uchun 1ni bos.
-Dollar berish uchun 2ni bos.
+<div class="highlight"><pre><span></span><code>Dollar sotib olish uchun 1 ni bosing.
+Dollar sotish uchun 2 ni bosing.
 Tanlov? 1
-Qancha som bor? 120100
-Shuncha boladi: 10. Kurs = 12010
+Qancha so'mingiz bor? 120100
+Siz 10 dollar olasiz. Kurs: 12010
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Dollar olish uchun 1ni bos.
-Dollar berish uchun 2ni bos.
+<div class="highlight"><pre><span></span><code>Dollar sotib olish uchun 1 ni bosing.
+Dollar sotish uchun 2 ni bosing.
 Tanlov? 2
-Qancha dollar kerak? 10
-Shuncha boladi: 120100. Kurs = 11500
+Necha dollar sotasiz? 10
+Siz 115000 so'm olasiz. Kurs: 11500
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Dollar olish uchun 1ni bos.
-Dollar berish uchun 2ni bos.
+<div class="highlight"><pre><span></span><code>Dollar sotib olish uchun 1 ni bosing.
+Dollar sotish uchun 2 ni bosing.
 Tanlov? 3
-Bunday tanlov yoq.
+Bunday tanlov yo'q.
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">berish</span> <span class="o">=</span> <span class="mi">12010</span>
-<span class="n">olish</span> <span class="o">=</span> <span class="mi">11500</span>
+<div class="highlight"><pre><span></span><code><span class="n">sotish_kursi</span> <span class="o">=</span> <span class="mi">12010</span>   <span class="c1"># bank dollarni shu kursda sotadi</span>
+<span class="n">olish_kursi</span> <span class="o">=</span> <span class="mi">11500</span>    <span class="c1"># bank dollarni shu kursda sotib oladi</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Dollar olish uchun 1ni bos.</span><span class="se">\n</span><span class="s2">Dollar berish uchun 2ni bos."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dollar sotib olish uchun 1 ni bosing.</span><span class="se">\n</span><span class="s2">Dollar sotish uchun 2 ni bosing."</span><span class="p">)</span>
 
 <span class="n">tanlov</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Tanlov? "</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">tanlov</span> <span class="o">==</span> <span class="s2">"1"</span><span class="p">:</span>
-    <span class="n">qiymat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Qancha som bor? "</span><span class="p">))</span>
-    <span class="n">natija</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">qiymat</span> <span class="o">/</span> <span class="n">berish</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shuncha boladi: </span><span class="si">{</span><span class="n">natija</span><span class="si">}</span><span class="s2">. Kurs = </span><span class="si">{</span><span class="n">berish</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
+    <span class="n">som</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Qancha so'mingiz bor? "</span><span class="p">))</span>
+    <span class="n">dollar</span> <span class="o">=</span> <span class="n">som</span> <span class="o">//</span> <span class="n">sotish_kursi</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Siz </span><span class="si">{</span><span class="n">dollar</span><span class="si">}</span><span class="s2"> dollar olasiz. Kurs: </span><span class="si">{</span><span class="n">sotish_kursi</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">tanlov</span> <span class="o">==</span> <span class="s2">"2"</span><span class="p">:</span>
-    <span class="n">qiymat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Qancha dollar kerak? "</span><span class="p">))</span>
-    <span class="n">natija</span> <span class="o">=</span> <span class="n">qiymat</span> <span class="o">*</span> <span class="n">berish</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shuncha boladi: </span><span class="si">{</span><span class="n">natija</span><span class="si">}</span><span class="s2">. Kurs = </span><span class="si">{</span><span class="n">olish</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
+    <span class="n">dollar</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Necha dollar sotasiz? "</span><span class="p">))</span>
+    <span class="n">som</span> <span class="o">=</span> <span class="n">dollar</span> <span class="o">*</span> <span class="n">olish_kursi</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Siz </span><span class="si">{</span><span class="n">som</span><span class="si">}</span><span class="s2"> so'm olasiz. Kurs: </span><span class="si">{</span><span class="n">olish_kursi</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday tanlov yoq."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Bunday tanlov yo'q."</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p2.py">p2.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p13.py">p13.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
+<li>Ikki kurs bor: foydalanuvchi dollar <strong>sotib olganda</strong> bank yuqori kursda (<code>sotish_kursi</code>) sotadi, foydalanuvchi dollar <strong>sotganda</strong> bank past kursda (<code>olish_kursi</code>) sotib oladi. Har bir tarmoq o'z kursidan foydalanadi va aynan shu kursni chiqaradi.</li>
 <li><code>\n</code> — matn ichidagi <strong>yangi qator</strong> belgisi. Shuning uchun bitta <code>print()</code> ikki qatorni chiqaradi.</li>
-<li><code>tanlov = input("Tanlov? ")</code> — tanlov <strong>matn</strong> sifatida saqlanadi. Shuning uchun taqqoslash <code>tanlov == "1"</code> (tirnoq bilan); <code>tanlov == 1</code> hech qachon to'g'ri bo'lmaydi.</li>
-<li><code>if</code> / <code>elif</code> / <code>else</code> — menyuning ikki tanlovi va noto'g'ri tanlov uchun javob.</li>
-<li><code>round(qiymat / berish)</code> — bo'lish natijasi kasr bo'lishi mumkin, <code>round()</code> uni butun songa yaxlitlaydi.</li>
-<li>Kurslar (<code>berish</code>, <code>olish</code>) dastur boshida o'zgaruvchilarga saqlangan. Kurs o'zgarsa, faqat shu ikki qatorni o'zgartirish kifoya.</li>
-<li><code>f"...{natija}. Kurs = {berish}"</code> — f-string bilan matn va qiymatlar birga chiqariladi.</li>
+<li><code>tanlov = input("Tanlov? ")</code> — tanlov <strong>matn</strong> sifatida saqlanadi. Shuning uchun taqqoslash <code>tanlov == "1"</code> (tirnoq bilan); <code>tanlov == 1</code> hech qachon <code>True</code> bo'lmaydi.</li>
+<li><code>som // sotish_kursi</code> — butun bo'lish: bank faqat to'liq dollar beradi. <code>round()</code> ishlatilsa, <code>126 000</code> so'm uchun <code>10.49...</code> → <code>10</code>, lekin <code>126 200</code> so'm uchun <code>10.5...</code> → <code>11</code> dollar chiqib, foydalanuvchi to'lamagan pulni olgan bo'lardi. Ortib qolgan so'mni <code>som % sotish_kursi</code> bilan topish mumkin.</li>
+<li>Kurslar dastur boshida o'zgaruvchilarga saqlangan. Kurs o'zgarsa, faqat shu ikki qatorni o'zgartirish kifoya.</li>
 </ul>
 </details>
 <h2 id="14-ovqat-vaqti">14. Ovqat vaqti</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: soatni <code>soat:daqiqa</code> ko'rinishida (masalan, <code>7:30</code>) oladi va nonushta (7:00–8:00), tushlik (12:00–13:00) yoki kechki ovqat (18:00–19:00) vaqti ekanini aytadi, aks holda "Ishlaymiz!" deydi.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: soatni <code>soat:daqiqa</code> ko'rinishida (masalan, <code>7:30</code>) oladi va nonushta (7:00–8:00), tushlik (12:00–13:00) yoki kechki ovqat (18:00–19:00) vaqti ekanini aytadi, aks holda "Ishlaymiz!" deydi. Har bir oraliqning ikkala chegarasi ham shu oraliqqa kiradi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Soat nechida boldi? 7:30
+<div class="highlight"><pre><span></span><code>Soat necha bo'ldi? 7:30
 Nonushta vaqti!
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Soat nechida boldi? 12:45
+<div class="highlight"><pre><span></span><code>Soat necha bo'ldi? 13:00
 Tushlik vaqti!
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Soat nechida boldi? 9:15
+<div class="highlight"><pre><span></span><code>Soat necha bo'ldi? 9:15
 Ishlaymiz!
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">vaht</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Soat nechida boldi? "</span><span class="p">)</span>
+    <span class="n">vaqt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Soat necha bo'ldi? "</span><span class="p">)</span>
 
-    <span class="n">vaht</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">vaht</span><span class="p">)</span>
+    <span class="n">vaqt</span> <span class="o">=</span> <span class="n">soatga_aylantir</span><span class="p">(</span><span class="n">vaqt</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">vaht</span> <span class="o">&gt;=</span> <span class="mf">7.0</span> <span class="ow">and</span> <span class="n">vaht</span> <span class="o">&lt;=</span> <span class="mf">8.0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">vaqt</span> <span class="o">&gt;=</span> <span class="mf">7.0</span> <span class="ow">and</span> <span class="n">vaqt</span> <span class="o">&lt;=</span> <span class="mf">8.0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Nonushta vaqti!"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">vaht</span> <span class="o">&gt;=</span> <span class="mf">12.0</span> <span class="ow">and</span> <span class="n">vaht</span> <span class="o">&lt;</span> <span class="mf">13.0</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">vaqt</span> <span class="o">&gt;=</span> <span class="mf">12.0</span> <span class="ow">and</span> <span class="n">vaqt</span> <span class="o">&lt;=</span> <span class="mf">13.0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Tushlik vaqti!"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">vaht</span> <span class="o">&gt;=</span> <span class="mf">18.0</span> <span class="ow">and</span> <span class="n">vaht</span> <span class="o">&lt;</span> <span class="mf">19.0</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">vaqt</span> <span class="o">&gt;=</span> <span class="mf">18.0</span> <span class="ow">and</span> <span class="n">vaqt</span> <span class="o">&lt;=</span> <span class="mf">19.0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Kechki ovqat vaqti!"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Ishlaymiz!"</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">vaht</span><span class="p">):</span>
-    <span class="n">soat</span><span class="p">,</span> <span class="n">minut</span> <span class="o">=</span> <span class="n">vaht</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">soat</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">minut</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">soatga_aylantir</span><span class="p">(</span><span class="n">vaqt</span><span class="p">):</span>
+    <span class="n">soat</span><span class="p">,</span> <span class="n">daqiqa</span> <span class="o">=</span> <span class="n">vaqt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">soat</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">daqiqa</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+
 
 <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p6.py">p6.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p14.py">p14.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>vaht.split(":")</code> — satrni <code>:</code> belgisi bo'yicha bo'ladi: <code>"7:30".split(":")</code> → <code>["7", "30"]</code>. Argument sifatida ajratgich beriladi (argumentsiz <code>split()</code> bo'sh joy bo'yicha bo'ladi).</li>
-<li><code>soat, minut = ...</code> — ro'yxat elementlari ikki o'zgaruvchiga ochiladi.</li>
-<li><code>float(soat) + float(minut) / 60</code> — vaqtni <strong>soat birligida</strong> bitta songa aylantiradi: <code>7:30</code> → <code>7 + 30/60</code> = <code>7.5</code>. Shunday qilib vaqtni oddiy son sifatida solishtirish mumkin.</li>
-<li><code>return</code> — hisoblangan sonni <code>main()</code> ga qaytaradi. <code>vaht = convert(vaht)</code> da <code>vaht</code> matndan songa o'zgaradi.</li>
-<li><code>vaht &gt;= 7.0 and vaht &lt;= 8.0</code> — <strong>oraliq</strong> tekshiruvi: ikkala shart ham to'g'ri bo'lishi kerak. Python'da buni qisqa yozish ham mumkin: <code>7.0 &lt;= vaht &lt;= 8.0</code>.</li>
-<li>Chegaralar: <code>7:00</code> va <code>8:00</code> nonushta vaqtiga kiradi (<code>&lt;= 8.0</code>), tushlik va kechki ovqat esa soat oxirigacha (<code>&lt; 13.0</code>, <code>&lt; 19.0</code>) hisoblanadi: <code>12:59</code> → tushlik, <code>13:00</code> → "Ishlaymiz!".</li>
+<li><code>vaqt.split(":")</code> — satrni <code>:</code> belgisi bo'yicha bo'ladi: <code>"7:30".split(":")</code> → <code>["7", "30"]</code>. Argument sifatida ajratgich beriladi (argumentsiz <code>split()</code> bo'sh joy bo'yicha bo'ladi).</li>
+<li><code>soat, daqiqa = ...</code> — ro'yxat elementlari ikki o'zgaruvchiga ochiladi.</li>
+<li><code>float(soat) + float(daqiqa) / 60</code> — vaqtni <strong>soat birligida</strong> bitta songa aylantiradi: <code>7:30</code> → <code>7 + 30/60</code> = <code>7.5</code>. Shunday qilib vaqtni oddiy son sifatida solishtirish mumkin.</li>
+<li><code>return</code> — hisoblangan sonni <code>main()</code> ga qaytaradi. <code>vaqt = soatga_aylantir(vaqt)</code> da <code>vaqt</code> matndan songa o'zgaradi.</li>
+<li><code>vaqt &gt;= 7.0 and vaqt &lt;= 8.0</code> — <strong>oraliq</strong> tekshiruvi: ikkala shart ham <code>True</code> bo'lishi kerak. Python'da buni qisqa yozish ham mumkin: <code>7.0 &lt;= vaqt &lt;= 8.0</code>.</li>
+<li>Chegaralar: <code>&lt;=</code> tufayli <code>8:00</code>, <code>13:00</code> va <code>19:00</code> hali ovqat vaqtiga kiradi, <code>8:01</code> esa — "Ishlaymiz!".</li>
 <li>Vaqt <code>soat:daqiqa</code> ko'rinishida kiritilishi shart; ikki nuqtasiz kiritilsa, <code>ValueError</code> chiqadi.</li>
 </ul>
 </details>
 <h2 id="15-ismni-ajratib-olish">15. Ismni ajratib olish</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: to'liq ismni (ism va familiya, istalgan tartibda) oladi va faqat ismga salom beradi. Familiya <code>ov</code> yoki <code>ova</code> bilan tugaydi deb hisoblang.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: ism va familiyani (istalgan tartibda) oladi va faqat ismga salom beradi. Familiya <code>ov</code> yoki <code>ova</code> bilan tugaydi deb hisoblang.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>F.I.O? karimov ali
+<div class="highlight"><pre><span></span><code>Ism va familiyangiz? karimov ali
 Salom, Ali
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>F.I.O? dilnoza yusupova
+<div class="highlight"><pre><span></span><code>Ism va familiyangiz? dilnoza yusupova
 Salom, Dilnoza
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Ism va familiyangiz? g'ulomov o'tkir
+Salom, O'tkir
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">toliq_ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"F.I.O? "</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">toliq_ism</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Ism va familiyangiz? "</span><span class="p">))</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salom, </span><span class="si">{</span><span class="n">ism_ajratish</span><span class="p">(</span><span class="n">toliq_ism</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">ism_ajratish</span><span class="p">(</span><span class="n">ism</span><span class="p">):</span>
-    <span class="n">name1</span><span class="p">,</span> <span class="n">name2</span> <span class="o">=</span> <span class="n">ism</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">name1</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ov"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">name1</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ova"</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">name2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ism_ajratish</span><span class="p">(</span><span class="n">toliq_ism</span><span class="p">):</span>
+    <span class="n">birinchi</span><span class="p">,</span> <span class="n">ikkinchi</span> <span class="o">=</span> <span class="n">toliq_ism</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">name1</span>
+    <span class="k">if</span> <span class="n">birinchi</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ov"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">birinchi</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ova"</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ikkinchi</span>
 
-<span class="c1"># def ism_ajratish(ism):</span>
-<span class="c1">#     name1, name2 = ism.split()</span>
+    <span class="k">return</span> <span class="n">birinchi</span>
 
-<span class="c1">#     if name1.endswith("ov") or name1.endswith("ova"):</span>
-<span class="c1">#         ism = name2</span>
-<span class="c1">#         familiya = name1</span>
-<span class="c1">#     else:</span>
-<span class="c1">#         ism = name1</span>
-<span class="c1">#         familiya = name2</span>
-
-<span class="c1">#     return ism</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">familiya_ajratish</span><span class="p">(</span><span class="n">ism</span><span class="p">):</span>
-    <span class="n">name1</span><span class="p">,</span> <span class="n">name2</span> <span class="o">=</span> <span class="n">ism</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">name1</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ov"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">name1</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"ova"</span><span class="p">):</span>
-        <span class="n">ism</span> <span class="o">=</span> <span class="n">name2</span>
-        <span class="n">familiya</span> <span class="o">=</span> <span class="n">name1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">ism</span> <span class="o">=</span> <span class="n">name1</span>
-        <span class="n">familiya</span> <span class="o">=</span> <span class="n">name2</span>
-
-    <span class="k">return</span> <span class="n">familiya</span>
 
 <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p1.py">p1.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p15.py">p15.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>input(...).title()</code> — kiritilgan matnning har bir so'zi bosh harf bilan boshlanadi (<code>karimov ali</code> → <code>Karimov Ali</code>).</li>
-<li><code>name1, name2 = ism.split()</code> — to'liq ism ikki so'zga ajratiladi va ikki o'zgaruvchiga saqlanadi.</li>
-<li><code>satr.endswith(oxiri)</code> — satr berilgan matn bilan <strong>tugasa</strong> <code>True</code> qaytaradi. <code>"Karimov".endswith("ov")</code> → <code>True</code>. (<code>startswith</code> ning teskarisi.)</li>
-<li><code>name1.endswith("ov") or name1.endswith("ova")</code> — birinchi so'z familiyaga o'xshasa (<code>ov</code> yoki <code>ova</code> bilan tugasa), ism ikkinchi so'z (<code>name2</code>) bo'ladi.</li>
-<li><strong>Erta <code>return</code>.</strong> <code>return name2</code> bajarilishi bilan funksiya <strong>darhol tugaydi</strong>; keyingi qator (<code>return name1</code>) bajarilmaydi. Shart to'g'ri bo'lmasa, <code>if</code> bloki o'tkazib yuboriladi va <code>return name1</code> ishlaydi. Shuning uchun bu yerda <code>else</code> yozish shart bo'lmagan.</li>
-<li><code>print(f"Salom, {ism_ajratish(toliq_ism)}")</code> — f-string ichida funksiya chaqiruvi ham yozish mumkin: funksiya qaytargan qiymat shu joyga qo'yiladi.</li>
-<li>Izohga olingan (<code>#</code>) kod — shu funksiyaning boshqa varianti; <code>familiya_ajratish()</code> esa familiyani qaytaradi. Hozir u chaqirilmayapti.</li>
+<li><code>string.capwords(...)</code> — har bir so'z bosh harf bilan boshlanadi (<code>karimov ali</code> → <code>Karimov Ali</code>). <code>.title()</code> dan farqli o'laroq, o'zbekcha ismlarni buzmaydi: <code>g'ulomov</code> → <code>G'ulomov</code> (<a href="../../week-02/lecture/#satrlar-bilan-ishlash">2-hafta ma'ruzasiga qarang</a>).</li>
+<li><code>birinchi, ikkinchi = toliq_ism.split()</code> — to'liq ism ikki so'zga ajratiladi va ikki o'zgaruvchiga saqlanadi.</li>
+<li><code>satr.endswith(oxiri)</code> — satr berilgan matn bilan <strong>tugasa</strong> <code>True</code> qaytaradi. <code>"Karimov".endswith("ov")</code> → <code>True</code>.</li>
+<li><code>birinchi.endswith("ov") or birinchi.endswith("ova")</code> — birinchi so'z familiyaga o'xshasa (<code>ov</code> yoki <code>ova</code> bilan tugasa), ism ikkinchi so'z bo'ladi.</li>
+<li><strong>Erta <code>return</code>.</strong> <code>return ikkinchi</code> bajarilishi bilan funksiya <strong>darhol tugaydi</strong>; keyingi qator (<code>return birinchi</code>) bajarilmaydi. Shart <code>False</code> bo'lsa, <code>if</code> bloki o'tkazib yuboriladi va <code>return birinchi</code> ishlaydi. Shuning uchun bu yerda <code>else</code> yozish shart emas.</li>
+<li><code>print(f"Salom, {ism_ajratish(toliq_ism)}")</code> — f-string ichida funksiya chaqiruvini ham yozish mumkin: funksiya qaytargan qiymat shu joyga qo'yiladi.</li>
 <li><strong>Cheklovlar.</strong> Dastur aynan ikki so'zni kutadi; boshqa son kiritilsa <code>ValueError</code> chiqadi. <code>ov</code>/<code>ova</code> bilan tugamaydigan familiyalar (masalan, <code>Aliyev</code>) bo'lsa, tartib noto'g'ri aniqlanadi: <code>Aliyev Vali</code> → <code>Salom, Aliyev</code>.</li>
 </ul>
 </details>
 <h2 id="16-tortburchak-yuzi">16. To'rtburchak yuzi</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: to'rtburchakning uzunligi va enini oladi, yuzini hisoblab chiqaradigan funksiya yozing.</p>
+<p><strong>Masala.</strong> Shunday funksiya yozing: to'rtburchakning uzunligi va enini parametr sifatida oladi va yuzini ekranga chiqaradi. Uzunlik va enni foydalanuvchidan so'rang.</p>
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Uzunlik: 5
 Eni: 3
@@ -1714,17 +1668,18 @@ Yuzi: 15
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">yuza</span><span class="p">(</span><span class="n">uzunlik</span><span class="p">,</span> <span class="n">eni</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Yuzi:"</span><span class="p">,</span> <span class="n">uzunlik</span> <span class="o">*</span> <span class="n">eni</span><span class="p">)</span>
 
+
 <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Uzunlik: "</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Eni: "</span><span class="p">))</span>
 <span class="n">yuza</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
-<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p7.py">p7.py</a></p>
+<p>Fayl: <a href="../../../../downloads/dasturlash/week-03/p16.py">p16.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li><code>def yuza(uzunlik, eni):</code> — ikki <strong>parametrli</strong> funksiya. <code>yuza(a, b)</code> chaqirilganda <code>a</code> qiymati <code>uzunlik</code> ga, <code>b</code> qiymati <code>eni</code> ga <strong>tartib bo'yicha</strong> o'tadi.</li>
 <li>Funksiya e'lon qilinishi (<code>def</code>) uni <strong>ishga tushirmaydi</strong>; faqat <code>yuza(a, b)</code> qatori chaqirganda ishlaydi.</li>
-<li>Funksiya ichida <code>return</code> yo'q: natija ekranga chiqariladi, lekin qaytarilmaydi. Shuning uchun <code>y = yuza(5, 3)</code> desak, <code>y</code> ichida <code>None</code> bo'ladi. Natijani keyinchalik ishlatmoqchi bo'lsak (masalan, <code>yuza(5, 3) * 2</code>), <code>print</code> o'rniga <code>return uzunlik * eni</code> yozish kerak.</li>
-<li>Funksiya tanasidagi <code>uzunlik</code> va <code>eni</code> o'zgaruvchilari faqat funksiya ichida mavjud; <code>a</code> va <code>b</code> esa funksiyadan tashqarida.</li>
+<li>Funksiya ichida <code>return</code> yo'q: natija ekranga chiqariladi, lekin qaytarilmaydi (<code>None</code>). Natijani keyinchalik ishlatmoqchi bo'lsak (masalan, <code>yuza(5, 3) * 2</code>), <code>print</code> o'rniga <code>return uzunlik * eni</code> yozish kerak (<a href="../lecture/#return-natijani-qaytarish">ma'ruzaga qarang</a>).</li>
+<li><code>uzunlik</code> va <code>eni</code> — funksiyaning <strong>local</strong> o'zgaruvchilari, ular faqat funksiya ichida mavjud; <code>a</code> va <code>b</code> esa funksiyadan tashqarida yaratilgan <strong>global</strong> o'zgaruvchilar (<a href="../lecture/#scope-ozgaruvchi-qayerda-korinadi">scope</a>).</li>
 </ul>
 </details>
 <h2 id="qisqa-lugat">Qisqa lug'at</h2>
@@ -1738,7 +1693,11 @@ Yuzi: 15
 <tbody>
 <tr>
 <td><code>if</code> / <code>elif</code> / <code>else</code></td>
-<td>shart bo'yicha tarmoqlanish; birinchi to'g'ri shartning bloki bajariladi</td>
+<td>shart bo'yicha tarmoqlanish; sharti <code>True</code> bo'lgan birinchi blok bajariladi</td>
+</tr>
+<tr>
+<td><code>match</code> / <code>case</code></td>
+<td>bitta qiymatning aniq variantlari bo'yicha tarmoqlanish; <code>case _</code> — qolgan holatlar</td>
 </tr>
 <tr>
 <td><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
@@ -1755,6 +1714,10 @@ Yuzi: 15
 <tr>
 <td><code>satr.split(ajratgich)</code></td>
 <td>satrni ajratgich bo'yicha bo'laklarga bo'ladi</td>
+</tr>
+<tr>
+<td>local / global</td>
+<td>funksiya ichidagi / fayl darajasidagi o'zgaruvchi</td>
 </tr>
 </tbody>
 </table>

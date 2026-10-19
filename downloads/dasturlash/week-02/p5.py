@@ -5,16 +5,19 @@ natija = x + y
 print("X + Y =", natija)
 
 natija = x - y
-print("X - Y = ", natija)
+print("X - Y =", natija)
 
 natija = x * y
-print("X * Y = ", natija)
+print("X * Y =", natija)
 
 natija = x / y
-print("X / Y = ", natija)
+print("X / Y =", natija)
 
 natija = x // y
-print("Qoldiqsiz: X / Y = ", natija)
+print("X // Y =", natija)
+
+natija = x % y
+print("X % Y =", natija)
 
 natija = x ** y
-print("X ^ Y = ", natija)
+print("X ** Y =", natija)

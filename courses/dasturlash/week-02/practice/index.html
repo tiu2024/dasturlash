@@ -950,119 +950,132 @@
 <h1 id="amaliyot">Amaliyot</h1>
 <p>Bu sahifada <a href="../lecture/">ma'ruzada</a> o'rganilgan vositalar bilan darsda yechilgan 11 ta masala keltirilgan. Har bir masala shartidan keyin <strong>Yechim</strong> bloki joylashgan: u yopiq turadi, ustiga bosib oching. Avval masalani o'zingiz yechib ko'ring va natijani namuna bilan solishtiring, keyin yechim va tushuntirishni o'qing.</p>
 <p>Har bir yechim ichida shu dasturning <code>.py</code> fayliga havola bor.</p>
+<div class="admonition note">
+<p class="admonition-title">Funksiyalar</p>
+<p>4, 6 va 11-masalalarda o'zimiz yozgan funksiyalar (<code>def</code>, <code>return</code>) ishlatiladi. Bu yerda ular qisqa tushuntirilgan; batafsil tushuntirish <a href="../../week-03/lecture/#funksiyalar">3-hafta ma'ruzasida</a>.</p>
+</div>
 <h2 id="1-salomlashish">1. Salomlashish</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: foydalanuvchining ismini so'rab, unga salom beradi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Isming nma? Ali
+<div class="highlight"><pre><span></span><code>Ismingiz nima? Ali
 Salom, Ali
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Isming nma? "</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz nima? "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salom, </span><span class="si">{</span><span class="n">ism</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p1.py">p1.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>input("Isming nma? ")</code> ekranga savolni chiqaradi, foydalanuvchi yozib <code>Enter</code> bosguncha kutadi va yozilgan <strong>matnni</strong> qaytaradi.</li>
+<li><code>input("Ismingiz nima? ")</code> ekranga savolni chiqaradi, foydalanuvchi yozib <code>Enter</code> bosguncha kutadi va yozilgan <strong>matnni</strong> qaytaradi.</li>
 <li><code>ism = ...</code> — qaytgan matn <code>ism</code> o'zgaruvchisiga saqlanadi.</li>
 <li><code>f"Salom, {ism}"</code> — f-string: <code>{ism}</code> o'rniga o'zgaruvchining qiymati qo'yiladi.</li>
 <li>Foydalanuvchi <code>ali</code> deb yozsa, dastur ham <code>Salom, ali</code> deydi: matn o'zgartirilmaydi. Keyingi dastur shuni tuzatadi.</li>
 </ul>
 </details>
 <h2 id="2-ismni-tozalash-va-bosh-harfga-otkazish">2. Ismni tozalash va bosh harfga o'tkazish</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: ismdagi ortiqcha bo'sh joylarni olib tashlaydi va har bir so'zni bosh harf bilan boshlaydi.</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: ismdagi ortiqcha bo'sh joylarni olib tashlaydi va har bir so'zni bosh harf bilan boshlaydi. O'zbekcha ismlar (<code>o'tkir</code>, <code>g'ayrat</code>) ham to'g'ri chiqishi kerak.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Isming nma?   aziza karimova 
+<div class="highlight"><pre><span></span><code>Ismingiz nima?   aziza karimova 
 Salom, Aziza Karimova
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Ismingiz nima? o'tkir g'ulomov
+Salom, O'tkir G'ulomov
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Isming nma? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+
+<span class="n">ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz nima? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">ism</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="n">ism</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salom, </span><span class="si">{</span><span class="n">ism</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p2.py">p2.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li><code>.strip()</code> — satrning <strong>boshi va oxiridagi</strong> bo'sh joylarni (probel, tabulyatsiya, qator oxiri) olib tashlaydi. O'rtadagi bo'sh joylarga tegmaydi.</li>
-<li><code>.title()</code> — har bir so'zning birinchi harfini katta, qolganlarini kichik qiladi: <code>aziza karimova</code> → <code>Aziza Karimova</code>.</li>
-<li>Metodlar chapdan o'ngga ketma-ket bajariladi (<strong>zanjir</strong>): avval <code>input()</code> matn qaytaradi, keyin <code>strip()</code> uni tozalaydi, keyin <code>title()</code> natijani o'zgartiradi.</li>
-<li>Satr metodlari <strong>yangi satr qaytaradi</strong>, eskisini o'zgartirmaydi (Python satrlari o'zgarmasdir). Shuning uchun natijani <code>ism = ...</code> ga qayta saqlaymiz.</li>
+<li><code>input(...).strip()</code> — <strong>zanjir</strong>: avval <code>input()</code> matn qaytaradi, keyin <code>.strip()</code> shu matnni tozalaydi.</li>
+<li><code>string.capwords(ism)</code> — har bir so'zning birinchi harfini katta, qolganlarini kichik qiladi: <code>aziza karimova</code> → <code>Aziza Karimova</code>. U so'zlar orasidagi ortiqcha bo'sh joylarni ham bittaga qisqartiradi. <code>import string</code> qatori shu funksiyani ulaydi (<a href="../lecture/#satrlar-bilan-ishlash">ma'ruzaga qarang</a>).</li>
+<li>Nega <code>.title()</code> emas: <code>.title()</code> tutuq belgisidan keyingi harfni ham katta qiladi: <code>"o'tkir".title()</code> → <code>"O'Tkir"</code>. <code>capwords</code> esa <code>O'tkir</code> beradi.</li>
+<li>Satr metodlari va funksiyalari <strong>yangi satr qaytaradi</strong>, eskisini o'zgartirmaydi (Python satrlari o'zgarmasdir). Shuning uchun natijani <code>ism = ...</code> ga qayta saqlaymiz.</li>
 </ul>
 </details>
 <h2 id="3-ism-va-familiyani-ajratish">3. Ism va familiyani ajratish</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: foydalanuvchi ism va familiyasini bitta qatorda yozadi; dastur ularni ikkita o'zgaruvchiga ajratadi va faqat ismga salom beradi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Isming nma? aziza karimova
+<div class="highlight"><pre><span></span><code>Ismingiz nima? aziza karimova
 Salom, Aziza
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">ism</span><span class="p">,</span> <span class="n">familiya</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Isming nma? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">ism</span><span class="p">,</span> <span class="n">familiya</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz nima? "</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-<span class="n">ism</span> <span class="o">=</span> <span class="n">ism</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="n">ism</span> <span class="o">=</span> <span class="n">ism</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salom, </span><span class="si">{</span><span class="n">ism</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="c1"># print(f"Salom, {ism.title()}")</span>
+<span class="c1"># print(f"Salom, {ism.capitalize()}")</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p3.py">p3.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>.split()</code> — satrni bo'sh joylar bo'yicha bo'laklarga ajratib, <strong>ro'yxat</strong> qaytaradi: <code>"aziza karimova".split()</code> → <code>["aziza", "karimova"]</code>. Argumentsiz chaqirilsa, ketma-ket bir nechta bo'sh joy ham bitta ajratgich hisoblanadi.</li>
+<li><code>.split()</code> — satrni bo'sh joylar bo'yicha bo'laklarga ajratib, <strong>ro'yxat</strong> qaytaradi: <code>"aziza karimova".split()</code> → <code>["aziza", "karimova"]</code> (<a href="../lecture/#satrlar-bilan-ishlash">ma'ruzaga qarang</a>). Argumentsiz chaqirilsa, ketma-ket bir nechta bo'sh joy ham bitta ajratgich hisoblanadi.</li>
 <li><code>ism, familiya = [...]</code> — <strong>ochib o'zlashtirish</strong> (<em>unpacking</em>): ro'yxatning birinchi elementi <code>ism</code> ga, ikkinchisi <code>familiya</code> ga tushadi. Elementlar soni o'zgaruvchilar soniga <strong>aniq teng</strong> bo'lishi shart.</li>
-<li><code>ism = ism.title()</code> — qiymatni o'zgaruvchining o'ziga qayta saqlash.</li>
-<li><code>#</code> bilan boshlangan oxirgi qator — izoh. U ishlamaydi, lekin bir xil natijaga boshqa yo'l bilan erishish mumkinligini ko'rsatadi: <code>{ism.title()}</code> ni f-string ichida to'g'ridan-to'g'ri chaqirish.</li>
-<li><strong>Cheklov.</strong> Foydalanuvchi bitta so'z (<code>aziza</code>) yoki uch so'z (<code>aziza karimova qizi</code>) yozsa, dastur <code>ValueError</code> bilan to'xtaydi. Sabab: <code>split()</code> ikkitadan boshqa son qaytardi. Bunday holatlarni shartlar (<code>if</code>) bilan boshqarishni keyingi haftalarda o'rganamiz.</li>
+<li><code>ism = ism.capitalize()</code> — bitta so'zning birinchi harfini katta qiladi va qiymatni o'zgaruvchining o'ziga qayta saqlaydi. <code>.capitalize()</code> o'zbekcha ismlarni ham to'g'ri yozadi: <code>"o'tkir"</code> → <code>"O'tkir"</code>.</li>
+<li><code>#</code> bilan boshlangan oxirgi qator — izoh. U ishlamaydi, lekin bir xil natijaga boshqa yo'l bilan erishish mumkinligini ko'rsatadi: <code>{ism.capitalize()}</code> ni f-string ichida to'g'ridan-to'g'ri chaqirish.</li>
+<li><strong>Cheklov.</strong> Foydalanuvchi bitta so'z (<code>aziza</code>) yoki uch so'z (<code>aziza karimova qizi</code>) yozsa, dastur <code>ValueError</code> bilan to'xtaydi. Sabab: <code>split()</code> ikkitadan boshqa sondagi bo'lak qaytardi. Bunday holatlarni <a href="../../week-03/lecture/#shartlar">shartlar</a> bilan boshqarishni 3-haftada o'rganamiz.</li>
 <li><code>familiya</code> o'zgaruvchisi hozir ishlatilmayapti: u faqat ikkinchi so'zni "ushlab turish" uchun kerak.</li>
 </ul>
 </details>
 <h2 id="4-funksiya-bilan-salomlashish">4. Funksiya bilan salomlashish</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: salomlashish kodini funksiyaga ajratib, ikki marta ishlatadi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Isming nma? ali valiyev
+<div class="highlight"><pre><span></span><code>Ismingiz nima? ali valiyev
 Salom, Ali Valiyev
-Isming nma? SARDOR
+Ismingiz nima? SARDOR
 Salom, Sardor
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">salom</span><span class="p">(</span><span class="n">ism</span> <span class="o">=</span> <span class="s2">"Dostlarga"</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
 
-    <span class="n">ism</span> <span class="o">=</span> <span class="n">ism</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 
+<span class="k">def</span><span class="w"> </span><span class="nf">salom</span><span class="p">(</span><span class="n">ism</span><span class="o">=</span><span class="s2">"Do'stlarga"</span><span class="p">):</span>
+    <span class="n">ism</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="n">ism</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salom, </span><span class="si">{</span><span class="n">ism</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">ism1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Isming nma? "</span><span class="p">)</span>
+    <span class="n">ism1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz nima? "</span><span class="p">)</span>
     <span class="n">salom</span><span class="p">(</span><span class="n">ism1</span><span class="p">)</span>
 
-    <span class="n">ism2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Isming nma? "</span><span class="p">)</span>
+    <span class="n">ism2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz nima? "</span><span class="p">)</span>
     <span class="n">salom</span><span class="p">(</span><span class="n">ism2</span><span class="p">)</span>
+
 
 <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p4.py">p4.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>def</code> — o'zimizning <strong>funksiyamizni</strong> yaratadi. <code>def salom(ism):</code> ning ostidagi <strong>chekinish</strong> (4 ta bo'sh joy) funksiya tanasini bildiradi.</li>
+<li><code>def</code> — o'zimizning <strong>funksiyamizni</strong> yaratadi. <code>def salom(ism="Do'stlarga"):</code> ning ostidagi <strong>chekinish</strong> (4 ta bo'sh joy) funksiya tanasini bildiradi.</li>
 <li><code>ism</code> — funksiyaning <strong>parametri</strong>: funksiya chaqirilganda unga berilgan qiymatni oladi. <code>salom(ism1)</code> da <code>ism1</code> — <strong>argument</strong>.</li>
-<li><code>ism = "Dostlarga"</code> — parametrning <strong>standart qiymati</strong>. Funksiya argumentsiz chaqirilsa (<code>salom()</code>), shu qiymat ishlatiladi: <code>Salom, Dostlarga</code>. Bu dasturda funksiya doim argument bilan chaqirilgani uchun standart qiymat ishlamaydi.</li>
-<li>Funksiya <strong>chaqirilmaguncha</strong> ishlamaydi: <code>def</code> faqat uni "e'lon qiladi". Ishga tushirish uchun oxirida <code>main()</code> chaqiriladi.</li>
-<li><code>main()</code> — dasturning asosiy qismini jamlash uchun odatiy nom. Bu yerda <code>main</code> <code>salom</code> dan keyin e'lon qilingan, lekin ahamiyati yo'q: <code>main()</code> qatori oxirida chaqiriladi, shu paytga kelib ikkala funksiya ham tayyor bo'ladi.</li>
-<li>Foyda: salomlashish mantiqi (<code>title()</code> va <code>print</code>) bir marta yozildi, ikki marta ishlatildi.</li>
-<li><strong><code>return</code> haqida.</strong> <code>salom()</code> ichida <code>return</code> yo'q: u natijani ekranga <strong>chiqaradi</strong> (<code>print</code>), lekin hech narsa <strong>qaytarmaydi</strong>. Qaytarilgan qiymat bo'lmasa, Python funksiya natijasi sifatida maxsus <code>None</code> qiymatini beradi. Shuning uchun <code>x = salom("ali")</code> ekranga salom chiqaradi, lekin <code>x</code> ichida <code>None</code> bo'ladi. Qiymatni funksiyadan olib, keyin ishlatmoqchi bo'lsak, <code>return</code> kerak bo'ladi (keyingi 6-dasturga qarang).</li>
-<li>Funksiyalarni 3-haftada batafsil o'rganamiz.</li>
+<li><code>ism="Do'stlarga"</code> — parametrning <strong>standart qiymati</strong>. Funksiya argumentsiz chaqirilsa (<code>salom()</code>), shu qiymat ishlatiladi: <code>Salom, Do'stlarga</code>. Bu dasturda funksiya doim argument bilan chaqirilgani uchun standart qiymat ishlatilmaydi.</li>
+<li>Funksiya <strong>chaqirilmaguncha</strong> ishlamaydi: <code>def</code> uni faqat yaratadi. Ishga tushirish uchun oxirida <code>main()</code> chaqiriladi. <code>main()</code> — dasturning asosiy qismini jamlash uchun odatiy nom.</li>
+<li>Foyda: salomlashish mantiqi (<code>capwords</code> va <code>print</code>) bir marta yozildi, ikki marta ishlatildi.</li>
+<li><code>salom()</code> ichida <code>return</code> yo'q: u natijani ekranga <strong>chiqaradi</strong>, lekin hech narsa <strong>qaytarmaydi</strong> (natijasi <code>None</code>). <code>print</code> va <code>return</code> farqi — 6-masalada va <a href="../../week-03/lecture/#return-natijani-qaytarish">3-hafta ma'ruzasida</a>.</li>
 </ul>
 </details>
 <h2 id="5-ikki-son-ustida-amallar">5. Ikki son ustida amallar</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: ikki butun son oladi va barcha asosiy arifmetik amallar natijasini chiqaradi.</p>
 <p>Namuna (<code>X = 17</code>, <code>Y = 5</code>):</p>
 <div class="highlight"><pre><span></span><code>X + Y = 22
-X - Y =  12
-X * Y =  85
-X / Y =  3.4
-Qoldiqsiz: X / Y =  3
-X ^ Y =  1419857
+X - Y = 12
+X * Y = 85
+X / Y = 3.4
+X // Y = 3
+X % Y = 2
+X ** Y = 1419857
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
@@ -1073,29 +1086,31 @@ X ^ Y =  1419857
 <span class="nb">print</span><span class="p">(</span><span class="s2">"X + Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
 
 <span class="n">natija</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"X - Y = "</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"X - Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
 
 <span class="n">natija</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"X * Y = "</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"X * Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
 
 <span class="n">natija</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"X / Y = "</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"X / Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
 
 <span class="n">natija</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Qoldiqsiz: X / Y = "</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"X // Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
+
+<span class="n">natija</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"X % Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
 
 <span class="n">natija</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"X ^ Y = "</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"X ** Y ="</span><span class="p">,</span> <span class="n">natija</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p5.py">p5.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li><code>int(input(...))</code> — <code>input()</code> matn qaytaradi, <code>int()</code> esa uni butun songa aylantiradi. Aks holda <code>x + y</code> sonlarni qo'shmasdan, matnlarni ulab yuborardi (<code>"17" + "5"</code> → <code>"175"</code>).</li>
 <li><code>natija</code> o'zgaruvchisi har safar yangi qiymat oladi; eskisi yo'qoladi, lekin biz uni chiqarib bo'lgan edik.</li>
-<li><code>print("X + Y =", natija)</code> — vergul bilan ajratilgan qiymatlar orasiga <code>print</code> <strong>bitta bo'sh joy</strong> qo'yadi. Shu sababli <code>"X - Y = "</code> oxiridagi bo'sh joy bilan birga ikki bo'sh joy chiqadi (natijada <code>=</code> dan keyin kengroq masofa).</li>
-<li><code>/</code> natijasi har doim <code>float</code> (<code>3.4</code>); <code>//</code> — butun bo'lish, natijani pastga yaxlitlaydi (<code>17 // 5</code> → <code>3</code>); <code>**</code> — daraja (<code>17 ** 5</code>).</li>
-<li><code>ZeroDivisionError</code>: <code>Y = 0</code> kiritilsa, <code>/</code> va <code>//</code> amallarida dastur to'xtaydi, chunki nolga bo'lib bo'lmaydi.</li>
-<li>Matndagi <code>^</code> — oddiy yozuv belgisi; Python'da daraja <code>**</code> bilan yoziladi (<code>^</code> boshqa amal).</li>
+<li><code>print("X + Y =", natija)</code> — vergul bilan ajratilgan qiymatlar orasiga <code>print</code> o'zi <strong>bitta bo'sh joy</strong> qo'yadi, shuning uchun <code>"X + Y ="</code> matni oxiriga bo'sh joy yozilmaydi.</li>
+<li><code>/</code> natijasi har doim <code>float</code> (<code>3.4</code>); <code>//</code> — butun bo'lish, natijani pastga yaxlitlaydi (<code>17 // 5</code> → <code>3</code>); <code>%</code> — qoldiq (<code>17 % 5</code> → <code>2</code>); <code>**</code> — daraja (<code>17 ** 5</code>). Python'da daraja <code>^</code> bilan emas, <code>**</code> bilan yoziladi.</li>
+<li><code>ZeroDivisionError</code>: <code>Y = 0</code> kiritilsa, <code>/</code>, <code>//</code> va <code>%</code> amallarida dastur to'xtaydi, chunki nolga bo'lib bo'lmaydi.</li>
 </ul>
 </details>
 <h2 id="6-kvadrat-hisoblash">6. Kvadrat hisoblash</h2>
@@ -1103,32 +1118,31 @@ X ^ Y =  1419857
 <p>Namuna:</p>
 <div class="highlight"><pre><span></span><code>Butun son: 7
 Kasr son: 2.5
-Butun 7 son kvadrati = 49
-Kasr 2.5 son kvadrati = 6.25
+7 ning kvadrati = 49
+2.5 ning kvadrati = 6.25
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">kvadrat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">butun_son</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Butun son: "</span><span class="p">))</span>
+    <span class="n">kasr_son</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Kasr son: "</span><span class="p">))</span>
 
-    <span class="n">iraqam</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Butun son: "</span><span class="p">))</span>
-    <span class="n">fraqam</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Kasr son: "</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">butun_son</span><span class="si">}</span><span class="s2"> ning kvadrati = </span><span class="si">{</span><span class="n">kvadrat</span><span class="p">(</span><span class="n">butun_son</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">kasr_son</span><span class="si">}</span><span class="s2"> ning kvadrati = </span><span class="si">{</span><span class="n">kvadrat</span><span class="p">(</span><span class="n">kasr_son</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Butun </span><span class="si">{</span><span class="n">iraqam</span><span class="si">}</span><span class="s2"> son kvadrati = </span><span class="si">{</span><span class="n">kvadrat</span><span class="p">(</span><span class="n">iraqam</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Kasr </span><span class="si">{</span><span class="n">fraqam</span><span class="si">}</span><span class="s2"> son kvadrati = </span><span class="si">{</span><span class="n">kvadrat</span><span class="p">(</span><span class="n">fraqam</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p6.py">p6.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>return</code> — funksiyadan <strong>natijani qaytaradi</strong>. Bu <code>print</code> dan farq qiladi: <code>print</code> qiymatni ekranga chiqaradi, <code>return</code> esa qiymatni chaqirgan joyga beradi va uni o'zgaruvchiga saqlash yoki boshqa ifodada ishlatish mumkin.</li>
-<li><code>return x ** 2</code> bajarilganda funksiya <strong>darhol tugaydi</strong> va <code>x ** 2</code> ning qiymati chaqirilgan joyga "almashib" qo'yiladi. Ya'ni <code>kvadrat(7)</code> ifodasi <code>49</code> ga aylanadi, go'yo kodda <code>49</code> yozilgandek.</li>
-<li>Shuning uchun qaytgan qiymatni to'g'ridan-to'g'ri ishlatish mumkin: <code>a = kvadrat(7)</code>, <code>kvadrat(3) + 1</code>, <code>print(kvadrat(2))</code>. <code>return</code> dan keyin yozilgan qatorlar bajarilmaydi.</li>
-<li>Taqqoslang: agar funksiya ichida <code>return x ** 2</code> o'rniga <code>print(x ** 2)</code> yozilsa, son ekranda ko'rinadi, lekin f-string ichida <code>{kvadrat(iraqam)}</code> ishlatib bo'lmaydi (u <code>None</code> chiqaradi).</li>
-<li><code>kvadrat(iraqam)</code> ifodasi qiymatga aylanadi (<code>49</code>), shuning uchun uni f-string <code>{ }</code> ichiga to'g'ridan-to'g'ri yozish mumkin.</li>
+<li><code>return</code> — funksiyadan <strong>natijani qaytaradi</strong>: <code>print</code> qiymatni ekranga chiqaradi, <code>return</code> esa uni chaqirgan joyga beradi. Batafsil — <a href="../../week-03/lecture/#return-natijani-qaytarish">3-hafta ma'ruzasida</a>.</li>
+<li><code>return x ** 2</code> bajarilganda funksiya <strong>darhol tugaydi</strong>, <code>kvadrat(7)</code> ifodasi esa <code>49</code> ga aylanadi, go'yo kodda <code>49</code> yozilgandek. Shuning uchun uni f-string <code>{ }</code> ichiga to'g'ridan-to'g'ri yozish mumkin.</li>
+<li>Taqqoslang: funksiya ichida <code>return x ** 2</code> o'rniga <code>print(x ** 2)</code> yozilsa, ekranga avval son alohida qatorda chiqadi, keyin f-string ichida <code>None</code> ko'rinadi: <code>7 ning kvadrati = None</code>.</li>
 <li>Bitta funksiya ham <code>int</code>, ham <code>float</code> bilan ishlaydi: <code>7 ** 2</code> → <code>49</code> (<code>int</code>), <code>2.5 ** 2</code> → <code>6.25</code> (<code>float</code>).</li>
 <li><code>int(input(...))</code> va <code>float(input(...))</code> — kiritilgan matnni mos songa aylantiradi. <code>int</code> ga <code>"2.5"</code> kiritsangiz, <code>ValueError</code> chiqadi.</li>
 </ul>
@@ -1136,43 +1150,43 @@ Kasr 2.5 son kvadrati = 6.25
 <h2 id="7-kichik-harfga-otkazish">7. Kichik harfga o'tkazish</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: xabarni to'liq kichik harflarda chiqaradi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Nma? SaLoM DuNyo
+<div class="highlight"><pre><span></span><code>Nima? SaLoM DuNyo
 salom dunyo
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">habar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Nma? "</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">xabar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Nima? "</span><span class="p">)</span>
 
-<span class="n">habar</span> <span class="o">=</span> <span class="n">habar</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">habar</span><span class="p">)</span>
+<span class="n">xabar</span> <span class="o">=</span> <span class="n">xabar</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xabar</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p7.py">p7.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li><code>.lower()</code> — satrdagi barcha harflarni kichik harfga o'tkazadi. Teskarisi — <code>.upper()</code>.</li>
-<li><code>.title()</code> bilan farqi: <code>title()</code> har so'zni bosh harfdan boshlaydi, <code>lower()</code> hamma harfni kichik qiladi.</li>
-<li><code>input("Nma? ")</code> da savol oxiridagi probel muhim: u foydalanuvchi yozgan matnni savoldan ajratib turadi. Probel bo'lmasa, matn savolga yopishib qoladi (<code>Nma?salom</code>).</li>
-<li>Natija qayta <code>habar</code> ga saqlanadi, chunki <code>lower()</code> yangi satr qaytaradi.</li>
+<li><code>string.capwords()</code> bilan farqi: <code>capwords</code> har so'zni bosh harfdan boshlaydi, <code>lower()</code> hamma harfni kichik qiladi.</li>
+<li><code>input("Nima? ")</code> da savol oxiridagi probel muhim: u foydalanuvchi yozgan matnni savoldan ajratib turadi. Probel bo'lmasa, matn savolga yopishib qoladi (<code>Nima?salom</code>).</li>
+<li>Natija qayta <code>xabar</code> ga saqlanadi, chunki <code>lower()</code> yangi satr qaytaradi.</li>
 </ul>
 </details>
 <h2 id="8-bosh-joylarni-almashtirish">8. Bo'sh joylarni almashtirish</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: xabardagi har bir bo'sh joyni <code>...</code> bilan almashtiradi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Nma? Men Python o'rganyapman
+<div class="highlight"><pre><span></span><code>Nima? Men Python o'rganyapman
 Men...Python...o'rganyapman
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">habar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Nma? "</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">xabar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Nima? "</span><span class="p">)</span>
 
-<span class="n">habar</span> <span class="o">=</span> <span class="n">habar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"..."</span><span class="p">)</span>
+<span class="n">xabar</span> <span class="o">=</span> <span class="n">xabar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"..."</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">habar</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xabar</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p8.py">p8.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>satr.replace(eski, yangi)</code> — satrdagi <code>eski</code> qismning <strong>hamma</strong> uchragan joyini <code>yangi</code> bilan almashtiradi.</li>
+<li><code>satr.replace(eski, yangi)</code> — satrdagi <code>eski</code> qismning <strong>hamma</strong> uchragan joyini <code>yangi</code> bilan almashtiradi (<a href="../lecture/#satrlar-bilan-ishlash">ma'ruzaga qarang</a>).</li>
 <li>Almashtiriladigan va yangi qism bir belgi bo'lishi shart emas: bu yerda bitta bo'sh joy uchta nuqtaga almashdi.</li>
 <li>Agar <code>eski</code> qism topilmasa, satr o'zgarishsiz qaytadi.</li>
 <li><code>replace</code> katta-kichik harfni farqlaydi: <code>"a"</code> ni almashtirsangiz, <code>"A"</code> o'zgarmaydi.</li>
@@ -1181,82 +1195,77 @@ Men...Python...o'rganyapman
 <h2 id="9-emojilarga-almashtirish">9. Emoji'larga almashtirish</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: matndagi <code>:)</code> va <code>:(</code> belgilarini emoji'ga o'zgartiradi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Nma gap? Zo'r :) lekin charchadim :(
-Zo'r 😊 lekin charchadim 😒
+<div class="highlight"><pre><span></span><code>Nima gap? Zo'r :) lekin charchadim :(
+Zo'r 😊 lekin charchadim 🙁
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
-<div class="highlight"><pre><span></span><code><span class="n">habar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Nma gap? "</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">xabar</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Nima gap? "</span><span class="p">)</span>
 
-<span class="n">habar</span> <span class="o">=</span> <span class="n">habar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":)"</span><span class="p">,</span> <span class="s2">"😊"</span><span class="p">)</span>
-<span class="n">habar</span> <span class="o">=</span> <span class="n">habar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":("</span><span class="p">,</span> <span class="s2">"😒"</span><span class="p">)</span>
+<span class="n">xabar</span> <span class="o">=</span> <span class="n">xabar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":)"</span><span class="p">,</span> <span class="s2">"😊"</span><span class="p">)</span>
+<span class="n">xabar</span> <span class="o">=</span> <span class="n">xabar</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":("</span><span class="p">,</span> <span class="s2">"🙁"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">habar</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xabar</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p9.py">p9.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
 <li>Ikkita <code>replace()</code> ketma-ket qo'llanadi: birinchisi <code>:)</code> ni, ikkinchisi <code>:(</code> ni almashtiradi. Har biri oldingisining natijasi ustida ishlaydi.</li>
-<li>Emoji ham oddiy Unicode belgi, shuning uchun uni satr ichiga yozish mumkin (1-haftada ko'rgan <code>ord("😊")</code> ni eslang).</li>
+<li>Emoji ham oddiy Unicode belgi, shuning uchun uni satr ichiga yozish mumkin (1-haftada ko'rgan <code>ord("😀")</code> ni eslang).</li>
 <li>Ba'zi terminallar emoji'ni ko'rsata olmasligi mumkin. Bunda dasturda xato yo'q, muammo terminalning shriftida yoki kodlashida bo'ladi.</li>
 </ul>
 </details>
 <h2 id="10-massadan-energiyani-hisoblash">10. Massadan energiyani hisoblash</h2>
-<p><strong>Masala.</strong> Shunday dastur yozing: berilgan massaga mos energiyani Eynshteyn formulasi <code>E = m · c²</code> bo'yicha hisoblaydi (<code>c</code> — yorug'lik tezligi, taxminan 300 000 000 m/s).</p>
+<p><strong>Masala.</strong> Shunday dastur yozing: kilogrammda berilgan massaga mos energiyani Eynshteyn formulasi <code>E = m · c²</code> bo'yicha joulda hisoblaydi (<code>c</code> — yorug'lik tezligi, taxminan 300 000 000 m/s).</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Massa: 2
-E = 180000000000000000
+<div class="highlight"><pre><span></span><code>Massa (kg): 2
+E = 180000000000000000 J
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
 <div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="mi">300_000_000</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Massa: "</span><span class="p">))</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Massa (kg): "</span><span class="p">))</span>
 
 <span class="n">e</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">c</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"E = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"E = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> J"</span><span class="p">)</span>
 </code></pre></div>
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p10.py">p10.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li><code>300_000_000</code> — Python raqamlar orasida <code>_</code> belgisini qabul qiladi; u faqat o'qishni osonlashtiradi, qiymatga ta'sir qilmaydi. Bu aynan <code>300000000</code> bilan bir xil.</li>
+<li><code>300_000_000</code> — raqamlar orasidagi <code>_</code> faqat o'qishni osonlashtiradi, qiymatga ta'sir qilmaydi (<a href="../lecture/#malumot-turlari">ma'ruzaga qarang</a>).</li>
 <li><code>c</code> — qiymati o'zgarmaydigan <strong>doimiy</strong> (konstanta) sifatida ishlatilgan. Python buni majburlamaydi, lekin odatda bunday qiymatlarga qayta qiymat berilmaydi.</li>
 <li><code>float(input(...))</code> — massa kasr son bo'lishi mumkin (<code>0.5</code>).</li>
 <li><code>m * c ** 2</code> — formuladagi <code>m · c²</code>. <code>**</code> ustuvorligi <code>*</code> dan yuqori, shuning uchun avval <code>c ** 2</code> hisoblanadi, keyin <code>m</code> ga ko'paytiriladi. Qavs shart emas.</li>
-<li><code>round(x)</code> — sonni eng yaqin butun songa yaxlitlaydi (<code>round(2.7)</code> → <code>3</code>); <code>.5</code> holatida juft songa qarab yaxlitlaydi. <code>round(x, 2)</code> ikkinchi argument bilan kasr raqamlari sonini beradi.</li>
-<li><code>float</code> ni <code>round</code> qilgach, natija <code>int</code> bo'ladi, shuning uchun natija <code>1.8e+17</code> ko'rinishida emas, kasrsiz yoziladi.</li>
+<li><code>round(x)</code> — sonni eng yaqin butun songa yaxlitlaydi (<a href="../lecture/#natijani-chiroyli-chiqarish">ma'ruzaga qarang</a>). <code>float</code> ni <code>round</code> qilgach, natija <code>int</code> bo'ladi, shuning uchun natija <code>1.8e+17</code> ko'rinishida emas, kasrsiz yoziladi.</li>
 </ul>
 </details>
 <h2 id="11-choy-puli-tip-hisoblash">11. Choy puli (tip) hisoblash</h2>
 <p><strong>Masala.</strong> Shunday dastur yozing: hisob summasi (<code>$</code> belgisi bilan) va foizni (<code>%</code> belgisi bilan) oladi va choy pulini hisoblaydi.</p>
 <p>Namuna:</p>
-<div class="highlight"><pre><span></span><code>Qancha boldi? $50
-Nechi foiz? 15%
+<div class="highlight"><pre><span></span><code>Qancha bo'ldi? $50
+Necha foiz? 15%
 Tip: 7.50
 </code></pre></div>
 <details class="success">
 <summary>Yechim</summary>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">narh</span> <span class="o">=</span> <span class="n">narh_to</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Qancha boldi? "</span><span class="p">))</span>
-    <span class="n">foiz</span> <span class="o">=</span> <span class="n">foiz_to</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Nechi foiz? "</span><span class="p">))</span>
+    <span class="n">narx</span> <span class="o">=</span> <span class="n">narxga_aylantir</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Qancha bo'ldi? "</span><span class="p">))</span>
+    <span class="n">foiz</span> <span class="o">=</span> <span class="n">foizga_aylantir</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Necha foiz? "</span><span class="p">))</span>
 
-    <span class="n">tip</span> <span class="o">=</span> <span class="n">narh</span> <span class="o">*</span> <span class="n">foiz</span>
+    <span class="n">tip</span> <span class="o">=</span> <span class="n">narx</span> <span class="o">*</span> <span class="n">foiz</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tip: </span><span class="si">{</span><span class="n">tip</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 
-
-<span class="k">def</span><span class="w"> </span><span class="nf">narh_to</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-
+<span class="k">def</span><span class="w"> </span><span class="nf">narxga_aylantir</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"$"</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">foiz_to</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
 
+<span class="k">def</span><span class="w"> </span><span class="nf">foizga_aylantir</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"%"</span><span class="p">)</span>
-
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
 
 
@@ -1265,15 +1274,15 @@ Tip: 7.50
 <p>Fayl: <a href="../../../../downloads/dasturlash/week-02/p11.py">p11.py</a></p>
 <p><strong>Tushuntirish.</strong></p>
 <ul>
-<li>Dastur uch qismga bo'lingan: <code>main()</code> — asosiy oqim, <code>narh_to()</code> — summani songa aylantirish, <code>foiz_to()</code> — foizni songa aylantirish. Har funksiya bitta ishni bajaradi.</li>
-<li><strong>Bu yerda <code>return</code> nega kerak.</strong> <code>narh_to()</code> va <code>foiz_to()</code> hech narsa chiqarmaydi: ular hisoblangan sonni <code>return</code> bilan <code>main()</code> ga <strong>qaytaradi</strong>. <code>narh = narh_to(input(...))</code> qatorida <code>narh_to(...)</code> ifodasi qaytgan songa (<code>50.0</code>) almashadi va u <code>narh</code> ga saqlanadi. Keyin <code>narh * foiz</code> kabi hisoblarda ishlatiladi. Agar <code>return</code> bo'lmasa, <code>narh</code> ichida <code>None</code> bo'lardi va <code>narh * foiz</code> xato berardi (<code>TypeError</code>).</li>
-<li>Ma'lumot oqimi: <code>main</code> → argument → funksiya → <code>return</code> → <code>main</code>. Funksiya tashqi dunyodan <strong>parametr</strong> orqali oladi va <strong>return</strong> orqali beradi; <code>n</code> va <code>f</code> o'zgaruvchilari esa faqat o'z funksiyasi ichida mavjud.</li>
+<li>Dastur uch qismga bo'lingan: <code>main()</code> — asosiy oqim, <code>narxga_aylantir()</code> — summani songa aylantirish, <code>foizga_aylantir()</code> — foizni songa aylantirish. Har funksiya bitta ishni bajaradi.</li>
+<li>Ikki yordamchi funksiya hech narsa chiqarmaydi: ular hisoblangan sonni <code>return</code> bilan <code>main()</code> ga <strong>qaytaradi</strong>. <code>narx = narxga_aylantir(input(...))</code> qatorida funksiya chaqiruvi qaytgan songa (<code>50.0</code>) almashadi. <code>return</code> bo'lmaganda <code>narx</code> ichida <code>None</code> bo'lardi va <code>narx * foiz</code> <code>TypeError</code> berardi.</li>
+<li>Ma'lumot oqimi: <code>main</code> → argument → funksiya → <code>return</code> → <code>main</code>. <code>n</code> va <code>f</code> o'zgaruvchilari faqat o'z funksiyasi ichida mavjud (<a href="../../week-03/lecture/#scope-ozgaruvchi-qayerda-korinadi">scope</a>).</li>
 <li><code>n.strip("$")</code> — <code>strip</code> ga argument berilsa, satrning <strong>boshi va oxiridan</strong> shu belgilarni olib tashlaydi: <code>"$50"</code> → <code>"50"</code>. Belgi bo'lmasa, satr o'zgarmaydi, shuning uchun <code>50</code> kiritilsa ham dastur ishlaydi.</li>
-<li><code>float("50")</code> → <code>50.0</code>. Matn faqat son shaklida bo'lgandagina <code>float()</code> ishlaydi; <code>"$50"</code> ni to'g'ridan-to'g'ri aylantirsak, <code>ValueError</code> chiqardi.</li>
+<li><code>float("50")</code> → <code>50.0</code>. Matn faqat son shaklida bo'lgandagina <code>float()</code> ishlaydi; <code>"$50"</code> ni to'g'ridan-to'g'ri aylantirsak, <code>ValueError</code> chiqqan bo'lar edi.</li>
 <li><code>float(f) / 100</code> — foizni ulushga aylantiradi: <code>15</code> → <code>0.15</code>.</li>
-<li><code>tip = narh * foiz</code> → <code>50.0 * 0.15</code> = <code>7.5</code>.</li>
+<li><code>tip = narx * foiz</code> → <code>50.0 * 0.15</code> = <code>7.5</code>.</li>
 <li><code>{tip:.2f}</code> — f-string formatlash: <code>.2f</code> natijani <strong>ikki kasr raqami</strong> bilan chiqaradi (<code>7.5</code> → <code>7.50</code>).</li>
-<li>Funksiyalar <code>main()</code> dan keyin yozilgan, lekin <code>main()</code> eng oxirida chaqirilgani uchun muammo yo'q: Python chaqiruv paytiga kelib hamma funksiyani biladi.</li>
+<li>Yordamchi funksiyalar <code>main()</code> dan keyin yozilgan, lekin <code>main()</code> eng oxirida chaqirilgani uchun muammo yo'q: chaqiruv paytiga kelib hamma funksiya yaratilgan bo'ladi.</li>
 </ul>
 </details>
 <h2 id="qisqa-lugat">Qisqa lug'at</h2>
@@ -1294,8 +1303,16 @@ Tip: 7.50
 <td>boshi va oxiridagi bo'sh joylarni (yoki ko'rsatilgan belgilarni) olib tashlaydi</td>
 </tr>
 <tr>
-<td><code>satr.title()</code> / <code>lower()</code> / <code>upper()</code></td>
-<td>har so'zni bosh harfli / hammasini kichik / hammasini katta qiladi</td>
+<td><code>string.capwords(satr)</code></td>
+<td>har so'zni bosh harf bilan boshlaydi (o'zbekcha <code>o'</code>, <code>g'</code> bilan ham to'g'ri)</td>
+</tr>
+<tr>
+<td><code>satr.capitalize()</code></td>
+<td>birinchi harfni katta, qolganini kichik qiladi</td>
+</tr>
+<tr>
+<td><code>satr.lower()</code> / <code>upper()</code></td>
+<td>hammasini kichik / hammasini katta qiladi</td>
 </tr>
 <tr>
 <td><code>satr.split()</code></td>
@@ -1307,7 +1324,7 @@ Tip: 7.50
 </tr>
 <tr>
 <td><code>int()</code>, <code>float()</code></td>
-<td>matnni butun / o'nlik songa aylantiradi</td>
+<td>matnni butun / kasr songa aylantiradi</td>
 </tr>
 <tr>
 <td><code>round(x)</code></td>
