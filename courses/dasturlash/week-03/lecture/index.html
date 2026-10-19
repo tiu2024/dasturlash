@@ -1241,7 +1241,18 @@
 <p>Ma'ruza taqdimoti: <a href="../../../../downloads/dasturlash/week-03/funksiyalar-shartlar-scope-turlar.pptx">Funksiyalar, shartlar, scope va turlar (PPTX)</a></p>
 <p>Bu haftaning amaliy qismi: <a href="../practice/">amaliyot</a>.</p>
 <h2 id="funksiyalar">Funksiyalar</h2>
-<p>Funksiya — nomi bor, qayta ishlatish mumkin bo'lgan kod bo'lagi. Siz <code>print()</code>, <code>input()</code>, <code>int()</code>, <code>round()</code> kabi tayyor funksiyalarni allaqachon ishlatgansiz. Endi o'zimizning funksiyamizni yaratamiz.</p>
+<p><strong>Funksiya</strong> — kirishni olib, natija beradigan "mashina". Blenderga olma solsangiz, sharbat chiqadi:</p>
+<div class="highlight"><pre><span></span><code>olma    →  blender   →  sharbat
+kirish  →  funksiya  →  natija
+</code></pre></div>
+<p>Python'da ham xuddi shunday. <code>round(3.7)</code> yozsak, <code>3.7</code> sonini <code>round</code> funksiyasiga beramiz, u esa <code>4</code> ni qaytaradi:</p>
+<ul>
+<li><code>round</code> — funksiya nomi;</li>
+<li><code>( )</code> — qavslar: "ishga tushir" degani;</li>
+<li><code>3.7</code> — <strong>argument</strong>: funksiyaga beriladigan qiymat;</li>
+<li><code>4</code> — <strong>qaytgan qiymat</strong>: funksiya bergan natija.</li>
+</ul>
+<p>Siz <code>print()</code>, <code>input()</code>, <code>int()</code>, <code>round()</code> kabi tayyor funksiyalarni allaqachon ishlatgansiz. Endi o'zimizning funksiyamizni yaratamiz.</p>
 <p>Taksi narxi 5 000 so'm + har kilometr uchun 2 000 so'm bo'lsin. Funksiyasiz hisob takrorlanadi:</p>
 <div class="highlight"><pre><span></span><code><span class="n">narx1</span> <span class="o">=</span> <span class="mi">5000</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">2000</span>
 <span class="n">narx2</span> <span class="o">=</span> <span class="mi">5000</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">2000</span>
@@ -1267,6 +1278,12 @@
 <li>Funksiya tanasi <strong>4 ta probel chekinish</strong> bilan yoziladi.</li>
 <li><code>return</code> natijani funksiyadan chaqirilgan joyga <strong>qaytaradi</strong> va funksiyani tugatadi. <code>taksi_narxi(3)</code> ifodasi <code>11000</code> ga aylanadi.</li>
 </ul>
+<p><strong>Chaqirilganda nima bo'ladi?</strong> <code>narx = taksi_narxi(10)</code> qatorini qadamma-qadam ko'raylik:</p>
+<ol>
+<li>Argument parametrga tushadi: <code>km = 10</code>.</li>
+<li>Hisoblanadi: <code>5000 + 10 * 2000</code> = <code>25000</code>.</li>
+<li><code>return</code> natijani qaytaradi va u <code>narx</code> ga yoziladi: <code>narx = 25000</code>.</li>
+</ol>
 <p><code>def</code> funksiyani faqat <strong>yaratadi</strong>, ishga tushirmaydi. U chaqirilganda ishlaydi.</p>
 <p>Funksiyaning uch afzalligi: kod <strong>takrorlanmaydi</strong>, <strong>oson o'zgaradi</strong> (tuzatish bitta joyda), <strong>oson o'qiladi</strong> (nom nima qilishini aytadi).</p>
 <h3 id="parametr-va-standart-qiymat">Parametr va standart qiymat</h3>
@@ -1469,13 +1486,6 @@ x y ga teng
 Baho: B
 </code></pre></div>
 <p>Chegaraviy qiymatlarni tekshiring: <code>90</code> → A, <code>89</code> → B, <code>60</code> → D, <code>59</code> → F.</p>
-<p>Bu soddalashtirish ball 0–100 oralig'ida kiritiladi deb hisoblaydi. Oraliqdan tashqaridagi ball uchun variantlar har xil ishlaydi: <code>150</code> birinchi variantda F, soddalashtirilganida A oladi. Noto'g'ri ballni alohida ushlash uchun boshiga yana bitta shart qo'shing:</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">ball</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">ball</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Ball 0 dan 100 gacha bo'lishi kerak"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">ball</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Baho: A"</span><span class="p">)</span>
-<span class="o">...</span>
-</code></pre></div>
 <p>Uchta mantiqiy operator bor: <code>and</code> ("va"), <code>or</code> ("yoki"), <code>not</code> ("emas"). <code>not</code> shartni teskarisiga o'giradi: <code>not (x == y)</code> — <code>x != y</code> bilan bir xil.</p>
 <h3 id="qoldiq-operatori-juft-yoki-toq">Qoldiq operatori: juft yoki toq</h3>
 <p><code>%</code> bo'lingandagi qoldiqni beradi: <code>4 % 2</code> → <code>0</code>, <code>3 % 2</code> → <code>1</code>, <code>7 % 3</code> → <code>1</code>. Son juft bo'lsa, 2 ga bo'lingandagi qoldiq <code>0</code> bo'ladi:</p>
@@ -1508,7 +1518,7 @@ Toq
 
 <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
-<p>Bu kodni qisqartirish mumkin. <code>if</code> o'rniga <strong>shartli ifoda</strong> ishlatamiz. U <code>A if shart else B</code> ko'rinishida yoziladi: shart <code>True</code> bo'lsa natija <code>A</code>, aks holda <code>B</code>:</p>
+<p>Bu kodni qisqartirish mumkin. Quyidagi bitta qator "shart bajarilsa <code>True</code>, aks holda <code>False</code> qaytar" deb o'qiladi:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">False</span>
 </code></pre></div>
@@ -1545,10 +1555,6 @@ Dam olish kuni
     <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">"Ish kuni"</span><span class="p">)</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Python versiyasi</p>
-<p><code>match</code> Python 3.10 dan boshlab mavjud. <code>python --version</code> bilan versiyangizni tekshiring.</p>
-</div>
 <h2 id="scope-ozgaruvchi-qayerda-korinadi">Scope: o'zgaruvchi qayerda ko'rinadi</h2>
 <p><strong>Scope</strong> (ko'rinish sohasi) — o'zgaruvchi ko'rinadigan va ishlatilishi mumkin bo'lgan joy. Uni dars xonasidagi doskaga o'xshatish mumkin: doskadagi yozuvni faqat shu xonadagilar ko'radi, qo'shni xona uni ko'rmaydi.</p>
 <h3 id="local-ozgaruvchi">Local o'zgaruvchi</h3>
@@ -1782,25 +1788,18 @@ Salom, Anora
 </code></pre></div>
 <p><code>"0"</code> — bo'sh bo'lmagan satr, shuning uchun <code>True</code>.</p>
 <h3 id="turlarni-ozgartirish">Turlarni o'zgartirish</h3>
-<p>Asosiy qoidalar <a href="../../week-02/lecture/#turlarni-ozgartirish">2-haftada</a> berilgan: <code>input()</code> doim <code>str</code> qaytaradi, uni <code>int()</code>, <code>float()</code>, <code>str()</code> bilan kerakli turga o'zgartiramiz. Bitta yangi nuqta:</p>
-<ul>
-<li><code>int(3.9)</code> → <code>3</code> — <code>int()</code> yaxlitlamaydi, kasr qismini tashlab yuboradi. Yaxlitlash uchun <code>round(3.9)</code> → <code>4</code>.</li>
-<li><code>int("3.9")</code> esa <code>ValueError</code> beradi: <code>int()</code> matndan faqat butun son yozuvini aylantiradi. Avval <code>float("3.9")</code>, keyin kerak bo'lsa <code>int()</code>.</li>
-</ul>
+<p>Asosiy qoidalar <a href="../../week-02/lecture/#turlarni-ozgartirish">2-haftada</a> berilgan: <code>input()</code> doim <code>str</code> qaytaradi, uni <code>int()</code>, <code>float()</code>, <code>str()</code> bilan kerakli turga o'zgartiramiz.</p>
+<p>Bitta yangi narsa: <code>int(3.9)</code> → <code>3</code>. <code>int()</code> yaxlitlamaydi, kasr qismini tashlab yuboradi. Yaxlitlash uchun <code>round(3.9)</code> → <code>4</code>.</p>
 <h2 id="odatiy-xatolar">Odatiy xatolar</h2>
 <ul>
 <li><strong><code>==</code> o'rniga <code>=</code> yozish.</strong> <code>if x = 5:</code> — <code>SyntaxError</code>. Taqqoslash uchun <code>==</code>.</li>
-<li><strong><code>:</code> ni unutish.</strong> <code>if x &gt; 3</code> (ikki nuqtasiz) — <code>SyntaxError</code>.</li>
-<li><strong>Chekinishni unutish yoki aralashtirish.</strong> <code>if</code> ostidagi qatorlar bir xil chekinish bilan yozilishi shart; aks holda <code>IndentationError</code>.</li>
-<li><strong><code>elif</code> o'rniga ketma-ket <code>if</code> yozish.</strong> Bir-birini istisno qiladigan holatlar uchun <code>elif</code> ishlating, aks holda bir nechta blok bir vaqtda ishlashi mumkin.</li>
+<li><strong><code>:</code> yoki chekinishni unutish.</strong> <code>if x &gt; 3</code> (ikki nuqtasiz) — <code>SyntaxError</code>. <code>if</code> ostidagi qatorlar bir xil chekinish (4 ta probel) bilan yozilishi shart, aks holda <code>IndentationError</code>.</li>
 <li><strong>Shartlar tartibi.</strong> Avval <code>ball &gt;= 60</code>, keyin <code>ball &gt;= 90</code> yozilsa, 95 ball ham <code>D</code> oladi: sharti <code>True</code> bo'lgan birinchi blok bajariladi.</li>
 <li><strong>Chegaralarni adashtirish.</strong> <code>&gt;</code> va <code>&gt;=</code>, <code>&lt;</code> va <code>&lt;=</code> farqi: aynan chegaradagi qiymat qaysi tarafga tushishini o'ylab ko'ring.</li>
 <li><strong><code>or</code> ni noto'g'ri yozish.</strong> <code>if kun == "shanba" or "yakshanba":</code> har doim <code>True</code> bo'ladi, chunki bo'sh bo'lmagan satr <code>True</code> hisoblanadi (<a href="#bool"><code>bool</code></a> bo'limiga qarang). To'g'risi: <code>kun == "shanba" or kun == "yakshanba"</code>.</li>
 <li><strong>Matn va sonni solishtirish.</strong> <code>input()</code> matn qaytaradi: <code>if input("Yosh: ") &gt;= 18:</code> — <code>TypeError</code>. Avval <code>int()</code> ga aylantiring.</li>
 <li><strong><code>return</code> o'rniga <code>print</code>.</strong> <code>is_even</code> ichida <code>print(True)</code> yozilsa, funksiya <code>None</code> qaytaradi va <code>if is_even(x):</code> bloki hech qachon bajarilmaydi.</li>
 <li><strong>Local o'zgaruvchini boshqa funksiyada ishlatish.</strong> <code>main</code> ichidagi <code>name</code> ni <code>hello</code> ko'rmaydi — <code>NameError</code>. Qiymatni argument bilan bering.</li>
-<li><strong>Global o'zgaruvchini funksiya ichida <code>=</code> bilan o'zgartirmoqchi bo'lish.</strong> Yangi local o'zgaruvchi yaratiladi, global qiymat o'zgarmaydi. Yangi qiymatni <code>return</code> bilan qaytaring.</li>
-<li><strong><code>int(3.9)</code> ni yaxlitlaydi deb o'ylash.</strong> Natija <code>3</code>. Yaxlitlash uchun <code>round()</code>.</li>
 </ul>
 
 

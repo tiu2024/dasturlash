@@ -664,17 +664,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#yigindi-toplash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Yig'indi to'plash
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1093,17 +1082,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#yigindi-toplash" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Yig'indi to'plash
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1164,10 +1142,10 @@
 <p>Bu haftaning amaliy qismi: <a href="../practice/">amaliyot</a>.</p>
 <h2 id="python-dasturi-qanday-ishlaydi">Python dasturi qanday ishlaydi</h2>
 <p>Kompyuterning asosiy qismlari: <strong>protsessor (CPU)</strong> buyruqlarni bajaradi, <strong>xotira (RAM)</strong> dastur ishlayotganda ma'lumotni vaqtincha saqlaydi, <strong>qattiq disk / SSD</strong> fayllarni doimiy saqlaydi. Klaviatura va sichqoncha kiritish qurilmalari, monitor esa chiqarish qurilmasi hisoblanadi.</p>
-<p>Biz yozgan matn <strong>manba kod</strong> (<em>source code</em>) deyiladi. Protsessor uni to'g'ridan-to'g'ri tushunmaydi: u faqat nollar va birlarni (mashina kodini) bajaradi. Kodni bajarish vazifasini <strong>interpreter</strong> bajaradi. Python avval butun faylni tekshirib, uni <strong>bayt-kod</strong> (<em>bytecode</em>) deb ataladigan oraliq ko'rinishga o'giradi, so'ng interpreter bu buyruqlarni birma-bir bajaradi. Shuning uchun faylning istalgan joyida sintaksis xatosi bo'lsa, dastur umuman ishga tushmaydi — hatto xatodan oldingi qatorlar ham bajarilmaydi. <code>python hello.py</code> buyrug'i ikkala bosqichni birga bajaradi, shuning uchun biz "yozdik, ishga tushirdik, natijani ko'rdik" tarzida ishlay olamiz.</p>
-<div class="highlight"><pre><span></span><code>manba kod (.py)  →  bayt-kod  →  interpreter buyruqlarni birma-bir bajaradi
+<p>Biz yozgan matn <strong>manba kod</strong> (<em>source code</em>) deyiladi. Protsessor uni to'g'ridan-to'g'ri tushunmaydi: u faqat nollar va birlardan iborat <strong>mashina kodi</strong>ni bajaradi. Manba kodni bajarish uchun <strong>interpreter</strong> kerak — bu kodni satrma-satr o'qib, darhol bajaradigan dastur. Python'da kodni oldindan alohida "yig'ish" (<em>compile</em>) shart emas, shuning uchun biz "yozdik, ishga tushirdik, natijani ko'rdik" tarzida ishlay olamiz.</p>
+<div class="highlight"><pre><span></span><code>manba kod  →  interpreter  →  mashina kodi  →  protsessor bajaradi
 </code></pre></div>
-<p>Dastur <code>.py</code> kengaytmali faylda saqlanadi. Terminalda uni quyidagicha ishga tushiramiz:</p>
+<p>Dastur <code>.py</code> kengaytmali faylda saqlanadi. <strong>Terminal</strong> — kompyuterga buyruqlarni matn ko'rinishida yozadigan oyna. Terminalda dasturni quyidagicha ishga tushiramiz:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>hello.py
 </code></pre></div>
 <div class="admonition note">
@@ -1191,7 +1169,7 @@ Avval print buyrug'ini mashq qilamiz.
 Bu dastur ekranga uch qator matn chiqaradi.
 </code></pre></div>
 <h3 id="hisoblash-va-matnni-farqlash">Hisoblash va matnni farqlash</h3>
-<p>Tirnoqsiz yozilgan ifodani Python <strong>hisoblaydi</strong>, tirnoq ichidagini esa <strong>matn sifatida</strong> chiqaradi:</p>
+<p><strong>Ifoda</strong> — natijasi bitta qiymat bo'ladigan yozuv, masalan <code>2 + 2 * 10</code>. Tirnoqsiz yozilgan ifodani Python <strong>hisoblaydi</strong>, tirnoq ichidagini esa <strong>matn sifatida</strong> chiqaradi:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"2 + 2 * 10"</span><span class="p">)</span>
 </code></pre></div>
@@ -1207,7 +1185,7 @@ Bu dastur ekranga uch qator matn chiqaradi.
 <div class="highlight"><pre><span></span><code>Bir yilda soat:
 8760
 </code></pre></div>
-<p>Izohda <em>nima qilinayotganini</em> emas, <em>nima uchun</em> shunday qilinayotganini yozing. Murakkab masalani yechishdan oldin izohlarda <strong>psevdokod</strong> yozib, keyin har qatorni haqiqiy kodga aylantirish ham yaxshi odat.</p>
+<p>Izohda <em>nima qilinayotganini</em> emas, <em>nima uchun</em> shunday qilinayotganini yozing. Murakkab masalani yechishdan oldin izohlarda algoritm qadamlarini oddiy so'zlar bilan (<strong>psevdokod</strong>) yozib, keyin har qatorni haqiqiy kodga aylantirish ham yaxshi odat.</p>
 <h2 id="xatolar-bug">Xatolar (bug)</h2>
 <p>Xato (<em>bug</em>) — dasturlashning tabiiy qismi. Python xatoni topsa, xabar chiqaradi va qaysi qatorda ekanini ko'rsatadi:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">"Salom)</span>
@@ -1218,6 +1196,43 @@ Bu dastur ekranga uch qator matn chiqaradi.
 SyntaxError: unterminated string literal (detected at line 1)
 </code></pre></div>
 <p>Xabarni pastdan yuqoriga o'qing: oxirgi qatorda xato turi va tavsifi, uning ustida esa fayl nomi, qator raqami (<code>line 1</code>) va xato joyini ko'rsatuvchi <code>^</code> belgisi. Bu yerda tirnoq yopilmagan. Xato xabarini o'qish — dasturchining asosiy ko'nikmasi.</p>
+<p>Ko'p uchraydigan xatolar:</p>
+<table>
+<thead>
+<tr>
+<th>Xato</th>
+<th>Ma'nosi</th>
+<th>Misol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SyntaxError</code></td>
+<td>kod Python'ning yozish qoidalariga mos emas</td>
+<td>tirnoq yoki qavs yopilmagan</td>
+</tr>
+<tr>
+<td><code>NameError</code></td>
+<td>bunday nom topilmadi</td>
+<td>o'zgaruvchi nomi xato yozilgan yoki hali yaratilmagan</td>
+</tr>
+<tr>
+<td><code>TypeError</code></td>
+<td>bu amalni bunday qiymatlar bilan bajarib bo'lmaydi</td>
+<td>matnga son qo'shish: <code>"Yosh: " + 20</code></td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>qiymat yaroqsiz</td>
+<td><code>int("salom")</code> — "salom" ni songa aylantirib bo'lmaydi</td>
+</tr>
+<tr>
+<td><code>ZeroDivisionError</code></td>
+<td>nolga bo'lish</td>
+<td><code>5 / 0</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="foydalanuvchidan-malumot-input-va-ozgaruvchilar">Foydalanuvchidan ma'lumot: <code>input()</code> va o'zgaruvchilar</h2>
 <p><code>input()</code> foydalanuvchi klaviaturada yozgan matnni qabul qiladi. Olingan qiymatni saqlash uchun <strong>o'zgaruvchi</strong> kerak. O'zgaruvchi — nomi bor "quti" bo'lib, ichida qiymat saqlanadi.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz nima? "</span><span class="p">)</span>
@@ -1226,7 +1241,7 @@ SyntaxError: unterminated string literal (detected at line 1)
 <div class="highlight"><pre><span></span><code>Ismingiz nima? Laylo
 Salom, Laylo
 </code></pre></div>
-<p><code>=</code> belgisi matematikadagi "teng" emas, <strong>o'zlashtirish</strong> (<em>assignment</em>) operatoridir: o'ngdagi qiymat chapdagi nomga saqlanadi.</p>
+<p><code>=</code> belgisi matematikadagi "teng" emas. U <strong>o'zlashtirish</strong> (<em>assignment</em>) belgisi: o'ngdagi qiymatni chapdagi nomga saqlaydi.</p>
 <div class="admonition warning">
 <p class="admonition-title">Muhim</p>
 <p><code>input()</code> har doim natijani <strong>matn (<code>str</code>)</strong> sifatida qaytaradi, hatto foydalanuvchi son yozgan bo'lsa ham.</p>
@@ -1259,8 +1274,7 @@ xayr!!!
 <li>katta-kichik harf farqlanadi: <code>ism</code>, <code>Ism</code> va <code>ISM</code> — uch xil nom;</li>
 <li>bo'sh joy bo'lmaydi; so'zlar <code>_</code> bilan ajratiladi: <code>tugilgan_yil</code> (<code>snake_case</code>);</li>
 <li>nom mazmunni bildirsin: <code>a</code> emas, <code>yosh</code>;</li>
-<li><code>if</code>, <code>else</code>, <code>def</code> kabi <strong>kalit so'zlarni</strong> nom qilib bo'lmaydi: <code>if = 5</code> — <code>SyntaxError</code>;</li>
-<li><code>print</code>, <code>input</code> kabi tayyor funksiya nomlarini ham ishlatmang: <code>print = 5</code> xato bermaydi, lekin shundan keyin <code>print()</code> funksiyasi ishlamay qoladi.</li>
+<li><code>if</code>, <code>else</code>, <code>def</code> kabi Python'ning maxsus so'zlari nom bo'la olmaydi; <code>print</code>, <code>input</code> kabi tayyor funksiya nomlarini ham nom qilib olmang.</li>
 </ul>
 <p>Dasturlash tillarining kalit so'zlari ingliz tilida, shuning uchun o'zgaruvchi nomlarini ham ingliz tilida yozish xalqaro odat. Bu kursda tushunarli bo'lishi uchun ba'zan o'zbekcha nomlar ham uchraydi; muhimi — nom izchil va mazmunli bo'lishi.</p>
 <h2 id="malumot-turlari">Ma'lumot turlari</h2>
@@ -1301,7 +1315,7 @@ xayr!!!
 &lt;class 'float'&gt;
 &lt;class 'str'&gt;
 </code></pre></div>
-<p><code>100</code> va <code>"100"</code> — <strong>har xil</strong> qiymatlar. <code>+</code> operatori sonlarda qo'shadi, satrlarda esa ularni <strong>ulaydi</strong> (<em>concatenation</em>):</p>
+<p><code>100</code> va <code>"100"</code> — <strong>har xil</strong> qiymatlar. <code>+</code> belgisi sonlarda qo'shadi, satrlarda esa ularni <strong>ulaydi</strong> (<em>concatenation</em>):</p>
 <div class="highlight"><pre><span></span><code><span class="n">son</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">matn</span> <span class="o">=</span> <span class="s2">"100"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">son</span> <span class="o">+</span> <span class="n">son</span><span class="p">)</span>
@@ -1371,7 +1385,7 @@ Siz 2026-yilda 18 yoshga to'lasiz
 </code></pre></div>
 <p>f-string'da <code>{ }</code> ichiga ifoda ham yozish mumkin: <code>print(f"{2 + 3}")</code> → <code>5</code>. Matnning qaysi qismida bo'sh joy bo'lishini siz aniq nazorat qilasiz, shuning uchun biz asosan shu usulni ishlatamiz.</p>
 <h2 id="satrlar-bilan-ishlash">Satrlar bilan ishlash</h2>
-<p>Satrning tayyor <strong>metodlari</strong> bor. Metod <code>satr.metod()</code> ko'rinishida chaqiriladi:</p>
+<p>Satrning tayyor <strong>metodlari</strong> bor. Metod — satrga tegishli funksiya; u satrdan keyin nuqta qo'yib chaqiriladi: <code>satr.metod()</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ism</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Ismingiz: "</span><span class="p">)</span>
 <span class="n">ism</span> <span class="o">=</span> <span class="n">ism</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Salom, </span><span class="si">{</span><span class="n">ism</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1385,25 +1399,14 @@ Salom, Laylo Karimova
 <li><code>.upper()</code>, <code>.lower()</code> — hammasini katta yoki kichik harfga o'tkazadi.</li>
 </ul>
 <p>Metodlarni ketma-ket <strong>zanjirlash</strong> mumkin: <code>ism.strip().title()</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">O'zbekcha ismlar va <code>.title()</code></p>
-<p><code>.title()</code> tutuq belgisi (<code>'</code>) dan keyingi harfni ham yangi so'z boshi deb hisoblaydi: <code>"o'tkir g'ulomov".title()</code> → <code>"O'Tkir G'Ulomov"</code>. O'zbekcha matnda uning o'rniga <code>string.capwords()</code> ishlating. U matnni bo'sh joylar bo'yicha so'zlarga ajratadi va har bir so'zning faqat birinchi harfini katta qiladi:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
-
-<span class="n">ism</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capwords</span><span class="p">(</span><span class="s2">"o'tkir g'ulomov"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ism</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>O'tkir G'ulomov
-</code></pre></div>
-<p><code>import string</code> — Python bilan birga keladigan <code>string</code> modulini ulaydi; modullarni keyinroq batafsil o'rganamiz. Bitta so'z uchun <code>.capitalize()</code> yetarli: <code>"o'tkir".capitalize()</code> → <code>"O'tkir"</code>.</p>
-</div>
-<p>Yana uchta foydali metod (ular <a href="../practice/">amaliyotda</a> ishlatiladi):</p>
+<p><code>.title()</code> o'zbekcha <code>o'</code>, <code>g'</code> bor ismlarni buzadi: <code>"o'tkir".title()</code> → <code>"O'Tkir"</code>. Shuning uchun <a href="../practice/">amaliyotda</a> ismlar uchun <code>string.capwords()</code> ishlatamiz.</p>
+<p>Yana uchta metod amaliyotda kerak bo'ladi:</p>
 <ul>
-<li><code>.replace(eski, yangi)</code> — satrdagi barcha <code>eski</code> qismlarni <code>yangi</code> bilan almashtiradi: <code>"a b c".replace(" ", "...")</code> → <code>"a...b...c"</code>;</li>
-<li><code>.split()</code> — satrni bo'sh joylar bo'yicha bo'laklarga ajratadi va <strong>ro'yxat</strong> qaytaradi: <code>"ali valiyev".split()</code> → <code>["ali", "valiyev"]</code>. Bo'laklarni darhol alohida o'zgaruvchilarga ochish mumkin: <code>ism, familiya = "ali valiyev".split()</code>. Bo'laklar soni o'zgaruvchilar soniga teng bo'lishi shart, aks holda <code>ValueError</code>;</li>
-<li><code>.strip(belgilar)</code> — argument berilsa, bo'sh joy o'rniga shu belgilarni boshi va oxiridan olib tashlaydi: <code>"$50".strip("$")</code> → <code>"50"</code>.</li>
+<li><code>.replace(eski, yangi)</code> — matndagi barcha <code>eski</code> qismlarni <code>yangi</code> bilan almashtiradi: <code>"a b c".replace(" ", "...")</code> → <code>"a...b...c"</code>;</li>
+<li><code>.split()</code> — matnni so'zlarga bo'ladi. So'zlarni darhol alohida o'zgaruvchilarga olish mumkin: <code>ism, familiya = "ali valiyev".split()</code> — <code>ism</code> ga <code>"ali"</code>, <code>familiya</code> ga <code>"valiyev"</code> tushadi;</li>
+<li><code>.strip("$")</code> — boshi va oxiridagi <code>$</code> belgilarini olib tashlaydi: <code>"$50".strip("$")</code> → <code>"50"</code>.</li>
 </ul>
-<p>Qo'shtirnoq ichida qo'shtirnoq kerak bo'lsa, tashqarisida yakka tirnoq ishlating: <code>print('U "salom" dedi')</code>. Yoki <code>\"</code> yozing: teskari chiziq (<code>\</code>) keyingi belgini oddiy belgiga aylantiradi. Qatorni almashtirmasdan chiqarish uchun: <code>print("Salom,", end="")</code>.</p>
+<p>Qo'shtirnoq ichida qo'shtirnoq kerak bo'lsa, tashqarisida yakka tirnoq ishlating: <code>print('U "salom" dedi')</code>.</p>
 <h2 id="arifmetik-amallar">Arifmetik amallar</h2>
 <table>
 <thead>
@@ -1469,8 +1472,8 @@ Salom, Laylo Karimova
 1
 4.0
 </code></pre></div>
-<p>E'tibor bering: <code>8 / 2</code> natijasi <code>4.0</code> — <code>/</code> har doim <code>float</code> qaytaradi. Ikki <code>int</code> ustida <code>+ - * // % **</code> natijasi <code>int</code> (faqat <code>**</code> da daraja manfiy bo'lsa, <code>float</code>: <code>2 ** -1</code> → <code>0.5</code>), agar bitta operand <code>float</code> bo'lsa, natija <code>float</code> bo'ladi.</p>
-<p><code>%</code> va <code>//</code> bir-biriga bog'liq: <code>a == (a // b) * b + a % b</code>. Masalan, <code>175</code> soniyani daqiqaga aylantirish: <code>175 // 60</code> = <code>2</code> daqiqa, <code>175 % 60</code> = <code>55</code> soniya. Juft-toqni aniqlashda ham <code>%</code> ishlatiladi: <code>n % 2</code> juft sonda <code>0</code>, toq sonda <code>1</code> beradi.</p>
+<p>E'tibor bering: <code>8 / 2</code> natijasi <code>4.0</code> — <code>/</code> har doim <code>float</code> qaytaradi.</p>
+<p><code>//</code> va <code>%</code> birga qulay. Masalan, <code>175</code> soniyani daqiqaga aylantirish: <code>175 // 60</code> = <code>2</code> daqiqa, <code>175 % 60</code> = <code>55</code> soniya. Juft-toqni aniqlashda ham <code>%</code> ishlatiladi: <code>n % 2</code> juft sonda <code>0</code>, toq sonda <code>1</code> beradi.</p>
 <h3 id="amallar-ustuvorligi">Amallar ustuvorligi</h3>
 <p>Avval <code>**</code>, keyin <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, oxirida <code>+</code>, <code>-</code>. Qavs tartibni o'zgartiradi:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
@@ -1492,31 +1495,21 @@ Salom, Laylo Karimova
 <div class="highlight"><pre><span></span><code>Kvadrat tomoni (sm): 2.5
 Yuza: 6.25, perimetr: 10.0
 </code></pre></div>
-<h3 id="yigindi-toplash">Yig'indi to'plash</h3>
-<p>O'zgaruvchini o'zining eski qiymati asosida o'zgartirish juda ko'p uchraydi. Buning qisqa yozuvi bor:</p>
-<div class="highlight"><pre><span></span><code><span class="n">jami</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">jami</span> <span class="o">=</span> <span class="n">jami</span> <span class="o">+</span> <span class="mi">5</span>
-<span class="n">jami</span> <span class="o">+=</span> <span class="mi">3</span>     <span class="c1"># jami = jami + 3 bilan bir xil</span>
-<span class="n">jami</span> <span class="o">*=</span> <span class="mi">2</span>     <span class="c1"># jami = jami * 2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">jami</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>16
-</code></pre></div>
-<p>Shu kabi <code>-=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>**=</code> ham bor.</p>
 <h2 id="natijani-chiroyli-chiqarish">Natijani chiroyli chiqarish</h2>
-<p>Kasr sonlarda ba'zan ortiqcha raqamlar chiqadi: <code>1 / 3</code> → <code>0.3333333333333333</code>. f-string'da <code>:</code> dan keyin format yoziladi:</p>
+<p>Kasr sonlarda ba'zan ortiqcha raqamlar chiqadi: <code>1 / 3</code> → <code>0.3333333333333333</code>. Ularni qisqartirishning ikki usuli bor:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>       <span class="c1"># 2 ta kasr raqami</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mi">1234567</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>   <span class="c1"># mingliklarni vergul bilan ajratish</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mf">1234567.891</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">2.675</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mf">7.5</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mf">8.5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>     <span class="c1"># f-string ichida: 2 ta kasr raqami bilan chiqarish</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>    <span class="c1"># 2 ta kasr raqamigacha yaxlitlash</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">7.4</span><span class="p">))</span>     <span class="c1"># eng yaqin butun songa yaxlitlash</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>0.33
-1,234,567
-1,234,567.89
-2.67 8 8
+0.33
+7
 </code></pre></div>
-<p><code>round(x)</code> eng yaqin butun songa yaxlitlaydi; <code>x.5</code> holatida <strong>juft</strong> songa qarab yaxlitlaydi (<code>7.5</code> → <code>8</code>, <code>8.5</code> → <code>8</code>). <code>round(2.675, 2)</code> esa <code>2.67</code> beradi, chunki <code>2.675</code> kompyuterda aniq saqlanmaydi (kasr sonlar ikkilik tizimda taxminan ifodalanadi). <code>:.2f</code> ham faqat ko'rinishni o'zgartiradi va xuddi shu cheklovga ega: <code>f"{2.675:.2f}"</code> ham <code>2.67</code> beradi. Natijani chiqarishda <code>:.2f</code> qulay, lekin pul hisob-kitobida bu farq muhim bo'lishi mumkin; aniq hisob usullarini keyinroq o'rganamiz.</p>
+<ul>
+<li><code>{x:.2f}</code> — f-string ichida sonni ikki kasr raqami bilan chiqaradi: <code>7.5</code> → <code>7.50</code>.</li>
+<li><code>round(x, 2)</code> — sonni ikki kasr raqamigacha yaxlitlaydi; ikkinchi son berilmasa, <code>round(x)</code> eng yaqin butun songa yaxlitlaydi.</li>
+</ul>
 <h2 id="toliq-misol-tana-vazn-indeksi-bmi">To'liq misol: tana vazn indeksi (BMI)</h2>
 <div class="highlight"><pre><span></span><code><span class="n">bo_y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Bo'yingiz (sm): "</span><span class="p">))</span>
 <span class="n">vazn</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Vazningiz (kg): "</span><span class="p">))</span>
@@ -1539,7 +1532,6 @@ BMI: 23.1
 <li><strong><code>/</code> natijasini <code>int</code> deb kutish.</strong> <code>10 / 2</code> → <code>5.0</code>. Butun natija kerak bo'lsa, <code>//</code>.</li>
 <li><strong>Ustuvorlikni unutish.</strong> <code>2 + 3 * 4</code> — <code>20</code> emas, <code>14</code>. Shubha bo'lsa, qavs ishlating.</li>
 <li><strong>Nomda xato.</strong> <code>Ism</code> va <code>ism</code> bir xil emas; yozilmagan nom <code>NameError</code> beradi.</li>
-<li><strong><code>print</code> dan keyin qavsni unutish.</strong> <code>print "salom"</code> Python 3'da ishlamaydi.</li>
 <li><strong>O'zbekcha ismga <code>.title()</code> ishlatish.</strong> <code>"g'ayrat".title()</code> → <code>"G'Ayrat"</code>. <code>string.capwords()</code> yoki bitta so'z uchun <code>.capitalize()</code> ishlating.</li>
 </ul>
 
