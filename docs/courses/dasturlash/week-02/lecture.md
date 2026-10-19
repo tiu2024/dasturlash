@@ -8,13 +8,13 @@ Bu haftaning amaliy qismi: [amaliyot](practice.md).
 
 Kompyuterning asosiy qismlari: **protsessor (CPU)** buyruqlarni bajaradi, **xotira (RAM)** dastur ishlayotganda ma'lumotni vaqtincha saqlaydi, **qattiq disk / SSD** fayllarni doimiy saqlaydi. Klaviatura va sichqoncha kiritish qurilmalari, monitor esa chiqarish qurilmasi hisoblanadi.
 
-Biz yozgan matn **manba kod** (*source code*) deyiladi. Protsessor uni to'g'ridan-to'g'ri tushunmaydi: u faqat nollar va birlarni (mashina kodini) bajaradi. Kodni bajarish vazifasini **interpreter** bajaradi. Python avval butun faylni tekshirib, uni **bayt-kod** (*bytecode*) deb ataladigan oraliq ko'rinishga o'giradi, so'ng interpreter bu buyruqlarni birma-bir bajaradi. Shuning uchun faylning istalgan joyida sintaksis xatosi bo'lsa, dastur umuman ishga tushmaydi — hatto xatodan oldingi qatorlar ham bajarilmaydi. `python hello.py` buyrug'i ikkala bosqichni birga bajaradi, shuning uchun biz "yozdik, ishga tushirdik, natijani ko'rdik" tarzida ishlay olamiz.
+Biz yozgan matn **manba kod** (*source code*) deyiladi. Protsessor uni to'g'ridan-to'g'ri tushunmaydi: u faqat nollar va birlardan iborat **mashina kodi**ni bajaradi. Manba kodni bajarish uchun **interpreter** kerak — bu kodni satrma-satr o'qib, darhol bajaradigan dastur. Python'da kodni oldindan alohida "yig'ish" (*compile*) shart emas, shuning uchun biz "yozdik, ishga tushirdik, natijani ko'rdik" tarzida ishlay olamiz.
 
 ```text
-manba kod (.py)  →  bayt-kod  →  interpreter buyruqlarni birma-bir bajaradi
+manba kod  →  interpreter  →  mashina kodi  →  protsessor bajaradi
 ```
 
-Dastur `.py` kengaytmali faylda saqlanadi. Terminalda uni quyidagicha ishga tushiramiz:
+Dastur `.py` kengaytmali faylda saqlanadi. **Terminal** — kompyuterga buyruqlarni matn ko'rinishida yozadigan oyna. Terminalda dasturni quyidagicha ishga tushiramiz:
 
 ```bash
 python hello.py
@@ -53,7 +53,7 @@ Bu dastur ekranga uch qator matn chiqaradi.
 
 ### Hisoblash va matnni farqlash
 
-Tirnoqsiz yozilgan ifodani Python **hisoblaydi**, tirnoq ichidagini esa **matn sifatida** chiqaradi:
+**Ifoda** — natijasi bitta qiymat bo'ladigan yozuv, masalan `2 + 2 * 10`. Tirnoqsiz yozilgan ifodani Python **hisoblaydi**, tirnoq ichidagini esa **matn sifatida** chiqaradi:
 
 ```python
 print(2 + 2 * 10)
@@ -80,7 +80,7 @@ Bir yilda soat:
 8760
 ```
 
-Izohda *nima qilinayotganini* emas, *nima uchun* shunday qilinayotganini yozing. Murakkab masalani yechishdan oldin izohlarda **psevdokod** yozib, keyin har qatorni haqiqiy kodga aylantirish ham yaxshi odat.
+Izohda *nima qilinayotganini* emas, *nima uchun* shunday qilinayotganini yozing. Murakkab masalani yechishdan oldin izohlarda algoritm qadamlarini oddiy so'zlar bilan (**psevdokod**) yozib, keyin har qatorni haqiqiy kodga aylantirish ham yaxshi odat.
 
 ## Xatolar (bug)
 
@@ -99,6 +99,16 @@ SyntaxError: unterminated string literal (detected at line 1)
 
 Xabarni pastdan yuqoriga o'qing: oxirgi qatorda xato turi va tavsifi, uning ustida esa fayl nomi, qator raqami (`line 1`) va xato joyini ko'rsatuvchi `^` belgisi. Bu yerda tirnoq yopilmagan. Xato xabarini o'qish — dasturchining asosiy ko'nikmasi.
 
+Ko'p uchraydigan xatolar:
+
+| Xato | Ma'nosi | Misol |
+|---|---|---|
+| `SyntaxError` | kod Python'ning yozish qoidalariga mos emas | tirnoq yoki qavs yopilmagan |
+| `NameError` | bunday nom topilmadi | o'zgaruvchi nomi xato yozilgan yoki hali yaratilmagan |
+| `TypeError` | bu amalni bunday qiymatlar bilan bajarib bo'lmaydi | matnga son qo'shish: `"Yosh: " + 20` |
+| `ValueError` | qiymat yaroqsiz | `int("salom")` — "salom" ni songa aylantirib bo'lmaydi |
+| `ZeroDivisionError` | nolga bo'lish | `5 / 0` |
+
 ## Foydalanuvchidan ma'lumot: `input()` va o'zgaruvchilar
 
 `input()` foydalanuvchi klaviaturada yozgan matnni qabul qiladi. Olingan qiymatni saqlash uchun **o'zgaruvchi** kerak. O'zgaruvchi — nomi bor "quti" bo'lib, ichida qiymat saqlanadi.
@@ -113,7 +123,7 @@ Ismingiz nima? Laylo
 Salom, Laylo
 ```
 
-`=` belgisi matematikadagi "teng" emas, **o'zlashtirish** (*assignment*) operatoridir: o'ngdagi qiymat chapdagi nomga saqlanadi.
+`=` belgisi matematikadagi "teng" emas. U **o'zlashtirish** (*assignment*) belgisi: o'ngdagi qiymatni chapdagi nomga saqlaydi.
 
 !!! warning "Muhim"
     `input()` har doim natijani **matn (`str`)** sifatida qaytaradi, hatto foydalanuvchi son yozgan bo'lsa ham.
@@ -155,8 +165,7 @@ xayr!!!
 - katta-kichik harf farqlanadi: `ism`, `Ism` va `ISM` — uch xil nom;
 - bo'sh joy bo'lmaydi; so'zlar `_` bilan ajratiladi: `tugilgan_yil` (`snake_case`);
 - nom mazmunni bildirsin: `a` emas, `yosh`;
-- `if`, `else`, `def` kabi **kalit so'zlarni** nom qilib bo'lmaydi: `if = 5` — `SyntaxError`;
-- `print`, `input` kabi tayyor funksiya nomlarini ham ishlatmang: `print = 5` xato bermaydi, lekin shundan keyin `print()` funksiyasi ishlamay qoladi.
+- `if`, `else`, `def` kabi Python'ning maxsus so'zlari nom bo'la olmaydi; `print`, `input` kabi tayyor funksiya nomlarini ham nom qilib olmang.
 
 Dasturlash tillarining kalit so'zlari ingliz tilida, shuning uchun o'zgaruvchi nomlarini ham ingliz tilida yozish xalqaro odat. Bu kursda tushunarli bo'lishi uchun ba'zan o'zbekcha nomlar ham uchraydi; muhimi — nom izchil va mazmunli bo'lishi.
 
@@ -186,7 +195,7 @@ print(type("100"))
 <class 'str'>
 ```
 
-`100` va `"100"` — **har xil** qiymatlar. `+` operatori sonlarda qo'shadi, satrlarda esa ularni **ulaydi** (*concatenation*):
+`100` va `"100"` — **har xil** qiymatlar. `+` belgisi sonlarda qo'shadi, satrlarda esa ularni **ulaydi** (*concatenation*):
 
 ```python
 son = 100
@@ -269,7 +278,7 @@ f-string'da `{ }` ichiga ifoda ham yozish mumkin: `print(f"{2 + 3}")` → `5`. M
 
 ## Satrlar bilan ishlash
 
-Satrning tayyor **metodlari** bor. Metod `satr.metod()` ko'rinishida chaqiriladi:
+Satrning tayyor **metodlari** bor. Metod — satrga tegishli funksiya; u satrdan keyin nuqta qo'yib chaqiriladi: `satr.metod()`.
 
 ```python
 ism = input("Ismingiz: ")
@@ -288,29 +297,15 @@ Salom, Laylo Karimova
 
 Metodlarni ketma-ket **zanjirlash** mumkin: `ism.strip().title()`.
 
-!!! warning "O'zbekcha ismlar va `.title()`"
-    `.title()` tutuq belgisi (`'`) dan keyingi harfni ham yangi so'z boshi deb hisoblaydi: `"o'tkir g'ulomov".title()` → `"O'Tkir G'Ulomov"`. O'zbekcha matnda uning o'rniga `string.capwords()` ishlating. U matnni bo'sh joylar bo'yicha so'zlarga ajratadi va har bir so'zning faqat birinchi harfini katta qiladi:
+`.title()` o'zbekcha `o'`, `g'` bor ismlarni buzadi: `"o'tkir".title()` → `"O'Tkir"`. Shuning uchun [amaliyotda](practice.md) ismlar uchun `string.capwords()` ishlatamiz.
 
-    ```python
-    import string
+Yana uchta metod amaliyotda kerak bo'ladi:
 
-    ism = string.capwords("o'tkir g'ulomov")
-    print(ism)
-    ```
+- `.replace(eski, yangi)` — matndagi barcha `eski` qismlarni `yangi` bilan almashtiradi: `"a b c".replace(" ", "...")` → `"a...b...c"`;
+- `.split()` — matnni so'zlarga bo'ladi. So'zlarni darhol alohida o'zgaruvchilarga olish mumkin: `ism, familiya = "ali valiyev".split()` — `ism` ga `"ali"`, `familiya` ga `"valiyev"` tushadi;
+- `.strip("$")` — boshi va oxiridagi `$` belgilarini olib tashlaydi: `"$50".strip("$")` → `"50"`.
 
-    ```text
-    O'tkir G'ulomov
-    ```
-
-    `import string` — Python bilan birga keladigan `string` modulini ulaydi; modullarni keyinroq batafsil o'rganamiz. Bitta so'z uchun `.capitalize()` yetarli: `"o'tkir".capitalize()` → `"O'tkir"`.
-
-Yana uchta foydali metod (ular [amaliyotda](practice.md) ishlatiladi):
-
-- `.replace(eski, yangi)` — satrdagi barcha `eski` qismlarni `yangi` bilan almashtiradi: `"a b c".replace(" ", "...")` → `"a...b...c"`;
-- `.split()` — satrni bo'sh joylar bo'yicha bo'laklarga ajratadi va **ro'yxat** qaytaradi: `"ali valiyev".split()` → `["ali", "valiyev"]`. Bo'laklarni darhol alohida o'zgaruvchilarga ochish mumkin: `ism, familiya = "ali valiyev".split()`. Bo'laklar soni o'zgaruvchilar soniga teng bo'lishi shart, aks holda `ValueError`;
-- `.strip(belgilar)` — argument berilsa, bo'sh joy o'rniga shu belgilarni boshi va oxiridan olib tashlaydi: `"$50".strip("$")` → `"50"`.
-
-Qo'shtirnoq ichida qo'shtirnoq kerak bo'lsa, tashqarisida yakka tirnoq ishlating: `print('U "salom" dedi')`. Yoki `\"` yozing: teskari chiziq (`\`) keyingi belgini oddiy belgiga aylantiradi. Qatorni almashtirmasdan chiqarish uchun: `print("Salom,", end="")`.
+Qo'shtirnoq ichida qo'shtirnoq kerak bo'lsa, tashqarisida yakka tirnoq ishlating: `print('U "salom" dedi')`.
 
 ## Arifmetik amallar
 
@@ -338,9 +333,9 @@ print(8 / 2)
 4.0
 ```
 
-E'tibor bering: `8 / 2` natijasi `4.0` — `/` har doim `float` qaytaradi. Ikki `int` ustida `+ - * // % **` natijasi `int` (faqat `**` da daraja manfiy bo'lsa, `float`: `2 ** -1` → `0.5`), agar bitta operand `float` bo'lsa, natija `float` bo'ladi.
+E'tibor bering: `8 / 2` natijasi `4.0` — `/` har doim `float` qaytaradi.
 
-`%` va `//` bir-biriga bog'liq: `a == (a // b) * b + a % b`. Masalan, `175` soniyani daqiqaga aylantirish: `175 // 60` = `2` daqiqa, `175 % 60` = `55` soniya. Juft-toqni aniqlashda ham `%` ishlatiladi: `n % 2` juft sonda `0`, toq sonda `1` beradi.
+`//` va `%` birga qulay. Masalan, `175` soniyani daqiqaga aylantirish: `175 // 60` = `2` daqiqa, `175 % 60` = `55` soniya. Juft-toqni aniqlashda ham `%` ishlatiladi: `n % 2` juft sonda `0`, toq sonda `1` beradi.
 
 ### Amallar ustuvorligi
 
@@ -374,44 +369,25 @@ Kvadrat tomoni (sm): 2.5
 Yuza: 6.25, perimetr: 10.0
 ```
 
-### Yig'indi to'plash
-
-O'zgaruvchini o'zining eski qiymati asosida o'zgartirish juda ko'p uchraydi. Buning qisqa yozuvi bor:
-
-```python
-jami = 0
-jami = jami + 5
-jami += 3     # jami = jami + 3 bilan bir xil
-jami *= 2     # jami = jami * 2
-print(jami)
-```
-
-```text
-16
-```
-
-Shu kabi `-=`, `/=`, `//=`, `%=`, `**=` ham bor.
-
 ## Natijani chiroyli chiqarish
 
-Kasr sonlarda ba'zan ortiqcha raqamlar chiqadi: `1 / 3` → `0.3333333333333333`. f-string'da `:` dan keyin format yoziladi:
+Kasr sonlarda ba'zan ortiqcha raqamlar chiqadi: `1 / 3` → `0.3333333333333333`. Ularni qisqartirishning ikki usuli bor:
 
 ```python
 x = 1 / 3
-print(f"{x:.2f}")       # 2 ta kasr raqami
-print(f"{1234567:,}")   # mingliklarni vergul bilan ajratish
-print(f"{1234567.891:,.2f}")
-print(round(2.675, 2), round(7.5), round(8.5))
+print(f"{x:.2f}")     # f-string ichida: 2 ta kasr raqami bilan chiqarish
+print(round(x, 2))    # 2 ta kasr raqamigacha yaxlitlash
+print(round(7.4))     # eng yaqin butun songa yaxlitlash
 ```
 
 ```text
 0.33
-1,234,567
-1,234,567.89
-2.67 8 8
+0.33
+7
 ```
 
-`round(x)` eng yaqin butun songa yaxlitlaydi; `x.5` holatida **juft** songa qarab yaxlitlaydi (`7.5` → `8`, `8.5` → `8`). `round(2.675, 2)` esa `2.67` beradi, chunki `2.675` kompyuterda aniq saqlanmaydi (kasr sonlar ikkilik tizimda taxminan ifodalanadi). `:.2f` ham faqat ko'rinishni o'zgartiradi va xuddi shu cheklovga ega: `f"{2.675:.2f}"` ham `2.67` beradi. Natijani chiqarishda `:.2f` qulay, lekin pul hisob-kitobida bu farq muhim bo'lishi mumkin; aniq hisob usullarini keyinroq o'rganamiz.
+- `{x:.2f}` — f-string ichida sonni ikki kasr raqami bilan chiqaradi: `7.5` → `7.50`.
+- `round(x, 2)` — sonni ikki kasr raqamigacha yaxlitlaydi; ikkinchi son berilmasa, `round(x)` eng yaqin butun songa yaxlitlaydi.
 
 ## To'liq misol: tana vazn indeksi (BMI)
 
@@ -441,5 +417,4 @@ Tahlil: kirish — ikki `float`; formula `vazn / bo'y²`; `**` ustuvorligi sabab
 - **`/` natijasini `int` deb kutish.** `10 / 2` → `5.0`. Butun natija kerak bo'lsa, `//`.
 - **Ustuvorlikni unutish.** `2 + 3 * 4` — `20` emas, `14`. Shubha bo'lsa, qavs ishlating.
 - **Nomda xato.** `Ism` va `ism` bir xil emas; yozilmagan nom `NameError` beradi.
-- **`print` dan keyin qavsni unutish.** `print "salom"` Python 3'da ishlamaydi.
 - **O'zbekcha ismga `.title()` ishlatish.** `"g'ayrat".title()` → `"G'Ayrat"`. `string.capwords()` yoki bitta so'z uchun `.capitalize()` ishlating.

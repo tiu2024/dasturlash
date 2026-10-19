@@ -6,7 +6,21 @@ Bu haftaning amaliy qismi: [amaliyot](practice.md).
 
 ## Funksiyalar
 
-Funksiya — nomi bor, qayta ishlatish mumkin bo'lgan kod bo'lagi. Siz `print()`, `input()`, `int()`, `round()` kabi tayyor funksiyalarni allaqachon ishlatgansiz. Endi o'zimizning funksiyamizni yaratamiz.
+**Funksiya** — kirishni olib, natija beradigan "mashina". Blenderga olma solsangiz, sharbat chiqadi:
+
+```text
+olma    →  blender   →  sharbat
+kirish  →  funksiya  →  natija
+```
+
+Python'da ham xuddi shunday. `round(3.7)` yozsak, `3.7` sonini `round` funksiyasiga beramiz, u esa `4` ni qaytaradi:
+
+- `round` — funksiya nomi;
+- `( )` — qavslar: "ishga tushir" degani;
+- `3.7` — **argument**: funksiyaga beriladigan qiymat;
+- `4` — **qaytgan qiymat**: funksiya bergan natija.
+
+Siz `print()`, `input()`, `int()`, `round()` kabi tayyor funksiyalarni allaqachon ishlatgansiz. Endi o'zimizning funksiyamizni yaratamiz.
 
 Taksi narxi 5 000 so'm + har kilometr uchun 2 000 so'm bo'lsin. Funksiyasiz hisob takrorlanadi:
 
@@ -39,6 +53,12 @@ print(taksi_narxi(12))
 - `taksi_narxi(3)` da `3` — **argument**: parametrga beriladigan haqiqiy qiymat.
 - Funksiya tanasi **4 ta probel chekinish** bilan yoziladi.
 - `return` natijani funksiyadan chaqirilgan joyga **qaytaradi** va funksiyani tugatadi. `taksi_narxi(3)` ifodasi `11000` ga aylanadi.
+
+**Chaqirilganda nima bo'ladi?** `narx = taksi_narxi(10)` qatorini qadamma-qadam ko'raylik:
+
+1. Argument parametrga tushadi: `km = 10`.
+2. Hisoblanadi: `5000 + 10 * 2000` = `25000`.
+3. `return` natijani qaytaradi va u `narx` ga yoziladi: `narx = 25000`.
 
 `def` funksiyani faqat **yaratadi**, ishga tushirmaydi. U chaqirilganda ishlaydi.
 
@@ -268,16 +288,6 @@ Baho: B
 
 Chegaraviy qiymatlarni tekshiring: `90` → A, `89` → B, `60` → D, `59` → F.
 
-Bu soddalashtirish ball 0–100 oralig'ida kiritiladi deb hisoblaydi. Oraliqdan tashqaridagi ball uchun variantlar har xil ishlaydi: `150` birinchi variantda F, soddalashtirilganida A oladi. Noto'g'ri ballni alohida ushlash uchun boshiga yana bitta shart qo'shing:
-
-```python
-if ball < 0 or ball > 100:
-    print("Ball 0 dan 100 gacha bo'lishi kerak")
-elif ball >= 90:
-    print("Baho: A")
-...
-```
-
 Uchta mantiqiy operator bor: `and` ("va"), `or` ("yoki"), `not` ("emas"). `not` shartni teskarisiga o'giradi: `not (x == y)` — `x != y` bilan bir xil.
 
 ### Qoldiq operatori: juft yoki toq
@@ -321,7 +331,7 @@ def is_even(n):
 main()
 ```
 
-Bu kodni qisqartirish mumkin. `if` o'rniga **shartli ifoda** ishlatamiz. U `A if shart else B` ko'rinishida yoziladi: shart `True` bo'lsa natija `A`, aks holda `B`:
+Bu kodni qisqartirish mumkin. Quyidagi bitta qator "shart bajarilsa `True`, aks holda `False` qaytar" deb o'qiladi:
 
 ```python
 def is_even(n):
@@ -373,9 +383,6 @@ match kun:
     case _:
         print("Ish kuni")
 ```
-
-!!! note "Python versiyasi"
-    `match` Python 3.10 dan boshlab mavjud. `python --version` bilan versiyangizni tekshiring.
 
 ## Scope: o'zgaruvchi qayerda ko'rinadi
 
@@ -605,22 +612,17 @@ Ha
 
 ### Turlarni o'zgartirish
 
-Asosiy qoidalar [2-haftada](../week-02/lecture.md#turlarni-ozgartirish) berilgan: `input()` doim `str` qaytaradi, uni `int()`, `float()`, `str()` bilan kerakli turga o'zgartiramiz. Bitta yangi nuqta:
+Asosiy qoidalar [2-haftada](../week-02/lecture.md#turlarni-ozgartirish) berilgan: `input()` doim `str` qaytaradi, uni `int()`, `float()`, `str()` bilan kerakli turga o'zgartiramiz.
 
-- `int(3.9)` → `3` — `int()` yaxlitlamaydi, kasr qismini tashlab yuboradi. Yaxlitlash uchun `round(3.9)` → `4`.
-- `int("3.9")` esa `ValueError` beradi: `int()` matndan faqat butun son yozuvini aylantiradi. Avval `float("3.9")`, keyin kerak bo'lsa `int()`.
+Bitta yangi narsa: `int(3.9)` → `3`. `int()` yaxlitlamaydi, kasr qismini tashlab yuboradi. Yaxlitlash uchun `round(3.9)` → `4`.
 
 ## Odatiy xatolar
 
 - **`==` o'rniga `=` yozish.** `if x = 5:` — `SyntaxError`. Taqqoslash uchun `==`.
-- **`:` ni unutish.** `if x > 3` (ikki nuqtasiz) — `SyntaxError`.
-- **Chekinishni unutish yoki aralashtirish.** `if` ostidagi qatorlar bir xil chekinish bilan yozilishi shart; aks holda `IndentationError`.
-- **`elif` o'rniga ketma-ket `if` yozish.** Bir-birini istisno qiladigan holatlar uchun `elif` ishlating, aks holda bir nechta blok bir vaqtda ishlashi mumkin.
+- **`:` yoki chekinishni unutish.** `if x > 3` (ikki nuqtasiz) — `SyntaxError`. `if` ostidagi qatorlar bir xil chekinish (4 ta probel) bilan yozilishi shart, aks holda `IndentationError`.
 - **Shartlar tartibi.** Avval `ball >= 60`, keyin `ball >= 90` yozilsa, 95 ball ham `D` oladi: sharti `True` bo'lgan birinchi blok bajariladi.
 - **Chegaralarni adashtirish.** `>` va `>=`, `<` va `<=` farqi: aynan chegaradagi qiymat qaysi tarafga tushishini o'ylab ko'ring.
 - **`or` ni noto'g'ri yozish.** `if kun == "shanba" or "yakshanba":` har doim `True` bo'ladi, chunki bo'sh bo'lmagan satr `True` hisoblanadi ([`bool`](#bool) bo'limiga qarang). To'g'risi: `kun == "shanba" or kun == "yakshanba"`.
 - **Matn va sonni solishtirish.** `input()` matn qaytaradi: `if input("Yosh: ") >= 18:` — `TypeError`. Avval `int()` ga aylantiring.
 - **`return` o'rniga `print`.** `is_even` ichida `print(True)` yozilsa, funksiya `None` qaytaradi va `if is_even(x):` bloki hech qachon bajarilmaydi.
 - **Local o'zgaruvchini boshqa funksiyada ishlatish.** `main` ichidagi `name` ni `hello` ko'rmaydi — `NameError`. Qiymatni argument bilan bering.
-- **Global o'zgaruvchini funksiya ichida `=` bilan o'zgartirmoqchi bo'lish.** Yangi local o'zgaruvchi yaratiladi, global qiymat o'zgarmaydi. Yangi qiymatni `return` bilan qaytaring.
-- **`int(3.9)` ni yaxlitlaydi deb o'ylash.** Natija `3`. Yaxlitlash uchun `round()`.

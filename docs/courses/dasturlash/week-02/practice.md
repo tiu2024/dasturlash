@@ -330,7 +330,7 @@ Zo'r 😊 lekin charchadim 🙁
     **Tushuntirish.**
 
     - Ikkita `replace()` ketma-ket qo'llanadi: birinchisi `:)` ni, ikkinchisi `:(` ni almashtiradi. Har biri oldingisining natijasi ustida ishlaydi.
-    - Emoji ham oddiy Unicode belgi, shuning uchun uni satr ichiga yozish mumkin (1-haftada ko'rgan `ord("😀")` ni eslang).
+    - Emoji ham oddiy Unicode belgi, shuning uchun uni satr ichiga yozish mumkin (1-haftadagi Unicode jadvalini eslang: 😀 — `U+1F600`).
     - Ba'zi terminallar emoji'ni ko'rsata olmasligi mumkin. Bunda dasturda xato yo'q, muammo terminalning shriftida yoki kodlashida bo'ladi.
 
 ## 10. Massadan energiyani hisoblash

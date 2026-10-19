@@ -1,6 +1,6 @@
 ---
 name: lecture-page
-description: Turn a lecture PPTX from Lectures/ into the week's student lecture page (docs/courses/dasturlash/week-NN/lecture.md), attach the teacher's sources in a Manbalar section, publish the PPTX as a download and update navigation. Use when the teacher asks to create or update a lecture page from slides.
+description: Turn a lecture PPTX from Lectures/ into the week's student lecture page (docs/courses/dasturlash/week-NN/lecture.md), publish the PPTX as a download and update navigation. Use when the teacher asks to create or update a lecture page from slides.
 ---
 
 # Lecture page from slides
@@ -13,7 +13,6 @@ Students read this page after the lecture to review it. It follows the slides; i
 |---|---|
 | Week number `NN` | Ask. |
 | PPTX in `Lectures/` | Ask which file. |
-| Sources: where the material came from (links, books, courses) | Ask once: "Which sources did you use for this lecture?" Never guess, search for, or add sources yourself. |
 
 ## Steps
 
@@ -37,10 +36,10 @@ Students read this page after the lecture to review it. It follows the slides; i
     ## <first slide section>
     ...
     ## Odatiy xatolar
-    ## Manbalar
     ```
 
     - Leave out the practice link if `practice.md` does not exist yet.
+    - Write for someone who has never programmed (see "Writing for beginners" in `CLAUDE.md`): explain each new term in one plain sentence; leave out any detail you will not explain; no advanced side notes, no code the students cannot read yet.
     - Keep the slides' sections and order. Section slides become `##` headings, smaller topics `###`.
     - Turn bullet slides into short paragraphs or lists. Explain each idea before its code.
     - Every code block is labelled `python` (or `text`, `bash`) and followed by a `text` block with the real output. For `input()`, show the typed value in the output, as the other pages do.
@@ -49,20 +48,11 @@ Students read this page after the lecture to review it. It follows the slides; i
     - If a slide is wrong or unclear, write the correct version on the page and list it in the report so the slide can be fixed too.
     - `## Odatiy xatolar`: mistakes students make with this week's topics, each with a fix.
 
-3. **Write `## Manbalar`** exactly from the teacher's list:
+    - No `## Manbalar` section: the course books are listed once in `docs/courses/dasturlash/ai-guide.md`.
 
-    ```markdown
-    ## Manbalar
+3. **Publish the slides.** Copy the PPTX to `docs/downloads/dasturlash/week-NN/<slug>.pptx`. Slug: lowercase ASCII words joined by hyphens, e.g. `funksiyalar-shartlar-scope-turlar.pptx`. If a copy already exists, replace it.
 
-    - [<Kurs yoki sahifa nomi>](<URL>) — <undan nima olingan>.
-    - <Muallif>. *<Kitob nomi>*. <Nashriyot>, <yil>. — <boblar>.
-    ```
-
-    One line each, with what was used from it. Keep titles and authors as given. If the teacher has no sources, leave the section out and say so in the report.
-
-4. **Publish the slides.** Copy the PPTX to `docs/downloads/dasturlash/week-NN/<slug>.pptx`. Slug: lowercase ASCII words joined by hyphens, e.g. `funksiyalar-shartlar-scope-turlar.pptx`. If a copy already exists, replace it.
-
-5. **Navigation.** Add or update the week in `mkdocs.yml`:
+4. **Navigation.** Add or update the week in `mkdocs.yml`:
 
     ```yaml
           - N-hafta. <Mavzu>:
@@ -72,9 +62,9 @@ Students read this page after the lecture to review it. It follows the slides; i
 
     and in the list in `docs/courses/dasturlash/index.md`.
 
-6. **Check.**
+5. **Check.**
     - Run every code example with `.venv/Scripts/python.exe` and compare the output with the page.
     - `.venv/Scripts/python.exe -m mkdocs build --strict`.
     - Check that the anchors you linked exist in the built HTML (`site/.../index.html`, `id="..."`).
 
-7. **Report** in simple English: files changed, slides you corrected or flagged, sources added (or missing), checks run. Update `status.md`.
+6. **Report** in simple English: files changed, slides you corrected or flagged, checks run. Update `status.md`.

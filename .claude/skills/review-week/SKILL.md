@@ -18,11 +18,12 @@ Report first; edit only after the teacher answers.
 
 1. **Correctness.** Every claim, every stated output (run the code unless the teacher says not to), every boundary case. Big-O, number formats, error messages, Python behaviour.
 2. **Teaching.** A concept is explained before it is used. Explanations are clear for first-year students and not misleading. Problem statement, sample, code and explanation agree. File links match problem numbers.
-3. **Ambiguity.** Problem ranges, units, input formats, "gacha", "dan ... gacha".
-4. **Uzbek.** Grammar, natural wording, spelling and apostrophes, including prompts and messages inside the code.
-5. **Terms and style.** The rules in `CLAUDE.md` (`True`/`False`, kasr son, `Python'da`, `capwords`, PEP 8).
-6. **Duplication.** The same explanation repeated within the week or from earlier weeks.
-7. **Structure.** Sections required by `CLAUDE.md` present (`Odatiy xatolar`, `Manbalar`), forbidden ones absent.
+3. **Beginner level.** Read as someone who has never programmed: unexplained terms, details mentioned but not explained, advanced side notes, lecture content that is not in the slides. Practice pages may introduce new related things on purpose; only check that they are explained.
+4. **Ambiguity.** Problem ranges, units, input formats, "gacha", "dan ... gacha".
+5. **Uzbek.** Grammar, natural wording, spelling and apostrophes, including prompts and messages inside the code.
+6. **Terms and style.** The rules in `CLAUDE.md` (`True`/`False`, kasr son, `Python'da`, `capwords`, PEP 8).
+7. **Duplication.** The same explanation repeated within the week or from earlier weeks.
+8. **Structure.** Sections required by `CLAUDE.md` present (`Odatiy xatolar`), forbidden ones absent.
 
 ## Report
 

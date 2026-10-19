@@ -28,8 +28,16 @@ Everything in `docs/` is public, including files missing from navigation. Never 
 - I teach each lecture from the PPTX. Students use the site **after** the lecture to review, and download the slides there.
 - A lecture page is a readable companion to its slides: same topics in the same order, written as short explanations with code and real output. Do not add topics beyond the slides; flag any correction or addition in your report.
 - A practice page holds the programs solved in class. Problem N links to `pN.py`.
-- Lecture pages: explanation, worked examples with expected output, `## Odatiy xatolar`, then `## Manbalar` with the sources I give. No "O'quv maqsadlari" or "Mashq savollari" sections.
+- Lecture pages: explanation, worked examples with expected output, then `## Odatiy xatolar`. No "O'quv maqsadlari", "Mashq savollari" or "Manbalar" sections: the course books are listed once in `docs/courses/dasturlash/ai-guide.md`.
 - Never invent sources, facts, policies, deadlines or prerequisites. Ask when something is missing.
+
+## Writing for beginners
+
+- Write for someone who has never programmed.
+- Explain every new term in one plain sentence the first time it appears.
+- Do not mention a detail you will not explain. If it cannot be explained simply, leave it out.
+- Lecture pages use the slides' content and examples; do not add advanced side notes.
+- Practice pages may introduce new things related to the lecture (that is intended); explain them briefly where they appear. Do not change practice pages unless asked.
 
 ## Uzbek style and terms
 
@@ -61,7 +69,7 @@ Everything in `docs/` is public, including files missing from navigation. Never 
 
 | Skill | Use |
 |---|---|
-| `/lecture-page` | lecture PPTX → lecture page with sources |
+| `/lecture-page` | lecture PPTX → lecture page |
 | `/practice-page` | class programs → practice page and `pN.py` files |
 | `/review-week` | review one week for errors before publishing |
 | `/publish` | build, commit, push, deploy (only when I ask) |
