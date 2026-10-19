@@ -12,7 +12,7 @@ Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps t
 | 4. Looplar va stringlar | done | done (11 problems) | 2026-10-19 |
 | 5. Ro'yxatlar va kortejlar | done | — | 2026-10-19 |
 
-Last published 2026-10-19 (commit f2acfd6, "Mobil ilovalar yaratish" section; site on `gh-pages`).
+Last published 2026-10-19 (Mobil ilovalar yaratish, lecture 4; site on `gh-pages`).
 
 ## Done
 
@@ -45,3 +45,5 @@ Last published 2026-10-19 (commit f2acfd6, "Mobil ilovalar yaratish" section; si
 - Back up `OQ/` and `.claude/skills/oquv-dastur/`, `.claude/skills/adabiyot-tanlash/` (they exist only on this computer).
 
 - 2026-10-19: site is now multi-course: top tabs per course; new course "Mobil ilovalar yaratish" added as a placeholder (`docs/courses/mobil-ilovalar/index.md`, no weekly topics yet); site name changed to "Kurslar". Published.
+
+- 2026-10-19: second course added: "Mobil ilovalar yaratish" (own tab, own AI page, own config `Lectures/mobil/config.yaml`, code language Kotlin). Lecture 4 "Kotlin tilida sinflar va obyektlar": spec `Lectures/mobil/src/week-04/lecture.yaml`, deck `Lectures/mobil/4_Sinflar va obyektlar.pptx` (26 slides, 80 min), page `docs/courses/mobil-ilovalar/week-04/lecture.md`, download in `docs/downloads/mobil-ilovalar/week-04/`. Kotlin code not run (no compiler here): outputs traced by hand; check in Kotlin Playground. Published.

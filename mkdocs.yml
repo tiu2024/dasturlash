@@ -39,3 +39,5 @@ nav:
       - 5-hafta. Ro'yxatlar va kortejlar: courses/dasturlash/week-05/lecture.md
   - Mobil ilovalar yaratish:
       - Kurs haqida: courses/mobil-ilovalar/index.md
+      - AI bilan ishlash: courses/mobil-ilovalar/ai-guide.md
+      - 4-hafta. Kotlin tilida sinflar va obyektlar: courses/mobil-ilovalar/week-04/lecture.md

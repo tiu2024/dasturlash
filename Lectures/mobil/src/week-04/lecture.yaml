@@ -1,0 +1,402 @@
+# Mobil ilovalar yaratish, 4-ma'ruza: "Kotlin tilida sinflar va obyektlar".
+# Source: https://kotlinlang.org/docs/classes.html (without Inheritance and abstract classes).
+# Build from the project root:
+#   .venv/Scripts/python.exe .claude/skills/dasturlash-ppt/scripts/build_lecture.py Lectures/mobil/src/week-04/lecture.yaml
+#
+# Agreed plan (80 min). Running example: concert Ticket class.
+#   Previous lecture (3): functions and collections (Map, List, Set), lambdas.
+#   Objectives: write a class with a primary constructor; explain val / var / plain parameter;
+#   create valid objects (default value, init, require); trace init and secondary constructor order.
+#   Cut: abstract classes (inheritance lecture), JVM / Jackson / Spring, private constructor,
+#   nested classes, data classes.
+#   0-10   title, warm-up on lecture 3, problem (500 tickets), objectives
+#   10-33  1. Sinf va obyekt: qolip, constructor, val / var, plain parameter, member function
+#   33-61  2. Standart qiymat, init, require, live coding, activity
+#   61-80  3. Secondary constructor, companion object, recap, exit
+config: ../../config.yaml
+
+meta:
+  title: "Sinflar va obyektlar"
+  subtitle: "4-ma'ruza · Kotlin tilida sinflar va obyektlar"
+  duration_min: 80
+  source: "@kotlindocs"
+  deck_file: "../../4_Sinflar va obyektlar.pptx"
+
+objectives:
+  - "`class` va asosiy konstruktor bilan o'z sinfini **yoza oladi**"
+  - "`val`, `var` va oddiy parametr farqini **tushuntira oladi**"
+  - "Standart qiymat, `init` va `require` bilan to'g'ri obyekt **yarata oladi**"
+  - "`init` va ikkilamchi konstruktorning bajarilish tartibini **kuzata oladi**"
+
+livecode:
+  run: "Kotlin Playground (play.kotlinlang.org)"
+  files:
+    - name: Ticket.kt
+      starter: |
+        // Konsert chiptasi: tadbir nomi va narx
+        // 1) Ticket sinfini yozing: event (val) va price (var)
+        // 2) require bilan narx manfiy bo'lmasligini tekshiring
+        // 3) describe() funksiyasini yozing
+        // 4) main() da obyekt yarating va describe() ni chiqaring
+        fun main() {
+        }
+      solution: |
+        class Ticket(val event: String, var price: Int) {
+            init {
+                require(price >= 0) { "Narx manfiy" }
+            }
+
+            fun describe(): String = "$event: $price so'm"
+        }
+
+        fun main() {
+            val ticket = Ticket("Navruz konserti", 150000)
+            println(ticket.describe())
+        }
+    - name: Discount.kt
+      starter: |
+        // Chegirma: price dan percent foiz kamaytiring
+        // 1) withDiscount(percent: Int): Int funksiyasini yozing
+        // 2) main() da chegirmali narxni chiqaring
+        class Ticket(val event: String, var price: Int) {
+        }
+
+        fun main() {
+            val ticket = Ticket("Navruz konserti", 150000)
+        }
+      solution: |
+        class Ticket(val event: String, var price: Int) {
+            fun withDiscount(percent: Int): Int {
+                return price - price * percent / 100
+            }
+        }
+
+        fun main() {
+            val ticket = Ticket("Navruz konserti", 150000)
+            println(ticket.withDiscount(20))
+        }
+
+slides:
+  - type: title
+    notes: "Salomlashing. O'tgan hafta funksiyalar va kolleksiyalarni o'rgandik. Bugun mobil ilova yozishning asosiy g'oyalaridan biri: o'z turimizni yaratamiz. Ilovada chipta, foydalanuvchi, mahsulot kabi narsalar bor, ularning har biri bitta sinf bo'ladi."
+
+  - type: retrieval
+    headline: "O'tgan haftadan uchta savol"
+    items:
+      - q: "`mapOf(\"a\" to 1)[\"a\"]` nimani qaytaradi?"
+        a: "1 — Map kalit bo'yicha qiymatni topadi"
+      - q: "`setOf(1, 2, 2, 3).size` nimaga teng?"
+        a: "3 — Set takrorlanadigan qiymatni bir marta saqlaydi"
+      - q: "`listOf(1, 2, 3).map { it * 2 }` nimani beradi?"
+        a: "[2, 4, 6] — lambda har bir elementga qo'llanadi"
+    notes: "Talabalar javobni daftarga yozsin, keyin 2-3 kishidan so'rang. Uchala savol ham o'tgan haftadan: Map, Set va lambda. Bugun yana bir yangi tur yaratamiz, lekin o'zimiz."
+
+  - type: hook
+    question: "Konsert ilovasida 500 ta chipta bor. Har bir chipta uchun nom va narxni alohida o'zgaruvchida saqlaysizmi?"
+    evidence:
+      kind: code
+      code: |
+        val event1 = "Navruz konserti"
+        val price1 = 150000
+        val event2 = "Rok kechasi"
+        val price2 = 90000
+        // ... yana 498 ta chipta
+    notes: "Bir-ikki taxmin eshiting. Ko'pchilik \"ro'yxat qilaman\" deydi. Ro'yxat nomlarni saqlaydi, lekin nom va narxni bir-biriga bog'lamaydi: birinchi nom bilan birinchi narx bir chiptaga tegishli ekanini dastur bilmaydi. Bugungi javob: chiptaning o'zini bitta narsa qilamiz. Bu obyekt."
+
+  - type: objectives
+
+  - type: section
+    title: "Sinf va obyekt"
+
+  - type: assertion
+    headline: "Sinf — obyekt yasash uchun qolip"
+    evidence:
+      kind: terms
+      items:
+        - {term: "sinf", means: "qolip: chipta qanday bo'lishini tasvirlaydi"}
+        - {term: "obyekt", means: "qolipdan yasalgan haqiqiy chipta"}
+        - {term: "xossa", means: "obyektda saqlanadigan qiymat: nom, narx"}
+        - {term: "konstruktor", means: "obyektni yasaydigan chaqiruv"}
+    minutes: 3
+    notes: "Qolip misolini keltiring: pechenye qolipi bitta, pechenyelar ko'p. Sinf bitta, undan yasalgan chiptalar ko'p, har birining o'z nomi va narxi bor. Sinf nimalar saqlanishini aytadi, obyektda esa haqiqiy qiymatlar turadi. Bu to'rt atamani keyingi slaydlarda kodda ko'ramiz."
+
+  - type: code
+    headline: "Sinf nomini funksiya kabi chaqirsak, yangi obyekt yaratiladi"
+    code: |
+      class Ticket(val event: String, var price: Int)
+
+      fun main() {
+          val first = Ticket("Navruz konserti", 150000)
+          val second = Ticket("Rok kechasi", 90000)
+          println(first.event)
+          println(second.price)
+      }
+    output: |
+      Navruz konserti
+      90000
+    minutes: 3
+    notes: "Birinchi qator butun sinf: qavs ichida ikkita xossa. Keyin Ticket(...) bilan ikkita alohida obyekt yaratamiz. Xossaga nuqta orqali murojaat qilamiz: first.event. Diqqat: Kotlin'da `new` so'zi yo'q. Java yoki C++ bilgan talabalarga buni alohida ayting."
+
+  - type: quiz
+    question: "Qaysi yozuv Ticket obyektini yaratadi?"
+    choices:
+      - "new Ticket(\"Rok kechasi\", 90000)"
+      - "Ticket(\"Rok kechasi\", 90000)"
+      - "Ticket.create(\"Rok kechasi\", 90000)"
+      - "Ticket = (\"Rok kechasi\", 90000)"
+    correct: 1
+    explanation: "Kotlin'da `new` kerak emas: sinf nomi va qavs obyekt yaratadi."
+    distractors: "`new` — boshqa tillardan o'tgan odat. `Ticket.create` — tayyor create funksiyasi bor deb o'ylash. Oxirgisi — tayinlash sintaksisi sinf chaqiruvi emas."
+    minutes: 3
+
+  - type: assertion
+    headline: "Asosiy konstruktor sinf sarlavhasida yoziladi"
+    evidence:
+      kind: terms
+      items:
+        - {term: "class Ticket", means: "yangi sinf va uning nomi"}
+        - {term: "(...)", means: "asosiy konstruktor: obyekt uchun kerakli qiymatlar"}
+        - {term: "val event", means: "o'zgarmaydigan xossa"}
+        - {term: "var price", means: "keyin o'zgartirsa bo'ladigan xossa"}
+        - {term: ": String", means: "qiymat turi, o'zgaruvchidagidek"}
+    minutes: 3
+    notes: "Har bir qismni bosib oching. Sinf tanasi (jingalak qavslar) bo'lmasa, yozish shart emas. Qavs ichidagi har bir yozuv bir xossani e'lon qiladi va uni yaratilgan obyektga beradi. Tur yozilishi o'zgaruvchi e'lon qilishdagidek: nom, ikki nuqta, tur."
+
+  - type: code
+    headline: "var xossani o'zgartirish mumkin, val xossani esa mumkin emas"
+    code: |
+      class Ticket(val event: String, var price: Int)
+
+      fun main() {
+          val t = Ticket("Navruz konserti", 150000)
+          t.price = 120000
+          println(t.price)
+          // t.event = "Boshqa"   // xato: val o'zgarmaydi
+      }
+    output: |
+      120000
+    minutes: 3
+    notes: "Narx o'zgarishi mumkin: chegirma e'lon qildik. Konsert nomi esa o'zgarmasligi kerak, shuning uchun val. Izohdagi qatorni ochsangiz, Kotlin \"Val cannot be reassigned\" xatosini beradi. Qoida o'zgaruvchilardagi bilan bir xil: val — bir marta, var — o'zgartirsa bo'ladi."
+
+  - type: predict
+    code: |
+      class Ticket(val event: String, price: Int) {
+          val label = "$event: $price so'm"
+      }
+
+      fun main() {
+          val t = Ticket("Rok kechasi", 90000)
+          println(t.label)
+          println(t.price)
+      }
+    choices:
+      - "Ikki qator chiqadi"
+      - "Birinchi qator chiqadi, ikkinchisida xato"
+      - "Dastur ishga tushmaydi: kompilyatsiya xatosi"
+      - "Ikkinchi qatorda 0 chiqadi"
+    answer: "C — `t.price` topilmaydi"
+    explanation: "`price` xossa emas, u faqat sinf ichida ishlaydi."
+    misconception: "Konstruktorning har bir parametri avtomatik xossa bo'ladi deb o'ylash"
+    minutes: 4
+    notes: "Kompilyatsiya xatosi — dastur ishga tushmasdan oldin Kotlin topgan xato. Ko'p talaba A deydi. Javobdan keyin ko'rsating: price oldida val yoki var yo'q, shuning uchun u faqat sinf ichida ishlaydi (label qatorida). Tashqaridan ko'rinishi uchun val yoki var kerak. Xato matni: Unresolved reference."
+
+  - type: code
+    headline: "Sinf ichidagi funksiya obyektning o'z xossalari bilan ishlaydi"
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          fun describe(): String = "$event: $price so'm"
+      }
+
+      fun main() {
+          val t = Ticket("Navruz konserti", 150000)
+          println(t.describe())
+      }
+    output: |
+      Navruz konserti: 150000 so'm
+    minutes: 3
+    notes: "Funksiya sinf ichida yozilgan, shuning uchun event va price ni to'g'ridan-to'g'ri ishlatadi. Chaqirilganda nuqta orqali: t.describe(). Narx o'zgarsa, xuddi shu chaqiruv yangi natija beradi, chunki funksiya obyektning hozirgi holatini o'qiydi."
+
+  - type: section
+    title: "Standart qiymat va init"
+
+  - type: code
+    headline: "Standart qiymat argument berilmaganda ishlatiladi"
+    code: |
+      class Ticket(val event: String, var price: Int = 100000)
+
+      fun main() {
+          val a = Ticket("Ochiq dars")
+          val b = Ticket("Rok kechasi", 90000)
+          println(a.price)
+          println(b.price)
+      }
+    output: |
+      100000
+      90000
+    minutes: 3
+    notes: "Funksiyalardagi standart qiymatni eslang: konstruktorda ham xuddi shunday ishlaydi. a uchun narx berilmadi, 100000 ishlatildi. b uchun 90000 berildi va u standart qiymatni almashtirdi."
+
+  - type: code
+    headline: "init blok obyekt yaratilganda ishga tushadi"
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          init { println("Chipta yaratildi: $event") }
+      }
+
+      fun main() {
+          Ticket("Navruz konserti", 150000)
+          println("Tayyor")
+      }
+    output: |
+      Chipta yaratildi: Navruz konserti
+      Tayyor
+    minutes: 3
+    notes: "Oddiy qiymat berish uchun sarlavha yetadi. Murakkabroq ishlar uchun init blok bor: u obyekt yaratilganda avtomatik ishlaydi. Chaqiruvni biz alohida yozmadik. Shuning uchun \"Chipta yaratildi\" \"Tayyor\" dan oldin chiqdi. Bir sinfda bir nechta init bo'lishi mumkin, ular yozilgan tartibda ishlaydi."
+
+  - type: code
+    headline: "require noto'g'ri qiymatda obyekt yaratilishini to'xtatadi"
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          init {
+              require(price >= 0) { "Narx manfiy" }
+              println("Chipta yaratildi: $event")
+          }
+      }
+    steps:
+      - lines: [2]
+        note: "init blok obyekt yaratilganda ishlaydi"
+      - lines: [3]
+        note: "Shart `False` bo'lsa, xato chiqadi va dastur to'xtaydi"
+      - lines: [4]
+        note: "Shart `True` bo'lsa, ish davom etadi"
+    minutes: 3
+    notes: "require birinchi qavsda shartni, jingalak qavsda xato xabarini oladi. Shart to'g'ri bo'lsa, hech narsa bo'lmaydi. Noto'g'ri bo'lsa, IllegalArgumentException xatosi chiqadi va obyekt yaratilmaydi. Shunday qilib, manfiy narxli chipta dasturda hech qachon paydo bo'lmaydi."
+
+  - type: predict
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          init { require(price >= 0) { "Narx manfiy" } }
+      }
+      fun main() {
+          Ticket("Rok kechasi", 90000)
+          println("1-chipta tayyor")
+          Ticket("Xato chipta", -5)
+          println("2-chipta tayyor")
+      }
+    choices:
+      - "Ikkala chipta tayyor"
+      - "1-chipta tayyor, keyin xato"
+      - "Hech narsa chiqmaydi, darhol xato"
+      - "Faqat 2-chipta tayyor"
+    answer: "B — 1-chipta tayyor, keyin xato"
+    explanation: "Ikkinchida shart `False`: dastur to'xtaydi."
+    misconception: "require faqat ogohlantiradi va dastur davom etadi; yoki xato dastur boshlanishidan oldin chiqadi"
+    minutes: 4
+    notes: "-5 qiymatni Kotlin dastur ishga tushishidan oldin tekshirmaydi: u faqat dastur ishlayotganda aniqlanadi. Shuning uchun birinchi qator chiqadi. Xato chiqqach dastur to'xtaydi, oxirgi println bajarilmaydi."
+
+  - type: livecode
+    title: "Chipta sinfini noldan yozamiz"
+    file: Ticket.kt
+    goals:
+      - "`class Ticket(val event: String, var price: Int)`"
+      - "`init` ichida `require` bilan narxni tekshirish"
+      - "`describe()` funksiyasi"
+      - "`main()` da obyekt yaratib chiqarish"
+    minutes: 8
+    notes: "Kotlin Playground'da faqat izohlar yozilgan boshlang'ich fayldan boshlang. Ataylab event oldidagi val ni unutib qoldiring: describe() da \"Unresolved reference\" xatosi chiqadi. Xabarni birga o'qing va tuzating. Oxirida narxni -1 qilib, require ishlashini ko'rsating."
+
+  - type: activity
+    title: "Chegirmali narxni hisoblang"
+    file: Discount.kt
+    pairs: true
+    steps:
+      - "`withDiscount(percent: Int): Int` funksiyasini yozing: narxdan foizni ayirsin"
+      - "`main()` da `ticket.withDiscount(20)` ni chiqaring"
+      - "150000 so'm va 20 foiz uchun 120000 chiqishi kerak"
+      - "Tez tugatdingizmi? `require(percent in 0..100)` qo'shing"
+    hint: "Chegirma summasi: price * percent / 100. Narxdan shuni ayiring."
+    minutes: 8
+
+  - type: section
+    title: "Ikkilamchi konstruktor va companion object"
+
+  - type: code
+    headline: "Ikkilamchi konstruktor obyektni boshqa qiymat turi bilan yaratadi"
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          constructor(event: String, text: String) :
+              this(event, text.toIntOrNull() ?: 0)
+      }
+
+      fun main() {
+          println(Ticket("Rok", "85000").price)
+          println(Ticket("Rok", "abc").price)
+      }
+    output: |
+      85000
+      0
+    minutes: 3
+    notes: "Ilovada narxni foydalanuvchi matn maydoniga yozadi, ya'ni String keladi. Ikkilamchi konstruktor shu matnni songa aylantiradi. toIntOrNull son bo'lmasa null beradi, Elvis operatori ?: esa null o'rniga 0 qo'yadi. Shunda \"abc\" kelsa ham dastur sinmaydi."
+
+  - type: assertion
+    headline: "Ikkilamchi konstruktor avval asosiy konstruktorga murojaat qiladi"
+    points:
+      - "`: this(...)` asosiy konstruktorni chaqiradi"
+      - "Avval asosiy konstruktor va `init` ishlaydi"
+      - "Keyin ikkilamchi konstruktorning tanasi ishlaydi"
+    minutes: 2
+    notes: "Bu majburiy qoida: ikkilamchi konstruktor har doim asosiy konstruktorga murojaat qilishi kerak, to'g'ridan-to'g'ri yoki boshqa ikkilamchi orqali. Shunda obyekt har doim bir xil tayyorlanadi va init bloklari hech qachon o'tkazib yuborilmaydi."
+
+  - type: predict
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          init { println("init") }
+          constructor(event: String) : this(event, 0) {
+              println("ikkilamchi")
+          }
+      }
+      fun main() {
+          Ticket("Ochiq dars")
+      }
+    choices:
+      - "init, keyin ikkilamchi"
+      - "ikkilamchi, keyin init"
+      - "Faqat ikkilamchi"
+      - "Faqat init"
+    answer: "A — init, keyin ikkilamchi"
+    explanation: "Avval asosiy konstruktor va `init` ishlaydi."
+    misconception: "Ikkilamchi konstruktorning tanasi birinchi ishlaydi deb o'ylash"
+    minutes: 3
+    notes: "Talabalar \"ikkilamchi\" chaqirilgani uchun birinchi uni chiqaradi deb o'ylaydi. Javobdan keyin oldingi slaydga qayting: this(...) avval asosiy konstruktorni ishga tushiradi, init uning qismi. Keyin ikkilamchining jingalak qavslari ichidagi kod ishlaydi."
+
+  - type: code
+    headline: "Companion object funksiyasi sinf nomi bilan chaqiriladi"
+    code: |
+      class Ticket(val event: String, var price: Int) {
+          companion object {
+              fun free(event: String) = Ticket(event, 0)
+          }
+      }
+
+      fun main() {
+          val ticket = Ticket.free("Ochiq dars")
+          println(ticket.event)
+          println(ticket.price)
+      }
+    output: |
+      Ochiq dars
+      0
+    minutes: 3
+    notes: "Companion object ichidagi funksiyani chaqirish uchun obyekt kerak emas: Ticket.free(...). Bu sinfning o'ziga tegishli ishlar uchun qulay, masalan tayyor chipta yasovchi funksiya. Bunday funksiyalar ilovalarda tez-tez uchraydi."
+
+  - type: recap
+    points:
+      - "Sinf — qolip, obyekt — undan yasalgan haqiqiy narsa"
+      - "`val` va `var` parametrni xossaga aylantiradi, oddiy parametr aylantirmaydi"
+      - "Standart qiymat, `init` va `require` obyektni to'g'ri yaratadi"
+      - "Ikkilamchi konstruktor avval asosiy konstruktorni ishga tushiradi"
+
+  - type: exit
+    questions:
+      - "`class Product(val name: String, price: Int)` berilgan. `Product(\"Non\", 5000).price` ishlaydimi? Nima uchun?"
+      - "Bir gapda: ikkilamchi konstruktorda `: this(...)` nima uchun kerak?"

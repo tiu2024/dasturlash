@@ -16,3 +16,6 @@ __pycache__/
 /Lectures/src/*/materials/
 /Lectures/src/*/livecode/
 /Lectures/src/*/build/
+/Lectures/mobil/src/*/materials/
+/Lectures/mobil/src/*/livecode/
+/Lectures/mobil/src/*/build/
