@@ -1,5 +1,5 @@
-site_name: Dasturlash 1, 2
-site_description: "Dasturlash 1, 2 kursi - ma'ruzalar va materiallar"
+site_name: Kurslar
+site_description: "Kurslar - ma'ruzalar va materiallar"
 # After creating your GitHub repository, add:
 site_url: https://tiu2024.github.io/dasturlash/
 theme:
@@ -7,6 +7,7 @@ theme:
   favicon: assets/favicon.png
   logo: assets/favicon.png
   features:
+    - navigation.tabs
     - navigation.sections
     - content.code.copy
 extra_css:
@@ -36,3 +37,5 @@ nav:
           - Ma'ruza: courses/dasturlash/week-04/lecture.md
           - Amaliyot: courses/dasturlash/week-04/practice.md
       - 5-hafta. Ro'yxatlar va kortejlar: courses/dasturlash/week-05/lecture.md
+  - Mobil ilovalar yaratish:
+      - Kurs haqida: courses/mobil-ilovalar/index.md
