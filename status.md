@@ -12,7 +12,7 @@ Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps t
 | 4. Looplar va stringlar | done | done (11 problems) | 2026-10-19 |
 | 5. Ro'yxatlar va kortejlar | done | — | 2026-10-19 |
 
-Last published 2026-10-19 (week 4, commit baec985; the latest commit on `main`; site on `gh-pages`).
+Last published 2026-10-19 (commit f2acfd6, "Mobil ilovalar yaratish" section; site on `gh-pages`).
 
 ## Done
 
@@ -43,3 +43,5 @@ Last published 2026-10-19 (week 4, commit baec985; the latest commit on `main`; 
 - Remove `oquv-dastur` and `adabiyot-tanlash` from the claude.ai account so they exist only in this project.
 - Academic review of the changed examples in weeks 1–3.
 - Back up `OQ/` and `.claude/skills/oquv-dastur/`, `.claude/skills/adabiyot-tanlash/` (they exist only on this computer).
+
+- 2026-10-19: site is now multi-course: top tabs per course; new course "Mobil ilovalar yaratish" added as a placeholder (`docs/courses/mobil-ilovalar/index.md`, no weekly topics yet); site name changed to "Kurslar". Published.
