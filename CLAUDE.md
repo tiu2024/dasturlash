@@ -8,20 +8,11 @@ This folder is my workspace for the course: the public student website and, kept
 
 Talk to me in simple, clear English. Student-facing content is in Uzbek.
 
-## Folders
+## Public and private
 
-| Path | Contents | Public |
-|---|---|---|
-| `docs/` | MkDocs Material site → https://tiu2024.github.io/dasturlash/ (repo github.com/tiu2024/dasturlash) | yes |
-| `docs/courses/dasturlash/week-NN/` | `lecture.md`, `practice.md` | yes |
-| `docs/downloads/dasturlash/week-NN/` | lecture PPTX copy, practice `pN.py` files | yes |
-| `Lectures/N_Mavzu.pptx` | original lecture decks | committed |
-| `OQ/` | official documents (O'quv dastur templates and outputs) | never (gitignored) |
-| `.claude/skills/` | project skills; `oquv-dastur` and `adabiyot-tanlash` are gitignored | partly |
-| `status.md` | current state and next steps | committed |
-| `DEPLOY.md` | publishing steps | committed |
-
-Everything in `docs/` is public, including files missing from navigation. Never put private, official or unreleased material in `docs/` or in any committed file.
+- The GitHub repository and the website are public. Everything in `docs/` is published, including files missing from navigation.
+- Never put private, official or unreleased material in `docs/` or in any committed file. Official documents live in `OQ/`.
+- `OQ/` and the `oquv-dastur` and `adabiyot-tanlash` skills are gitignored: they exist only on this computer.
 
 ## How the course works
 
@@ -34,10 +25,10 @@ Everything in `docs/` is public, including files missing from navigation. Never 
 ## Writing for beginners
 
 - Write for someone who has never programmed.
-- Explain every new term in one plain sentence the first time it appears.
+- Explain every new term in one plain sentence the first time it appears, and explain a concept before using it.
 - Do not mention a detail you will not explain. If it cannot be explained simply, leave it out.
 - Lecture pages use the slides' content and examples; do not add advanced side notes.
-- Practice pages may introduce new things related to the lecture (that is intended); explain them briefly where they appear. Do not change practice pages unless asked.
+- Practice pages may introduce new things related to the lecture (that is intended); explain them briefly where they appear, with a link if a later lecture covers them. Do not change practice pages unless asked.
 
 ## Uzbek style and terms
 
@@ -47,31 +38,19 @@ Everything in `docs/` is public, including files missing from navigation. Never 
 - `int` — butun son, `float` — kasr son, `str` — satr, `bool` — mantiqiy qiymat.
 - Suffix after a foreign name takes an apostrophe: `Python'da`, `ASCII'dagi`.
 - Capitalise names with `string.capwords()` (or `.capitalize()` for one word), never `.title()`: it breaks o' and g' (`O'Tkir`).
-- Code follows PEP 8: 4-space indent, two blank lines between functions, `ism="..."` defaults without spaces, Uzbek or English names used consistently.
-- Explain a concept before using it. If a practice problem needs something taught later, add one sentence and a link to that lecture.
+- Code follows PEP 8; Uzbek or English names, used consistently.
 
 ## Environment
 
-- Windows. Use the project venv: `.venv/Scripts/python.exe`. The `python` on PATH is MSYS2: do not use it; create venvs with `py -3 -m venv`. Never install packages globally.
-- Build: `.venv/Scripts/python.exe -m mkdocs build --strict`. Preview: `.venv/Scripts/python.exe -m mkdocs serve`.
+- Windows. Always use the project venv (`.venv/Scripts/python.exe`). The `python` on PATH is MSYS2: do not use it; create venvs with `py -3 -m venv`. Never install packages globally.
+- For office documents the venv also has `python-docx`, `pyyaml` and `pymupdf`. LibreOffice is installed but not on PATH: `"/c/Program Files/LibreOffice/program/soffice.exe"`.
 
 ## Working rules
 
 - One feature or topic per task. Short plan only for structural changes.
 - One agent by default; subagents only when I ask.
 - No new dependencies or extra documents without a need in the task.
-- After edits: run the changed code, run the strict build, check affected links and downloads. A passing build does not replace my academic review.
+- After edits: run the changed code, run `mkdocs build --strict`, check affected links and downloads. A passing build does not replace my academic review.
 - When adding pages, update `mkdocs.yml` navigation and `docs/courses/dasturlash/index.md`.
 - Do not commit, push or deploy unless I ask.
 - Finish with a short report (changes, checks, open decisions) and update `status.md`.
-
-## Skills
-
-| Skill | Use |
-|---|---|
-| `/lecture-page` | lecture PPTX → lecture page |
-| `/practice-page` | class programs → practice page and `pN.py` files |
-| `/review-week` | review one week for errors before publishing |
-| `/publish` | build, commit, push, deploy (only when I ask) |
-| `/oquv-dastur`, `/adabiyot-tanlash` | official O'quv dastur and its literature list (private) |
-| `/dasturlash-ppt` | lecture deck — being rewritten |
