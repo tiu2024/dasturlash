@@ -6,11 +6,11 @@ Updated: 2026-10-19. Overwrite this file at the end of each session; git keeps t
 
 | Week | Lecture | Practice | Manbalar | Published |
 |---|---|---|---|---|
-| 1. Dasturlashga kirish | done | — | missing | older version |
-| 2. Python dasturlashga kirish | done | done (11 problems) | missing | older version |
-| 3. Funksiyalar, shartlar, scope va turlar | done | done (16 problems) | missing | older version |
+| 1. Dasturlashga kirish | done | — | missing | 2026-10-19 |
+| 2. Python dasturlashga kirish | done | done (11 problems) | missing | 2026-10-19 |
+| 3. Funksiyalar, shartlar, scope va turlar | done | done (16 problems) | missing | 2026-10-19 |
 
-The 2026-10-19 review fixes are committed locally (`f464b16`) but not pushed or deployed.
+Last published 2026-10-19: source `597e6c5` on `main`, site on `gh-pages` (`4c87649`).
 
 ## Done
 
@@ -19,9 +19,8 @@ The 2026-10-19 review fixes are committed locally (`f464b16`) but not pushed or 
 
 ## Next
 
-1. Rewrite `/dasturlash-ppt` (old skill lost; it had problems with visual design, content and broken output).
-2. Add `## Manbalar` to weeks 1–3 (needs the teacher's source list per week).
-3. Publish the reviewed weeks with `/publish`.
+1. Add `## Manbalar` to weeks 1–3 (needs the teacher's source list per week).
+2. Rewrite `/dasturlash-ppt` later (old skill lost; it had problems with visual design, content and broken output).
 
 ## Waiting for the teacher
 
