@@ -20,6 +20,7 @@ Last published 2026-10-19 (the latest commit on `main`; site on `gh-pages`).
 - 2026-10-19: LibreOffice and the office packages (`python-docx`, `pyyaml`, `pymupdf`) installed; `/oquv-dastur` tested end to end (output in `OQ/test1_*`; script kept as `OQ/fill_oquv_dastur.py`).
 - 2026-10-19: `CLAUDE.md` trimmed to facts the project files do not record.
 - 2026-10-19: hook added: before Claude commits, if `status.md` is unchanged, the teacher is asked to approve (`.claude/hooks/status-reminder.sh`).
+- 2026-10-19: favicon changed to the new icon (`docs/assets/favicon.png`, set in `mkdocs.yml`); published 2026-10-19.
 
 ## Next
 

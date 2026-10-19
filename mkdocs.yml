@@ -4,6 +4,7 @@ site_description: "Dasturlash 1, 2 kursi - ma'ruzalar va materiallar"
 site_url: https://tiu2024.github.io/dasturlash/
 theme:
   name: material
+  favicon: assets/favicon.png
   features:
     - navigation.sections
     - content.code.copy
