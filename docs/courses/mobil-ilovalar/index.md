@@ -6,4 +6,4 @@ Kurs materiallari tez orada shu yerda e'lon qilinadi.
 
 ## Haftalik mavzular
 
-- [4-hafta. Kotlin tilida sinflar va obyektlar](week-04/lecture.md)
+- 4-hafta. Kotlin tilida sinflar va obyektlar: [ma'ruza](week-04/lecture.md), [amaliyot](week-04/practice.md)

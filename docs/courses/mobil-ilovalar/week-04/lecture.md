@@ -2,6 +2,8 @@
 
 Ma'ruza taqdimoti: [Sinflar va obyektlar (PPTX)](../../../downloads/mobil-ilovalar/week-04/sinflar-va-obyektlar.pptx)
 
+Bu haftaning amaliy qismi: [amaliyot](practice.md).
+
 ## Muammo: 500 ta chipta
 
 Konsert ilovasida 500 ta chipta bor. Har biri uchun nom va narxni alohida o'zgaruvchida saqlash mumkin:
