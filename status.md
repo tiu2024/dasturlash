@@ -12,7 +12,7 @@ Updated: 2026-10-27. Overwrite this file at the end of each session; git keeps t
 | 4. Looplar va stringlar | done | done (11 problems) | 2026-10-19 |
 | 5. Ro'yxatlar va kortejlar | done | — | 2026-10-19 |
 
-Last published 2026-10-27 (AXV tab with the Computer Science Foundation topics, dc1c0a2; site on `gh-pages`).
+Last published 2026-10-27 (AXV AI guide without reading list; site on `gh-pages`).
 
 ## Done
 
@@ -57,4 +57,5 @@ Last published 2026-10-27 (AXV tab with the Computer Science Foundation topics, 
 - 2026-10-22: Kechki version of the Kiberxavfsizlik asoslari O'quv dastur: `OQ/Kiberxavfsizlik asoslari_kechki.docx` (private), made from the final kunduzgi .docx (ishchi title, all 36 topics starred, IZOH rows). Semester, weekly hours, course code, curriculum number copied from kunduzgi: teacher to confirm for kechki.
 - 2026-10-27: new private project AXV ("Muhammad al-Xorazmiy vorislari", 8-sinf mentoring). `AXV/` is gitignored. Knowledge base `AXV/knowledge-base.md`: what AXV is, students, format (36 lessons, Oct 2 – Jan 1), all 26 topics with the weekly plan, Chapter I Know / Be able to per topic (teacher's draft, lightly corrected, checked against lessons L01–L04), Chapters II–III official content and outcomes, assessment, projects, methods, final competency, issues in the programme and open questions. Sources copied to `AXV/sources/` (CSF and Web Full-Stack programmes, lessons L01–L04). `CLAUDE.md` has a short AXV section pointing there. Open: the 8 questions at the end of the knowledge base; Chapters II–III breakdowns not written.
 - 2026-10-27: lesson PDF copies removed from `AXV/sources/` (programmes kept). Public AXV tab added: `docs/courses/axv/index.md` lists the 26 Computer Science Foundation topics (I chorak) by chapter; nav and home page updated. Published 2026-10-27 (dc1c0a2).
-- 2026-10-27: `Operatsion_tizimlar_fan_dasturi.doc` moved to the Recycle Bin (teacher's request). AXV tab expanded: 26 topic pages `docs/courses/axv/topic-01.md`–`topic-26.md` (title, chapter, lesson type, programme content list, "materials coming soon"), sidebar grouped by the three chapters, AI guide `docs/courses/axv/ai-guide.md` (prompt in English/Uzbek/Russian for 8th graders, reading list from the programme's sources). Index list numbering fixed. Not published yet.
+- 2026-10-27: `Operatsion_tizimlar_fan_dasturi.doc` moved to the Recycle Bin (teacher's request). AXV tab expanded: 26 topic pages `docs/courses/axv/topic-01.md`–`topic-26.md` (title, chapter, lesson type, programme content list, "materials coming soon"), sidebar grouped by the three chapters, AI guide `docs/courses/axv/ai-guide.md` (prompt in English/Uzbek/Russian for 8th graders, reading list from the programme's sources). Index list numbering fixed. Published 2026-10-27 (506e960).
+- 2026-10-27: "Reading and Learning guide" section removed from the AXV AI guide (teacher's request). Published 2026-10-27.

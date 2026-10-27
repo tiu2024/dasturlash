@@ -129,33 +129,3 @@ Mavzu bilan ishlashni boshlashda quyidagi promptni AI chatiga joylashtiring. Key
     последовательно разберите содержание темы. Раскройте каждый пункт
     подробно, даже если я отвечаю быстро, и остановитесь, когда они закончатся.
     ```
-
-## Reading and Learning guide
-
-Darslarga qo'shimcha ravishda quyidagi manbalardan foydalaning. AI bilan ishlashdan oldin va keyin ham ularga qayting: manbadagi tushuntirishni o'qish AI javobini tekshirishga yordam beradi.
-
-### Kurslar
-
-- [Khan Academy Computing](https://www.khanacademy.org/computing) — kompyuter fanlari va dasturlash bo'yicha bepul darslar.
-- [Code.org](https://code.org) — algoritm va dasturlashni o'yin tarzida o'rgatuvchi bepul darslar.
-- [Cisco Networking Academy: Skills for All](https://skillsforall.com) — kompyuter, tarmoq va kiberxavfsizlik bo'yicha bepul kurslar.
-- [freeCodeCamp](https://www.freecodecamp.org) — dasturlash bo'yicha bepul mashqlar.
-
-### Vositalar va hujjatlar
-
-- [Flowgorithm](https://flowgorithm.org) — blok-sxema dasturining rasmiy sayti: yuklab olish va qo'llanma.
-- [GitHub Docs](https://docs.github.com) — GitHub'ning rasmiy qo'llanmasi.
-- [Git hujjatlari](https://git-scm.com/docs) — Git buyruqlarining rasmiy tavsifi.
-- [Google Workspace Learning Center](https://support.google.com/a/users) — Google Drive, Docs, Sheets va Slides bo'yicha qo'llanma.
-
-### Kitoblar
-
-- Scott Chacon, Ben Straub. [Pro Git](https://git-scm.com/book) — Git bo'yicha bepul kitob.
-- Brian Kernighan. Understanding the Digital World. Princeton University Press, 2021 — kompyuter, internet va raqamli dunyo qanday ishlashi haqida.
-- S.S. G'ulomov, R.X. Alimov. Axborot texnologiyalari asoslari.
-- Informatika va axborot texnologiyalari darsliklari (5–11-sinflar).
-
-### O'zbek tilidagi portallar
-
-- [ZiyoNET](https://ziyonet.uz) — ta'lim portali.
-- [Eduportal](https://eduportal.uz) — informatika va axborot texnologiyalari bo'yicha elektron resurslar.
