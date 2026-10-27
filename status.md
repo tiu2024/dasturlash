@@ -12,10 +12,12 @@ Updated: 2026-10-27. Overwrite this file at the end of each session; git keeps t
 | 4. Looplar va stringlar | done | done (11 problems) | 2026-10-19 |
 | 5. Ro'yxatlar va kortejlar | done | — | 2026-10-19 |
 
-Last published 2026-10-27 (AXV AI guide without reading list; site on `gh-pages`).
+Last published 2026-10-27 (AXV topic 1 page with slides and labs; site on `gh-pages`).
 
 ## Done
 
+- 2026-10-27: AXV topic 1 lecture deck built and deepened (private): `AXV/lectures/1_Zamonaviy kompyuterlar.pptx`, spec in `AXV/lectures/src/topic-01/`, 33 slides, 78 of 80 min, with the 6 ChatGPT figures. Student page `topic-01.md` still a stub.
+- 2026-10-27: AXV topic 1 student page written (`docs/courses/axv/topic-01.md`, images in `docs/courses/axv/img/topic-01/`), PPTX download in `docs/downloads/axv/topic-01/`, 5 lab exercises with answers, only from the lecture; published 2026-10-27.
 - 2026-10-19: weeks 1–3 reviewed and fixed; scope and types added to week 3 from the slides.
 - 2026-10-19: workspace cleanup: new `CLAUDE.md`, project settings, project-only copies of `oquv-dastur` and `adabiyot-tanlash` (gitignored), skills `lecture-page`, `practice-page`, `review-week`, `publish`; `forme.md`, `templates/` and the old week-3 deck removed.
 - 2026-10-19: lectures revised for complete beginners: week 1 rebuilt from the slides, weeks 2–3 simplified; "Writing for beginners" rule added. Course books stay in `ai-guide.md`; lecture pages have no Manbalar section.
