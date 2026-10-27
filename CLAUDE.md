@@ -14,6 +14,12 @@ Talk to me in simple, clear English. Student-facing content is in Uzbek.
 - Never put private, official or unreleased material in `docs/` or in any committed file. Official documents live in `OQ/`.
 - `OQ/` and the `oquv-dastur` and `adabiyot-tanlash` skills are gitignored: they exist only on this computer.
 
+## AXV project (private)
+
+- I also mentor 8th graders in the "Muhammad al-Xorazmiy vorislari" (AXV) programme: Computer Science Foundation in quarter I, then Web Full-Stack.
+- Everything for it lives in `AXV/` (gitignored). Read `AXV/knowledge-base.md` before making any AXV lesson, slide, question or exam; the source PDFs are in `AXV/sources/`.
+- The public site has an AXV tab (`docs/courses/axv/`) with the topic list only. Nothing else from `AXV/` goes on the site unless I ask.
+
 ## How the course works
 
 - I teach each lecture from the PPTX. Students use the site **after** the lecture to review, and download the slides there.

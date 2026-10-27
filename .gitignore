@@ -19,3 +19,6 @@ __pycache__/
 /Lectures/mobil/src/*/materials/
 /Lectures/mobil/src/*/livecode/
 /Lectures/mobil/src/*/build/
+
+# AXV mentoring project: official programme and private notes, never publish
+/AXV/
