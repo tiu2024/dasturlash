@@ -45,3 +45,33 @@ nav:
           - Amaliyot: courses/mobil-ilovalar/week-04/practice.md
   - AXV:
       - Kurs haqida: courses/axv/index.md
+      - AI bilan ishlash: courses/axv/ai-guide.md
+      - "I bob. Kompyuter savodxonligi va arxitekturasi":
+          - "1. Zamonaviy kompyuterlar": courses/axv/topic-01.md
+          - "2. Operatsion tizimlar va Windows": courses/axv/topic-02.md
+          - "3. O'lchov birliklari, fayllar va papkalar": courses/axv/topic-03.md
+          - "4. Asosiy va qo'shimcha qurilmalar": courses/axv/topic-04.md
+          - "5. Internet, brauzerlar va elektron pochta": courses/axv/topic-05.md
+          - "6. Kompyuter xavfsizligi va antivirus": courses/axv/topic-06.md
+      - "II bob. Zamonaviy IT yo'nalishlari va raqamli infratuzilma asoslari":
+          - "7. Klaviaturada tez yozish": courses/axv/topic-07.md
+          - "8. Raqamli savodxonlik va madaniyat": courses/axv/topic-08.md
+          - "9. Raqamli transformatsiya": courses/axv/topic-09.md
+          - "10. Internet qanday ishlaydi?": courses/axv/topic-10.md
+          - "11. Bulutli xizmatlar": courses/axv/topic-11.md
+          - "12. Git va GitHub": courses/axv/topic-12.md
+          - "13. Zamonaviy IT yo'nalishlari": courses/axv/topic-13.md
+          - "14. Kiberxavfsizlik va shaxsiy ma'lumotlar": courses/axv/topic-14.md
+      - "III bob. Algoritmlash, Flowgorithm va dasturlash asoslari":
+          - "15. Algoritm va algoritmik fikrlash": courses/axv/topic-15.md
+          - "16. Flowgorithm interfeysi va blok-sxemalar": courses/axv/topic-16.md
+          - "17. Dastur, buyruq, kod va mantiq": courses/axv/topic-17.md
+          - "18. O'zgaruvchilar va ma'lumot turlari": courses/axv/topic-18.md
+          - "19. Chiziqli algoritmlar": courses/axv/topic-19.md
+          - "20. Tarmoqlanuvchi algoritmlar": courses/axv/topic-20.md
+          - "21. Takrorlanuvchi algoritmlar": courses/axv/topic-21.md
+          - "22. \"Kalkulyator\" loyihasi": courses/axv/topic-22.md
+          - "23. \"Talaba baholash tizimi\" loyihasi": courses/axv/topic-23.md
+          - "24. \"Mini bankomat tizimi\" loyihasi": courses/axv/topic-24.md
+          - "25. \"Login va parol\" loyihasi": courses/axv/topic-25.md
+          - "26. Yakuniy nazorat ishi": courses/axv/topic-26.md

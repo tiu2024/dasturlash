@@ -18,7 +18,7 @@ Talk to me in simple, clear English. Student-facing content is in Uzbek.
 
 - I also mentor 8th graders in the "Muhammad al-Xorazmiy vorislari" (AXV) programme: Computer Science Foundation in quarter I, then Web Full-Stack.
 - Everything for it lives in `AXV/` (gitignored). Read `AXV/knowledge-base.md` before making any AXV lesson, slide, question or exam; the source PDFs are in `AXV/sources/`.
-- The public site has an AXV tab (`docs/courses/axv/`) with the topic list only. Nothing else from `AXV/` goes on the site unless I ask.
+- The public site has an AXV tab (`docs/courses/axv/`): course page, AI guide, and one page per topic (`topic-NN.md`) with the programme's content list. Only quarter I (Computer Science Foundation). Nothing else from `AXV/` goes on the site unless I ask.
 
 ## How the course works
 
