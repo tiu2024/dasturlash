@@ -21,7 +21,7 @@ university:
   name: "Turan International University"
   short: "TIU"               # used in the small line at the top of the title slide
   faculty: ""                # fakultet
-  department: ""             # kafedra
+  department: "Biznes Boshqaruvi"             # kafedra
 
 course:
   name: "Mobil ilovalar yaratish"
