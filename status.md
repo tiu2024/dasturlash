@@ -1,6 +1,6 @@
 # Status
 
-Updated: 2026-10-27. Overwrite this file at the end of each session; git keeps the history.
+Updated: 2026-11-05. Overwrite this file at the end of each session; git keeps the history.
 
 ## Site
 
@@ -62,3 +62,8 @@ Last published 2026-10-27 (AXV topic 5 page with slides; earlier: topic 1 page w
 - 2026-10-27: lesson PDF copies removed from `AXV/sources/` (programmes kept). Public AXV tab added: `docs/courses/axv/index.md` lists the 26 Computer Science Foundation topics (I chorak) by chapter; nav and home page updated. Published 2026-10-27 (dc1c0a2).
 - 2026-10-27: `Operatsion_tizimlar_fan_dasturi.doc` moved to the Recycle Bin (teacher's request). AXV tab expanded: 26 topic pages `docs/courses/axv/topic-01.md`–`topic-26.md` (title, chapter, lesson type, programme content list, "materials coming soon"), sidebar grouped by the three chapters, AI guide `docs/courses/axv/ai-guide.md` (prompt in English/Uzbek/Russian for 8th graders, reading list from the programme's sources). Index list numbering fixed. Published 2026-10-27 (506e960).
 - 2026-10-27: "Reading and Learning guide" section removed from the AXV AI guide (teacher's request). Published 2026-10-27.
+- 2026-11-02: O'quv dastur "Iqtisodiyotda axborot kommunikasion texnologiyalar va tizimlar" (kunduzgi, IAKTT1106, 60410100 – 1.03, semester 2, 2026-2027, 6 credits, 36/36/0/108): `OQ/IQT_IAKTT1106.docx` (private). Topics as written in `IQT lar uchun.docx`; literature (14) from the IQT Logistika OQ; TN (12) and mustaqil ta'lim (18 × 6 h, 36 h in small groups) adapted from it. Lecture reference numbers assigned by Claude: teacher to check. Major 60410100 added to `fill_oquv_dastur.py` (OQ and skill copy). Old KA1406 YAML kept as `OQ/KA1406_config.yaml` / `OQ/KA1406_content.yaml`. Design notes: `OQ/IQT_design_notes.md`.
+- 2026-11-02: Partly Russian version of the IQT O'quv dastur (teacher's request, after a full translation was rejected): `OQ/IQT26_IAKTT1106_ru_v2.docx` (private), from the edited Uzbek file. Russian only in table 2 (heading, maqsad, vazifalar), the lecture/practice topic texts of table 4 and the task texts of table 5; everything else Uzbek. The rejected full version is still `OQ/IQT26_IAKTT1106_ru.docx` (was open in Word, could not be overwritten).
+- 2026-11-02: Kechki version of the IQT O'quv dastur: `OQ/KIQT26_IAKTT1106.docx` (private), made from the teacher's edited kunduzgi `OQ/IQT26_IAKTT1106.docx`: ishchi title, (kechki ta'lim uchun), "Mazkur ishchi o'quv dasturi", all 36 topics starred (hours same as kunduzgi, teacher confirmed), IZOH rows after the lecture and practice blocks. Table 1 (code, semester, weekly hours, curriculum number) copied from kunduzgi.
+- 2026-11-02: Partly Russian kechki IQT O'quv dastur: `OQ/KIQT26_IAKTT1106_ru.docx` (private), from `OQ/KIQT26_IAKTT1106.docx`, same parts in Russian as the kunduzgi `_ru_v2` (table 2, topic texts of table 4, task texts of table 5); stars, IZOH rows and everything else Uzbek.
+- 2026-11-05: AXV topic 2 student page written (`docs/courses/axv/topic-02.md`) from the L01 slides (PDF `temporary/001. 06-10-2026 - Kompyuterlar_va_Windows.pdf`, slides 11-13 and quiz Q4; slides 4-10 are topic 1 and the page links there). PDF download in `docs/downloads/axv/topic-02/kompyuterlar-va-windows.pdf`. Not published. Remaining files in `temporary/` (topics 3, 4, 6, 7) still to do.
