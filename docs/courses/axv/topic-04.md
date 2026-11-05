@@ -2,6 +2,8 @@
 
 I bob. Kompyuter savodxonligi va arxitekturasi · 1 ta nazariy dars
 
+Ma'ruza taqdimoti: [Kompyuterning asosiy va qo'shimcha qurilmalari (PDF)](../../downloads/axv/topic-04/asosiy-va-qoshimcha-qurilmalar.pdf)
+
 ## Bu mavzuda
 
 - Kompyuterning asosiy qurilmalari: tizim bloki, monitor, klaviatura, sichqoncha
@@ -9,5 +11,3 @@ I bob. Kompyuter savodxonligi va arxitekturasi · 1 ta nazariy dars
 - Qo'shimcha qurilmalar: printer, skaner, proyektor, veb-kamera, kolonka
 - Kiritish, chiqarish va saqlash qurilmalarining vazifalari
 - Qurilmalarni kompyuterga ulash va ulardan xavfsiz foydalanish
-
-Ma'ruza materiallari tez orada shu yerda e'lon qilinadi.
