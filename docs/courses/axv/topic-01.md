@@ -255,16 +255,6 @@ P kompyuterda protsessor kuchli, lekin RAM 4 GB. Ko'p dastur ochilganda u sekinl
 
 O'quvchiga Z shart emas: oddiy ish uchun 8 GB RAM yetadi, qimmat ko'rsatkich ortiqcha bo'ladi. Eng kuchli emas, vazifaga mos kompyuterni tanlang.
 
-## Odatiy xatolar
-
-- **"Telefon kompyuter emas."** Telefon ham kompyuter: unda protsessor, RAM va xotira bor.
-- **"GHz katta bo'lsa, kompyuter doim tez."** GHz bitta ishni tezlashtiradi. Ko'p ish bir vaqtda ochiq bo'lsa, yadro soni ham muhim.
-- **"i7 doim i5 dan tez."** Raqamlarni faqat bir xil avlod ichida solishtiring.
-- **RAM va xotirani adashtirish.** "16 GB" RAM bo'lishi mumkin, "512 GB" xotira bo'lishi mumkin. Ular turli qismlar: RAM tez va vaqtinchalik, xotira doimiy.
-- **Saqlamasdan ishlash.** Hujjat saqlanmaguncha u faqat RAM'da turadi. Elektr o'chsa, yo'qoladi. Ishni tez-tez saqlang.
-- **Bitta ko'rsatkichga qarab tanlash.** Kompyuter eng kuchsiz qismi darajasida ishlaydi: protsessor, RAM va xotiraga birga qarang.
-- **Sensorli ekranni faqat chiqarish qurilmasi deb o'ylash.** U ham kiritadi (bosish), ham chiqaradi (tasvir).
-
 ## Laboratoriya mashqlari
 
 Mashqlar faqat shu darsda o'tilgan mavzular asosida. Javoblarni daftarga yoki Word faylga yozing, so'ng "Javob" qismini ochib tekshiring.

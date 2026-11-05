@@ -250,17 +250,3 @@ Xabar haqiqiy bo'lsa ham, havolani bosmasdan, rasmiy saytga o'zingiz kirib teksh
 **Savol.** Xabar: «Hisobingiz bloklanadi! Havolani bosing va parolni kiriting». Nima qilasiz?
 
 **Javob.** Bosmayman va kattalarga ko'rsataman. Shoshirish va parol so'rash fishing belgilari. "Tez bosaman" deyish xato: shoshirish aynan fishing ishlatadigan usul. Parolni yozib javob berish ham xato: fishing aynan shuni xohlaydi.
-
-## Odatiy xatolar
-
-- **"Internet va veb bir xil."** Veb internetning bir xizmati. Xat va xabar almashish ham internetdan foydalanadi, lekin veb-sayt emas.
-- **"`https` bo'lsa, sayt ishonchli."** `https` faqat ulanish shifrlanganini bildiradi. Soxta sayt ham `https` ishlatishi mumkin.
-- **"Incognito meni hammadan yashiradi."** U faqat shu kompyuterdagi tarixni saqlamaydi. Maktab tarmog'i va provayder saytni ko'radi.
-- **Sayt yangilanmaganday ko'rinadi.** Brauzer eski nusxani keshdan ko'rsatayotgan bo'lishi mumkin. Ctrl+F5 bosing.
-- **Qidiruvga to'liq gap yozish.** Asosiy kalit so'zlarni yozing; kerak bo'lsa `" "`, `-`, `site:` va `filetype:` ni qo'shing.
-- **`site:` dan keyin probel qo'yish.** `site: wikipedia.org` ishlamaydi, `site:wikipedia.org` ishlaydi.
-- **Hamma narsaga ishonish.** Topilgan ma'lumotda muallif, sana va boshqa manbani tekshiring.
-- **Mavzusiz yoki imzosiz xat yuborish.** Doim mavzu, salom va imzo yozing.
-- **Cc va Bcc ni adashtirish.** Cc dagi manzillarni hamma ko'radi, Bcc dagilarni esa yo'q.
-- **Katta faylni to'g'ridan biriktirish.** 25 MB dan katta fayl Google Drive orqali yuboriladi.
-- **Shoshilib havolani bosish.** Shoshirish fishing belgisi: to'xtang, tekshiring va kattalarga ko'rsating.
